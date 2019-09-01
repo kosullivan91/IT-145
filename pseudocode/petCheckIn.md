@@ -62,11 +62,22 @@ class Pet(parameters):
     function getAmountDue():
         RETURN the amountDue field
 
-    // Pet Check-In Method
-    function petCheckIn(arguments):
-        finish this...
+    // Functional Methods
+    function checkIn():
+        TODO: Write this method
+    
+    function checkOut():
+        TODO: Out of assignment scope
+    
+    function getPet():
+        TODO: Out of assignment scope
+    
+    function createPet():
+        TODO: Out of assignment scope
+    
+    function updatePet():
+        TODO: Out of assignment scope
 
-    // Main Method
     function main(String[] args):
-        finish this...    
+        TODO: Out of assignment scope
     
