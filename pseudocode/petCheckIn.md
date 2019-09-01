@@ -64,7 +64,14 @@ class Pet(parameters):
 
     // Functional Methods
     function checkIn():
-        TODO: Write this method
+        PRINT “What type of pet do you have?”
+        INPUT customer’s pet type
+        STORE the customer’s pet type in the petType variable
+        WHILE petType is not "cat" or "dog"
+            PRINT “Invalid pet type.  Please specify cat or dog.”
+            INPUT customer’s pet type
+            STORE the customer’s pet type in the petType variable
+        CALL setPetType with argument petType
     
     function checkOut():
         TODO: Out of assignment scope
