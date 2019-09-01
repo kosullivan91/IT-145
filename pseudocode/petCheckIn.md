@@ -1,12 +1,12 @@
 // ===== Pet.java =====
 class Pet(parameters):
-    DECLARE the private petType field
-    DECLARE the private petName field
-    DECLARE the private petAge field
-    DECLARE the private dogSpace field
-    DECLARE the private catSpace field
-    DECLARE the private daysStay field
-    DECLARE the private amountDue field
+    DECLARE the private petType field as String
+    DECLARE the private petName field as String
+    DECLARE the private petAge field as int
+    DECLARE the private dogSpace field as int
+    DECLARE the private catSpace field as int
+    DECLARE the private daysStay field as int
+    DECLARE the private amountDue field as double
 
     // Default Constructor
     function Pet():
@@ -19,9 +19,48 @@ class Pet(parameters):
         SET amountDue field to -1
 
     // Mutator Methods
+    function setPetType(petType):
+        SET the petType field to the petType argument provided
 
+    function setPetName(petName):
+        SET the petName field to the petName argument provided
+    
+    function setPetAge(petAge):
+        SET the petAge field to the petAge argument provided
+    
+    function setDogSpace(dogSpace):
+        SET the dogSpace field to the dogSpace argument provided
+    
+    function setCatSpace(catSpace):
+        SET the catSpace field to the catSpace argument provided
+    
+    function setDaysStay(daysStay):
+        SET the daysStay field to the daysStay argument provided
+    
+    function setAmountDue(amountDue):
+        SET the amountDue field to the amountDue argument provided
 
     // Accessor Methods
+    function getPetType():
+        RETURN the petType field
+    
+    function getPetName():
+        RETURN the petName field
+    
+    function getPetAge():
+        RETURN the petAge field
+    
+    function getDogSpace():
+        RETURN the dogSpace field
+    
+    function getCatSpace():
+        RETURN the catSpace field
+    
+    function getDaysStay():
+        RETURN the daysStay field
+    
+    function getAmountDue():
+        RETURN the amountDue field
 
     
     
