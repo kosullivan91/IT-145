@@ -62,5 +62,11 @@ class Pet(parameters):
     function getAmountDue():
         RETURN the amountDue field
 
-    
+    // Pet Check-In Method
+    function petCheckIn(arguments):
+        finish this...
+
+    // Main Method
+    function main(String[] args):
+        finish this...    
     
