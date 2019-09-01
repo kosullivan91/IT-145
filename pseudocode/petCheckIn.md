@@ -71,8 +71,7 @@ class Pet(parameters):
         WHILE petType is not cat or dog
             PRINT “Invalid pet type.  Please specify cat or dog.”
             INPUT customer’s pet type
-            STORE the customer’s pet type in the petType variable
-        CALL setPetType with argument petType
+        CALL setPetType with argument of customer's pet type INPUT
         
         // Determine whether boarding space is available and store the result
         CALL checkAvailability with argument petType
@@ -95,6 +94,11 @@ class Pet(parameters):
         IF availableSpace is TRUE and exitingCustomer is FALSE THEN
             CALL createPet
         ENDIF
+
+        // Determine and set the duration of the pet's stay
+        PRINT "How many days will the pet be staying with us?"
+        INPUT number of days
+        CALL setDaysStay with argument of number of days INPUT
     
     // Determine whether boarding space is available and return boolean result
     function checkAvailability(petType):
