@@ -67,12 +67,18 @@ class Pet():
         // Determine whether pet is cat or dog, instantiate the appropriate object type, and set the petType field with the result
         PRINT “What type of pet do you have?”
         INPUT customer’s pet type
-        STORE the customer’s pet type in the petType variable
-        WHILE petType is not cat or dog
+        STORE the customer’s pet type in the customerPetType variable
+        WHILE customerPetType is not cat or dog
             PRINT “Invalid pet type.  Please specify cat or dog.”
             INPUT customer’s pet type
-        TODO: Instantiate the appropriate object type
-        CALL setPetType with argument of customer's pet type INPUT
+            STORE the customer’s pet type in the customerPetType variable
+        IF customerPetType is Dog THEN
+            Instantiate a new object of type Dog      
+            CALL setPetType with argument of dog
+        ELSE
+            Instantitate a new object of type Cat     
+            CALL setPetType with argument of cat
+        ENDIF
         
         // Determine whether boarding space is available and store the result
         CALL checkAvailability with argument petType
