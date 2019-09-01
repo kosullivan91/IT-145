@@ -13,8 +13,8 @@ class Pet(parameters):
         SET petType field to "Unknown"
         SET petName field to "Unknown"
         SET petAge field to -1
-        SET dogSpace field to -1
-        SET catSpace field to -1
+        SET dogSpace field to 30 // Dog spaces available
+        SET catSpace field to 12 // Cat spaces available
         SET daysStay field to -1
         SET amountDue field to -1
 
@@ -63,16 +63,35 @@ class Pet(parameters):
         RETURN the amountDue field
 
     // Functional Methods
-    function checkIn():
+    function checkIn(dogSpace, catSpace):
+        // Determine whether pet is cat or dog and set the petType field with the result
         PRINT “What type of pet do you have?”
         INPUT customer’s pet type
         STORE the customer’s pet type in the petType variable
-        WHILE petType is not "cat" or "dog"
+        WHILE petType is not cat or dog
             PRINT “Invalid pet type.  Please specify cat or dog.”
             INPUT customer’s pet type
             STORE the customer’s pet type in the petType variable
         CALL setPetType with argument petType
+        // Determine whether boarding space is available and store the result
+        CALL checkAvailability with argument petType
+        STORE the RESULT in the availableSpace variable as boolean
     
+    // Determine whether boarding space is available and return boolean result
+    function checkAvailability(petType):
+        IF petType is Dog THEN
+            IF dogSpace > 0 THEN // TODO: Turn 0 into a variable
+                RETURN TRUE
+            ELSE
+                RETURN FALSE
+            ENDIF
+        ELSE
+            IF catSpace > 0 THEN // TODO: Turn 0 into a variable
+                RETURN TRUE
+            ELSE
+                RETURN FALSE
+        ENDIF
+
     function checkOut():
         TODO: Out of assignment scope
     
