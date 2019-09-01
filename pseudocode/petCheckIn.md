@@ -73,20 +73,39 @@ class Pet(parameters):
             INPUT customer’s pet type
             STORE the customer’s pet type in the petType variable
         CALL setPetType with argument petType
+        
         // Determine whether boarding space is available and store the result
         CALL checkAvailability with argument petType
         STORE the RESULT in the availableSpace variable as boolean
+
+        // If space is available, identity whether the pet is new or a return client
+        IF availableSpace is TRUE THEN
+            PRINT "Has this pet stayed with us before?"
+            INPUT Yes or No
+            STORE the answer in the existingCustomer variable as boolean
+        ELSE
+            PRINT "No boarding space available."
+        ENDIF
+
+        // If returning customer update pet.  If new customer create pet.
+        IF availableSpace is TRUE and existingCustomer is TRUE THEN
+            CALL updatePet
+        ENDIF
+
+        IF availableSpace is TRUE and exitingCustomer is FALSE THEN
+            CALL createPet
+        ENDIF
     
     // Determine whether boarding space is available and return boolean result
     function checkAvailability(petType):
         IF petType is Dog THEN
-            IF dogSpace > 0 THEN // TODO: Turn 0 into a variable
+            IF dogSpace > 0 THEN // TODO: Turn 0 into a variable?
                 RETURN TRUE
             ELSE
                 RETURN FALSE
             ENDIF
         ELSE
-            IF catSpace > 0 THEN // TODO: Turn 0 into a variable
+            IF catSpace > 0 THEN // TODO: Turn 0 into a variable?
                 RETURN TRUE
             ELSE
                 RETURN FALSE
