@@ -1,5 +1,5 @@
 // ===== Pet.java =====
-class Pet(parameters):
+class Pet():
     DECLARE the private petType field as String
     DECLARE the private petName field as String
     DECLARE the private petAge field as int
@@ -64,13 +64,14 @@ class Pet(parameters):
 
     // Functional Methods
     function checkIn(dogSpace, catSpace):
-        // Determine whether pet is cat or dog and set the petType field with the result
+        // Determine whether pet is cat or dog, instantiate the appropriate object type, and set the petType field with the result
         PRINT “What type of pet do you have?”
         INPUT customer’s pet type
         STORE the customer’s pet type in the petType variable
         WHILE petType is not cat or dog
             PRINT “Invalid pet type.  Please specify cat or dog.”
             INPUT customer’s pet type
+        TODO: Instantiate the appropriate object type
         CALL setPetType with argument of customer's pet type INPUT
         
         // Determine whether boarding space is available and store the result
@@ -129,4 +130,51 @@ class Pet(parameters):
 
     function main(String[] args):
         TODO: Out of assignment scope
+
+// ===== Cat.java =====
+class Cat() extends Pet(): // Derived from Pet() class
+    DECLARE the public catSpaceNbr field as int
+
+    // Default Constructor
+    function Cat():
+        SET catSpaceNbr field to -1
+
+    // Mutator Method
+    function setCatSpaceNbr(catSpaceNbr):
+        SET the catSpaceNbr field to the catSpaceNbr argument provided
+
+    // Accessor Method
+    function getCatSpaceNbr():
+        RETURN the catSpaceNbr field
+
+// ===== Dog.java =====
+class Dog() extends Pet(): // Derived from Pet() class
+    DECLARE the public dogSpaceNbr field as int
+    DECLARE the public dogWeight field as double
+    DECLARE the public grooming field as boolean
+
+    // Default Constructor
+    function Dog():
+        SET dogSpaceNbr field to -1
+        SET dogWeight field to 0.0
+        SET grooming field to FALSE
     
+    // Mutator Methods
+    function setDogSpaceNbr(dogSpaceNbr):
+        SET the dogSpaceNbr field to the dogSpaceNbr argument provided
+    
+    function setDogWeight(dogWeight):
+        SET the dogWeight field to the dogWeight argument provided
+
+    function setGrooming(grooming):
+        SET the grooming field to the grooming argument provided
+
+    // Accessor Methods
+    function getDogSpaceNbr():
+        RETURN the dogSpaceNbr field
+    
+    function getDogWeight():
+        RETURN the dogWeight field
+    
+    function getGrooming():
+        RETURN the grooming field
