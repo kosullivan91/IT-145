@@ -103,6 +103,18 @@ class Pet():
             INPUT number of days
             CALL setDaysStay with argument of number of days INPUT
 
+            // Determine whether grooming is needed
+            IF petType is dog THEN
+                IF daysStay is greater than 2 THEN
+                    CALL setGrooming with argument of TRUE
+                ELSE
+                    CALL setGrooming with argument of FALSE
+                ENDIF
+            ENDIF
+
+            // Assign Space Number
+            
+
         ELSE
             PRINT "No boarding space available."
         ENDIF
