@@ -84,39 +84,39 @@ class Pet():
         CALL checkAvailability with argument petType
         STORE the RESULT in the availableSpace variable as boolean
 
-        // If space is available, identity whether the pet is new or a return client
+        // If space is available
+        // Identity whether the pet is new or a return client
         IF availableSpace is TRUE THEN
             PRINT "Has this pet stayed with us before?"
             INPUT Yes or No
             STORE the answer in the existingCustomer variable as boolean
+
+            // If returning customer update pet.  If new customer create pet.
+            IF existingCustomer is TRUE THEN
+                CALL updatePet
+            ELSE
+                CALL createPet
+            ENDIF
+
+            // Determine and set the duration of the pet's stay
+            PRINT "How many days will the pet be staying with us?"
+            INPUT number of days
+            CALL setDaysStay with argument of number of days INPUT
+
         ELSE
             PRINT "No boarding space available."
         ENDIF
 
-        // If returning customer update pet.  If new customer create pet.
-        IF availableSpace is TRUE and existingCustomer is TRUE THEN
-            CALL updatePet
-        ENDIF
-
-        IF availableSpace is TRUE and exitingCustomer is FALSE THEN
-            CALL createPet
-        ENDIF
-
-        // Determine and set the duration of the pet's stay
-        PRINT "How many days will the pet be staying with us?"
-        INPUT number of days
-        CALL setDaysStay with argument of number of days INPUT
-    
     // Determine whether boarding space is available and return boolean result
     function checkAvailability(petType):
         IF petType is Dog THEN
-            IF dogSpace > 0 THEN // TODO: Turn 0 into a variable?
+            IF dogSpace > 0 THEN 
                 RETURN TRUE
             ELSE
                 RETURN FALSE
             ENDIF
         ELSE
-            IF catSpace > 0 THEN // TODO: Turn 0 into a variable?
+            IF catSpace > 0 THEN 
                 RETURN TRUE
             ELSE
                 RETURN FALSE
@@ -142,8 +142,10 @@ class Cat() extends Pet(): // Derived from Pet() class
     DECLARE the public catSpaceNbr field as int
 
     // Default Constructor
+    // In Java, constructor of base class with no argument gets called automatically in derived class constructor
+    // Base class fields need not be set in the derived class constructor
     function Cat():
-        SET catSpaceNbr field to -1
+        SET catSpaceNbr field to -1 
 
     // Mutator Method
     function setCatSpaceNbr(catSpaceNbr):
@@ -160,6 +162,8 @@ class Dog() extends Pet(): // Derived from Pet() class
     DECLARE the public grooming field as boolean
 
     // Default Constructor
+    // In Java, constructor of base class with no argument gets called automatically in derived class constructor
+    // Base class fields need not be set in the derived class constructor
     function Dog():
         SET dogSpaceNbr field to -1
         SET dogWeight field to 0.0
