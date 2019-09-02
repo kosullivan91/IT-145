@@ -113,7 +113,15 @@ class Pet():
             ENDIF
 
             // Assign Space Number
-            
+            // Assign the space based on petType.  Start with the field value
+            // set by the class constructor and decrement for each pet assigned
+            IF petType is dog
+                CALL setDogSpace with argument dogSpace
+                DECREMENT dogSpace
+            ELSE
+                CALL setCatSpace with argument catSpace
+                DECREMENT catSpace
+            ENDIF            
 
         ELSE
             PRINT "No boarding space available."
