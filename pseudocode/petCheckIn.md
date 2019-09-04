@@ -72,6 +72,7 @@ class Pet():
             PRINT “Invalid pet type.  Please specify cat or dog.”
             INPUT customer’s pet type
             STORE the customer’s pet type in the customerPetType variable
+        ENDWHILE
         IF customerPetType is Dog THEN
             Instantiate a new object of type Dog      
             CALL setPetType with argument of dog
@@ -118,13 +119,17 @@ class Pet():
             IF petType is dog
                 CALL setDogSpace with argument dogSpace
                 DECREMENT dogSpace
+                CALL getDogSpace
+                PRINT dogSpace
             ELSE
                 CALL setCatSpace with argument catSpace
                 DECREMENT catSpace
+                CALL getCatSpace
+                PRINT catSpace
             ENDIF            
 
         ELSE
-            PRINT "No boarding space available."
+            PRINT "No Vacancy."
         ENDIF
 
     // Determine whether boarding space is available and return boolean result
