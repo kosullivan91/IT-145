@@ -1,3 +1,5 @@
+PROGRAM PetBag:
+
 // ===== Pet.java =====
 class Pet():
     DECLARE the private petType field as String
@@ -213,3 +215,5 @@ class Dog() extends Pet(): // Derived from Pet() class
     
     function getGrooming():
         RETURN the grooming field
+    
+    END.
