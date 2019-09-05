@@ -2,13 +2,13 @@ PROGRAM PetBag:
 
 // ===== Pet.java =====
 class Pet():
-    DECLARE the private petType field as String
-    DECLARE the private petName field as String
-    DECLARE the private petAge field as int
-    DECLARE the private dogSpace field as int
-    DECLARE the private catSpace field as int
-    DECLARE the private daysStay field as int
-    DECLARE the private amountDue field as double
+    DECLARE the private petType field
+    DECLARE the private petName
+    DECLARE the private petAge
+    DECLARE the private dogSpace
+    DECLARE the private catSpace
+    DECLARE the private daysStay
+    DECLARE the private amountDue
 
     // Default Constructor
     function Pet():
