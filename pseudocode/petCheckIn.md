@@ -1,3 +1,9 @@
+Jeff Perkinson
+checkIn() Pseudocode
+IT145 - T1605 19EW1
+September 2019
+
+///////////////////////////////////////////////////////////////////////////////
 PROGRAM PetBag:
 
 // ===== Pet.java =====
