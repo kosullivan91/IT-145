@@ -23,7 +23,8 @@ public class Dog {
     * the client is new or a returning customer.  Passing petName 
     * into the class instantiation saves having to call setPetName
     * later and also can aid in any type of future enhancement record search 
-    * that might entail cross-referencing against datastore records*/ 
+    * that might entail cross-referencing against datastore records
+    */ 
     
     public Dog(String petType, String petName) { 
         this.petType = petType;
@@ -33,7 +34,8 @@ public class Dog {
         * and catSpace fields are decremented to record space reduction.  
         * Subsequent instantiations should look to the field values
         * to reflect any updates to space availability from prior
-        * calls to checkIn()*/
+        * calls to checkIn()
+        */
         this.dogSpace = dogSpace; 
         this.catSpace = catSpace;
         daysStay = -1;
@@ -48,7 +50,8 @@ public class Dog {
      * The concept of encapsulation is implemented by way of making read and
      * write access to private fields available to other classes through
      * public methods.  Setters provide write functionality to update the field.
-     * Getters provide read access to provide visibility into the field value.*/
+     * Getters provide read access to provide visibility into the field value.
+     */
     
     //Setters.  Void return type because they don't return a value.
     
@@ -102,8 +105,48 @@ public class Dog {
         return;
     }
     
-    //Getters.  Return type is the data type of the field being returned.
+    /* Getters.  Return type is the data type of the field being returned.
+     * Getter methods take no arguments when called and therefore
+     * do not need to be defined with any parameters.
+     */
     
+    public String getPetType() {
+        return petType;
+    }
     
+    public String getPetName() {
+        return petName;
+    }
     
+    public int getPetAge() {
+        return petAge;
+    }
+    
+    public int getDogSpace() {
+        return dogSpace;
+    }
+    
+    public int getCatSpace() {
+        return catSpace;
+    }
+    
+    public int getDaysStay() {
+        return daysStay;
+    }
+    
+    public double getAmountDue() {
+        return amountDue;
+    }
+    
+    public int getDogSpaceNbr() {
+        return dogSpaceNbr;
+    }
+    
+    public int getDogWeight() {
+        return dogWeight;
+    }
+    
+    public boolean getGrooming() {
+        return grooming;
+    }
 }
