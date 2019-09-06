@@ -85,17 +85,17 @@ class Pet():
         
         // Determine whether boarding space is available and store the result
         CALL checkAvailability with argument petType
-        STORE the RESULT in the availableSpace variable as boolean
+        STORE the RESULT in the availableSpace variable
 
         // If space is available
         // Identity whether the pet is new or a return client
-        IF availableSpace is TRUE THEN
+        IF availableSpace is true THEN
             PRINT "Has this pet stayed with us before?"
             INPUT Yes or No
-            STORE the answer in the existingCustomer variable as boolean
+            STORE the result in the existingCustomer variable
 
             // If returning customer update pet.  If new customer create pet.
-            IF existingCustomer is TRUE THEN
+            IF existingCustomer is true THEN
                 CALL updatePet
             ELSE
                 CALL createPet
@@ -104,30 +104,32 @@ class Pet():
             // Determine and set the duration of the pet's stay
             PRINT "How many days will the pet be staying with us?"
             INPUT number of days
-            CALL setDaysStay with argument of number of days INPUT
+            STORE the result in the stayDuration variable
+            CALL setDaysStay with argument stayDuration
 
             // Determine whether grooming is needed
             IF petType is dog THEN
                 IF daysStay is greater than 2 THEN
-                    CALL setGrooming with argument of TRUE
+                    CALL setGrooming with argument of true
                 ELSE
-                    CALL setGrooming with argument of FALSE
+                    CALL setGrooming with argument of false
                 ENDIF
             ENDIF
 
-            // Assign Space Number
-            // Assign the space based on petType.  Start with the field value
-            // set by the class constructor and decrement for each pet assigned
+            // Assign Space Number and display it
+            // Assign the space based on petType.  Start with the dogSpace/catSpace field values
+            // set by the Pet class constructor and decrement for each pet assigned
+            // Spaces are assigned in descending order for program simplicity
             IF petType is dog
-                CALL setDogSpace with argument dogSpace
-                DECREMENT dogSpace
-                CALL getDogSpace
-                PRINT dogSpace
+                CALL setDogSpaceNbr with argument dogSpace 
+                CALL setDogSpace with argument dogSpace - 1
+                CALL getDogSpaceNbr
+                PRINT dogSpaceNbr
             ELSE
-                CALL setCatSpace with argument catSpace
-                DECREMENT catSpace
-                CALL getCatSpace
-                PRINT catSpace
+                CALL setCatSpaceNbr with argument catSpace
+                CALL setCatSpace with argument catSpace - 1
+                CALL getCatSpaceNbr
+                PRINT catSpaceNbr
             ENDIF            
 
         ELSE
@@ -136,33 +138,33 @@ class Pet():
 
     // Determine whether boarding space is available and return boolean result
     function checkAvailability(petType):
-        IF petType is Dog THEN
+        IF petType is dog THEN
             IF dogSpace > 0 THEN 
-                RETURN TRUE
+                RETURN true
             ELSE
-                RETURN FALSE
+                RETURN false
             ENDIF
         ELSE
             IF catSpace > 0 THEN 
-                RETURN TRUE
+                RETURN true
             ELSE
-                RETURN FALSE
+                RETURN false
         ENDIF
 
     function checkOut():
-        TODO: Out of assignment scope
+        TODO: N/A: Out of assignment scope
     
     function getPet():
-        TODO: Out of assignment scope
+        TODO: N/A: Out of assignment scope
     
     function createPet():
-        TODO: Out of assignment scope
+        TODO: N/A: Out of assignment scope
     
     function updatePet():
-        TODO: Out of assignment scope
+        TODO: N/A: Out of assignment scope
 
     function main(String[] args):
-        TODO: Out of assignment scope
+        TODO: N/A: Out of assignment scope
 
 // ===== Cat.java =====
 class Cat() extends Pet(): // Derived from Pet() class
@@ -194,7 +196,7 @@ class Dog() extends Pet(): // Derived from Pet() class
     function Dog():
         SET dogSpaceNbr field to -1
         SET dogWeight field to 0.0
-        SET grooming field to FALSE
+        SET grooming field to false
     
     // Mutator Methods
     function setDogSpaceNbr(dogSpaceNbr):
