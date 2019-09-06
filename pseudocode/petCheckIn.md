@@ -65,7 +65,7 @@ class Pet():
         RETURN the amountDue field
 
     // Functional Methods
-    function checkIn(dogSpace, catSpace):
+    function checkIn():
         // Determine whether pet is cat or dog, instantiate the appropriate object type, and set the petType field with the result
         PRINT “What type of pet do you have?”
         INPUT customer’s pet type
