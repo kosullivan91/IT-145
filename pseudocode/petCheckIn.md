@@ -135,12 +135,12 @@ class Pet():
             // Spaces are assigned in descending order for program simplicity
             IF petType is dog
                 CALL setDogSpaceNbr with argument dogSpace 
-                CALL setDogSpace with argument dogSpace - 1
+                CALL setDogSpace with argument (dogSpace - 1)
                 CALL getDogSpaceNbr
                 PRINT dogSpaceNbr
             ELSE
                 CALL setCatSpaceNbr with argument catSpace
-                CALL setCatSpace with argument catSpace - 1
+                CALL setCatSpace with argument (catSpace - 1)
                 CALL getCatSpaceNbr
                 PRINT catSpaceNbr
             ENDIF            
