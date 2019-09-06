@@ -90,12 +90,25 @@ class Pet():
         // If space is available
         // Identity whether the pet is new or a return client
         IF availableSpace is true THEN
-            PRINT "Has this pet stayed with us before?"
-            INPUT Yes or No
+            PRINT "Has this pet stayed with us before? (Y/N)"
+            INPUT Y or N // Yes or No
             STORE the result in the existingCustomer variable
+            WHILE existingCustomer is not Y or N
+                PRINT "Invalid response.  Please enter Y or N"
+                INPUT Y or N
+                STORE the result in the existingCustomer variable
+            ENDHILE
+            
+            DECLARE returnClient variable as boolean
+
+            IF existingCustomer is Y THEN
+                SET returnClient to true
+            ELSE
+                SET returnClient to false
+            ENDIF
 
             // If returning customer update pet.  If new customer create pet.
-            IF existingCustomer is true THEN
+            IF returnClient is true THEN
                 CALL updatePet
             ELSE
                 CALL createPet
