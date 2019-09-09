@@ -14,7 +14,7 @@ public class Dog {
      * field values must be defined outside any class method so they 
      * are accessible throughout the program.  They also should not be set in the
      * constructor as each object initialization should set these fields
-     * to the space available based on prior activities, not a pre-defined value.
+     * to the space available based on prior activities, not a predefined value.
      * When the parent portions of the Dog class are migrated to the Pet
      * class, these fields will become member fields for the main program class
      * housing the main() program method.   
