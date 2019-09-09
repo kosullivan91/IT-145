@@ -2,7 +2,7 @@ package petBAG;
 
 public class Dog {
 
-    //Field Declaration.  Fields are not initialized
+    //Field Declaration.  Fields are initialized in the class constructor
     
     private String petType;
     private String petName;
@@ -16,32 +16,41 @@ public class Dog {
     public boolean grooming;
     
     /*Class constructor.
-    * With the checkIn() method, petType determines the object type to be 
-    * instantiated (e.g. Cat or Dog).  Passing petType into the constructor
-    * saves having to call setPetType later.
-    * The method checkIn() method also calls for the user to determine whether
-    * the client is new or a returning customer.  Passing petName 
+    * With the checkIn() method, petType input determines the object type to be 
+    * instantiated (i.e. Cat or Dog).  Passing petType into the constructor
+    * saves having to call setPetType.
+    * The checkIn() method also calls for the user to determine whether
+    * the client is a new or returning customer.  Passing petName 
     * into the class instantiation saves having to call setPetName
-    * later and also can aid in any type of future enhancement record search 
-    * that might entail cross-referencing against datastore records
+    * later and can also aid in any type of future enhancement record search 
+    * that might entail cross-referencing against datastore records.
     */ 
-    
     public Dog(String petType, String petName) { 
         this.petType = petType;
         this.petName = petName;
+         /*Fields of type int and double are initialized to a default value of -1/-1.0 
+         * when the constructor method signature does not include a parameter for
+         * that field.  Therefore, the petAge, daysStay, amountDue, dogSpaceNbr, 
+         * and dogWeight fields are initialized to -1 for their respective
+         * data types.   
+         */
         petAge = -1;
-        /*When a Pet is checked in under checkIn(), the dogSpace
-        * and catSpace fields are decremented to record space reduction.  
-        * Subsequent instantiations should look to the field values
-        * to reflect any updates to space availability from prior
-        * calls to checkIn()
+        /*When a Pet is checked in under the checkIn() method, the dogSpace
+        * and catSpace fields are decremented to record the space reduction.  
+        * Subsequent instantiations should look to the global dogSpace and catSpace
+        * values to reflect any updates to space availability from prior
+        * calls to checkIn().
         */
-        this.dogSpace = dogSpace; 
-        this.catSpace = catSpace;
+        this.dogSpace = dogSpace; //TODO: This is not working --> Research
+        this.catSpace = catSpace; //TODO: This is not working --> Research
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;
         dogWeight = -1;
+        /* Fields of type boolean are initialized to a default value of false
+         * when the constructor method signature does not include a parameter for
+         * that field. 
+         */
         grooming = false;
     }
     
