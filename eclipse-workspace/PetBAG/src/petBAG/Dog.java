@@ -170,4 +170,27 @@ public class Dog {
     public boolean getGrooming() {
         return grooming;
     }
+    
+    /* Class methods.  These methods will be part of the final 
+     * program.
+     */
+    public void checkIn() {
+        //TODO: Complete this method
+    }
+    
+    public void checkOut() {
+        //TODO: N/A. Out of scope for assignment
+    }
+    
+    public void getPet() {
+        //TODO: Is this method needed for assignment?
+    }
+    
+    public void createPet() {
+        //TODO: Is this method needed for assignment?
+    }
+    
+    public void updatePet() {
+        //TODO: Is this method needed for assignment?
+    }
 }
