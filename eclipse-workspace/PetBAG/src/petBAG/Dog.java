@@ -58,11 +58,11 @@ public class Dog {
      * Setter methods establish an interface to write class fields.
      * The concept of encapsulation is implemented by way of making read and
      * write access to private fields available to other classes through
-     * public methods.  Setters provide write functionality to update the field.
-     * Getters provide read access to provide visibility into the field value.
+     * public setter and getter methods.  Setters provide write functionality to update 
+     * the field. Getters provide read access and provide visibility into the field value.
      */
     
-    //Setters.  Void return type because they don't return a value.
+    //Setters. Void return type because they don't return a value.
     
     public void setPetType(String petType) {
         this.petType = petType;
@@ -114,9 +114,9 @@ public class Dog {
         return;
     }
     
-    /* Getters.  Return type is the data type of the field being returned.
+    /* Getters. Return type is the data type of the field being returned.
      * Getter methods take no arguments when called and therefore
-     * do not need to be defined with any parameters.
+     * do not need to be defined with any parameters in the method signature.
      */
     
     public String getPetType() {
