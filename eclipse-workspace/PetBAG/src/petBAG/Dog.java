@@ -7,8 +7,20 @@ public class Dog {
     private String petType;
     private String petName;
     private int petAge;
-    private int dogSpace;
-    private int catSpace;
+    /* dogSpace and catSpace are initialized to 30 and 12, respectively,
+     * initially for this class.  The PetBAG spec calls for the ability to modify
+     * these as needed.  Additionally, the checkIn() method decrements these
+     * fields when a pet is checked in.  Due to scope constraints, these
+     * field values must be defined outside any class method so they 
+     * are accessible throughout the program.  They also should not be set in the
+     * constructor as each object initialization should set these fields
+     * to the space available based on prior activities, not a pre-defined value.
+     * When the parent portions of the Dog class are migrated to the Pet
+     * class, these fields will become member fields for the main program class
+     * housing the main() program method.   
+     */
+    private int dogSpace = 30;
+    private int catSpace = 12;
     private int daysStay;
     private double amountDue;
     public int dogSpaceNbr;
@@ -41,8 +53,8 @@ public class Dog {
         * values to reflect any updates to space availability from prior
         * calls to checkIn().
         */
-        this.dogSpace = dogSpace; //TODO: This is not working --> Research
-        this.catSpace = catSpace; //TODO: This is not working --> Research
+        this.dogSpace = dogSpace;
+        this.catSpace = catSpace;
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;

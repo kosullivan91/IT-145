@@ -4,9 +4,6 @@ public class ModuleTwoDogTest {
         
     public static void main(String[] args) {
         
-        int dogSpace = 30;
-        int catSpace = 12;
-        
         Dog dogObject = new Dog("dog", "Sammy");
         
         System.out.println(dogObject.getPetType());
