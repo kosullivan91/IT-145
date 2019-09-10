@@ -18,11 +18,23 @@ public class PeopleWeights {
         /* Prompt the user to enter five numbers.  Store the input in an array of doubles.
          * Doubles array peopleWeight was declared above.  The user is prompted for input
          * five times, so the number of iterations is known.  A for loop should therefore 
-         * be used in lieu of a while loop.  
+         * be used in lieu of a while loop.
+         * Iterate from 0 up to the array length (exclusive) to account for all element
+         * indices (as indices start at 0 and continue to one less than the array length).  
          */
         
         for (int i = 0; i < peopleWeight.length; ++i) {
-            
+            System.out.println("Enter weight " + (i + 1) + ": ");
+            peopleWeight[i] = scnr.nextDouble();
+        }
+        
+        /* Output the array's numbers on one line, each number followed by one space.
+         * Just as above, a for loop is used because the number of iterations is known.
+         * Iterate from 0 up to the array length (exclusive) to account for all element
+         * indices.
+         */
+        for (int i = 0; i < peopleWeight.length; ++i) {
+            System.out.print(peopleWeight[i] + " ");
         }
         
         
