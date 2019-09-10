@@ -27,19 +27,26 @@ public class Dog {
     public int dogWeight;
     public boolean grooming;
     
-    /*Class constructor.
-    * With the checkIn() method, petType input determines the object type to be 
-    * instantiated (i.e. Cat or Dog).  Passing petType into the constructor
-    * saves having to call setPetType.
+    /*Class constructors.
+    * With the checkIn() method defined later, petType input determines the 
+    * object type to be instantiated (i.e. Cat or Dog).  
+    * Passing petType into the constructor saves having to call setPetType separately.
     * The checkIn() method also calls for the user to determine whether
     * the client is a new or returning customer.  Passing petName 
     * into the class instantiation saves having to call setPetName
-    * later and can also aid in any type of future enhancement record search 
-    * that might entail cross-referencing against datastore records.
+    * separately and can also aid in any type of future enhancement record search 
+    * that might entail cross-referencing against database records.
+    * If any constructor is defined, the compiler does not implicitly define a 
+    * default constructor (i.e. no parameters).  Best practice is to explicitly
+    * define a default constructor and rely on method overloading for other constructors
+    * so that an object creation like Dog dog = new Dog() without arguments remains
+    * supported.  The compiler will throw an error if the default constructor is not defined
+    * and a call is made to the default constructor.
     */ 
-    public Dog(String petType, String petName) { 
-        this.petType = petType;
-        this.petName = petName;
+    
+    public Dog() { 
+        petType = "";
+        petName = "";
          /*Fields of type int and double are initialized to a default value of -1/-1.0 
          * when the constructor method signature does not include a parameter for
          * that field.  Therefore, the petAge, daysStay, amountDue, dogSpaceNbr, 
@@ -51,7 +58,36 @@ public class Dog {
         * and catSpace fields are decremented to record the space reduction.  
         * Subsequent instantiations should look to the global dogSpace and catSpace
         * values to reflect any updates to space availability from prior
-        * calls to checkIn().
+        * calls to checkIn() and can therefore not be a hard-coded value.
+        */
+        dogSpace = dogSpace;
+        catSpace = catSpace;
+        daysStay = -1;
+        amountDue = -1.0;
+        dogSpaceNbr = -1;
+        dogWeight = -1;
+        /* Fields of type boolean are initialized to a default value of false
+         * when the constructor method signature does not include a parameter for
+         * that field. 
+         */
+        grooming = false;
+    }
+    
+    public Dog(String petType, String petName) { 
+        this.petType = petType;
+        this.petName = petName;
+        /* Fields of type int and double are initialized to a default value of -1/-1.0 
+         * when the constructor method signature does not include a parameter for
+         * that field.  Therefore, the petAge, daysStay, amountDue, dogSpaceNbr, 
+         * and dogWeight fields are initialized to -1 for their respective
+         * data types.   
+         */
+        petAge = -1;
+       /* When a Pet is checked in under the checkIn() method, the dogSpace
+        * and catSpace fields are decremented to record the space reduction.  
+        * Subsequent instantiations should look to the global dogSpace and catSpace
+        * values to reflect any updates to space availability from prior
+        * calls to checkIn() and can therefore not be a hard-coded value.
         */
         this.dogSpace = dogSpace;
         this.catSpace = catSpace;
@@ -66,7 +102,7 @@ public class Dog {
         grooming = false;
     }
     
-    /*Setters and Getters
+    /* Setters and Getters
      * Setter methods establish an interface to write class fields.
      * The concept of encapsulation is implemented by way of making read and
      * write access to private fields available to other classes through
