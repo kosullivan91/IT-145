@@ -10,13 +10,16 @@ public class PeopleWeights {
          * array length based on an int variable makes array size modification
          * simple through changing one line of code only.
          * Declare a totalWeight double to capture the sum of all input and 
-         * initialize it to 0.0. 
+         * initialize it to 0.0.
+         * Declare an averageWeight double to capture the average of all input and
+         * initialize it to 0.0.  
          */
         
         Scanner scnr = new Scanner(System.in);
         final int NUM_OF_ELEMENTS = 5; // The assignment calls for an array of length 5.
         double[] peopleWeight = new double[NUM_OF_ELEMENTS];
         double totalWeight = 0.0;
+        double averageWeight = 0.0;
         
         /* Prompt the user to enter five numbers.  Store the input in an array of doubles.
          * Doubles array peopleWeight was declared above.  The user is prompted for input
@@ -49,6 +52,13 @@ public class PeopleWeights {
         
         //Output the total weight (i.e. the sum of all array elements).
         System.out.println("Total weight: " + totalWeight);
+        
+        /* Output the average weight.
+         * The divisor should be the length of the array to ensure it's reflective of the
+         * true average should the array's size change.
+         */
+        averageWeight = totalWeight / peopleWeight.length;
+        System.out.println("Average weight: " + averageWeight);
         
         // Close the Scanner object to conserve resources
         scnr.close();
