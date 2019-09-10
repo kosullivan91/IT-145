@@ -2,7 +2,12 @@ package petBAG;
 
 public class Dog {
 
-    //Field Declaration.  Fields are initialized in the class constructor
+    /* Field declaration.  Fields are initialized in the class constructor.
+     * Fields from the Pet class that will be migrated over in the next project
+     * are private, as denoted by the '-' in the UML class diagram.
+     * Fields specific to the Dog class are public, as denoted by the '+'
+     * in the UML class diagram.
+     */
     
     private String petType;
     private String petName;
