@@ -171,11 +171,9 @@ public class Dog {
         return grooming;
     }
     
-    /* Class methods.  These methods will be part of the final 
-     * program.
-     */
+    // Other methods.  These methods are currently out of scope.
     public void checkIn() {
-        //TODO: Complete this method
+        //TODO: N/A. Out of Assignment Scope
     }
     
     public void checkOut() {
