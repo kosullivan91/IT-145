@@ -5,8 +5,23 @@ public class ModuleTwoDogTest {
     public static void main(String[] args) {
         
         Dog dogObject = new Dog("dog", "Sammy");
+        Dog dogObject2 = new Dog();
         
-        //Test constructor
+      //Test default constructor
+        System.out.println("*****DEFAULT CONSTRUCTOR******");
+        System.out.println(dogObject2.getPetType());
+        System.out.println(dogObject2.getPetName());
+        System.out.println(dogObject2.getPetAge());
+        System.out.println(dogObject2.getDogSpace());
+        System.out.println(dogObject2.getCatSpace());
+        System.out.println(dogObject2.getDaysStay());
+        System.out.println(dogObject2.getAmountDue());
+        System.out.println(dogObject2.getDogSpaceNbr());
+        System.out.println(dogObject2.getDogWeight());
+        System.out.println(dogObject2.getGrooming());
+        
+        //Test non-default constructor
+        System.out.println("*****OVERRIDE CONSTRUCTOR*****");
         System.out.println(dogObject.getPetType());
         System.out.println(dogObject.getPetName());
         System.out.println(dogObject.getPetAge());
@@ -30,9 +45,8 @@ public class ModuleTwoDogTest {
         dogObject.setDogWeight(204);
         dogObject.setGroomming(true);
         
-        System.out.println("******************************");
-        
         //Verify new field values
+        System.out.println("**********NEW VALUES**********");
         System.out.println(dogObject.getPetType());
         System.out.println(dogObject.getPetName());
         System.out.println(dogObject.getPetAge());

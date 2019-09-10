@@ -27,7 +27,7 @@ public class Dog {
     public int dogWeight;
     public boolean grooming;
     
-    /*Class constructors.
+   /* Class constructors.
     * With the checkIn() method defined later, petType input determines the 
     * object type to be instantiated (i.e. Cat or Dog).  
     * Passing petType into the constructor saves having to call setPetType separately.
@@ -45,16 +45,17 @@ public class Dog {
     */ 
     
     public Dog() { 
-        petType = "";
-        petName = "";
-         /*Fields of type int and double are initialized to a default value of -1/-1.0 
+        //petType is not set to dog because it will be migrated to the Pet class later.
+        petType = "None";
+        petName = "None";
+        /* Fields of type int and double are initialized to a default value of -1/-1.0 
          * when the constructor method signature does not include a parameter for
          * that field.  Therefore, the petAge, daysStay, amountDue, dogSpaceNbr, 
          * and dogWeight fields are initialized to -1 for their respective
          * data types.   
          */
         petAge = -1;
-        /*When a Pet is checked in under the checkIn() method, the dogSpace
+       /* When a Pet is checked in under the checkIn() method, the dogSpace
         * and catSpace fields are decremented to record the space reduction.  
         * Subsequent instantiations should look to the global dogSpace and catSpace
         * values to reflect any updates to space availability from prior
