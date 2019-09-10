@@ -12,7 +12,9 @@ public class PeopleWeights {
          * Declare a totalWeight double to capture the sum of all input and 
          * initialize it to 0.0.
          * Declare an averageWeight double to capture the average of all input and
-         * initialize it to 0.0.  
+         * initialize it to 0.0. 
+         * Declare the maxWeight double to capture the max value input and
+         * initialize it to 0.0. 
          */
         
         Scanner scnr = new Scanner(System.in);
@@ -20,6 +22,7 @@ public class PeopleWeights {
         double[] peopleWeight = new double[NUM_OF_ELEMENTS];
         double totalWeight = 0.0;
         double averageWeight = 0.0;
+        double maxWeight = 0.0;
         
         /* Prompt the user to enter five numbers.  Store the input in an array of doubles.
          * Doubles array peopleWeight was declared above.  The user is prompted for input
@@ -28,7 +31,7 @@ public class PeopleWeights {
          * Iterate from 0 up to the array length (exclusive) to account for all element
          * indices (as indices start at 0 and continue to one less than the array length).  
          */
-        
+                
         for (int i = 0; i < peopleWeight.length; ++i) {
             System.out.println("Enter weight " + (i + 1) + ": ");
             //Assign the user input to the array element at each iteration's index.
@@ -59,6 +62,23 @@ public class PeopleWeights {
          */
         averageWeight = totalWeight / peopleWeight.length;
         System.out.println("Average weight: " + averageWeight);
+        
+        /* Determine and output the max weight.
+         * maxWeight should be initialized to the first element
+         * in the array for comparison to ensure each comparison
+         * is done against true input that is housed in the array.
+         * Just as above, a for loop is used because the number of iterations is known.
+         * Iterate from 0 up to the array length (exclusive) to account for all element
+         * indices.  For each iteration, compare maxWeight to the element at the 
+         * given index.  If maxWeight is less, replace it with the larger value. 
+         */
+        maxWeight = peopleWeight[0];
+        for (int i = 0; i < peopleWeight.length; ++i) {
+            if (maxWeight < peopleWeight[i]) {
+                maxWeight = peopleWeight[i];
+            }
+        }
+        System.out.println("Max weight: " + maxWeight);
         
         // Close the Scanner object to conserve resources
         scnr.close();
