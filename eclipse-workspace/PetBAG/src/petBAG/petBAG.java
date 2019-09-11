@@ -7,7 +7,7 @@ public class petBAG {
         
         Pet cat1 = new Pet();
         
-        // Test default constructor
+        // Test default constructor - PASS
         System.out.println("*****DEFAULT CONSTRUCTOR******");
         System.out.println("Pet Type: " + cat1.getPetType());
         System.out.println("Pet Name: " + cat1.getPetName());
@@ -17,9 +17,9 @@ public class petBAG {
         System.out.println("Days Stay: " + cat1.getDaysStay());
         System.out.println("Amount Due: " + cat1.getAmountDue());
         
-        // Test class variable changes and default constructor
-        cat1.setDogSpace(12);
-        cat1.setCatSpace(11);
+        // Test class variable changes and default constructor - PASS
+        // cat1.setDogSpace(12);
+        // cat1.setCatSpace(11);
         
         Pet cat2 = new Pet();
         System.out.println("*****DEFAULT CONSTRUCTOR******");
@@ -31,6 +31,16 @@ public class petBAG {
         System.out.println("Days Stay: " + cat2.getDaysStay());
         System.out.println("Amount Due: " + cat2.getAmountDue());
 
+        // Test parameterized constructor, 1st w/o class variable mods (lines 21 and 22) then with - PASS
+        Pet cat3 = new Pet("cat", "I AM A CAT");
+        System.out.println("*****PARAM CONSTRUCTOR******");
+        System.out.println("Pet Type: " + cat3.getPetType());
+        System.out.println("Pet Name: " + cat3.getPetName());
+        System.out.println("Pet Age: " + cat3.getPetAge());
+        System.out.println("Dog Space: " + cat3.getDogSpace());
+        System.out.println("Cat Space: " + cat3.getCatSpace());
+        System.out.println("Days Stay: " + cat3.getDaysStay());
+        System.out.println("Amount Due: " + cat3.getAmountDue());
     }
 
 }
