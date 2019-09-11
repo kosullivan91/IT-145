@@ -90,8 +90,8 @@ public class Pet {
          * they are added for program readability to show that the object's dogSpace and catSpace
          * field values are being initialized to the class variable values.
          */
-        this.dogSpace= dogSpace;
-        this.catSpace= catSpace;
+        this.dogSpace = dogSpace;
+        this.catSpace = catSpace;
         daysStay = -1;
         amountDue = -1.0;
     }
@@ -175,5 +175,39 @@ public class Pet {
     
     public double getAmountDue() {
         return amountDue;
+    }
+    
+    // Other methods.  Only checkIn() is in scope for the assignment.
+    public void checkIn() {
+        //TODO: Write this method.
+    }
+    
+    public void checkOut() {
+        /* TODO: N/A. Out of Assignment Scope.
+         * This method will check the pet out of petBAG.
+         * It could involve calls to updatePet(), setAmountDue(),
+         * getAmountDue(), getDaysStay(), etc. 
+         */
+    }
+    
+    public void getPet() {
+        /* TODO: N/A. Out of Assignment Scope.
+         * This method will retrieve the pet object
+         * to read its properties.
+         */
+    }
+    
+    public void createPet() {
+        /* TODO: N/A. Out of Assignment Scope.
+         * This method will create a new object
+         * and set its properties.
+         */
+    }
+    
+    public void updatePet() {
+        /* TODO: N/A. Out of Assignment Scope.
+         * This method will retrieve the pet object
+         * to update (write) its properties.
+         */
     }
 }
