@@ -41,6 +41,24 @@ public class petBAG {
         System.out.println("Cat Space: " + cat3.getCatSpace());
         System.out.println("Days Stay: " + cat3.getDaysStay());
         System.out.println("Amount Due: " + cat3.getAmountDue());
+        
+        // Test isSpaceAvailable with cat, dog, available space, no space available
+        System.out.println("****isSpaceAvailableTests****");
+        System.out.println(cat1.isSpaceAvailable("dog")); // true
+        System.out.println(cat1.isSpaceAvailable("cat")); // true
+        cat2.setDogSpace(-1);
+        System.out.println(cat1.isSpaceAvailable("dog")); // false
+        System.out.println(cat1.isSpaceAvailable("cat")); // true
+        cat3.setCatSpace(-1);
+        System.out.println(cat1.isSpaceAvailable("dog")); // false
+        System.out.println(cat1.isSpaceAvailable("cat")); // false
+        cat1.setDogSpace(2);
+        System.out.println(cat2.isSpaceAvailable("dog")); // true
+        System.out.println(cat2.isSpaceAvailable("cat")); // false
+        cat3.setDogSpace(30);
+        cat2.setCatSpace(12);
+        System.out.println(cat1.isSpaceAvailable("dog")); // true
+        System.out.println(cat1.isSpaceAvailable("cat")); // true
     }
 
 }

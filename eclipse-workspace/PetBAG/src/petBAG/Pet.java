@@ -215,4 +215,23 @@ public class Pet {
          * to update (write) its properties.
          */
     }
+    
+    public boolean isSpaceAvailable(String petType) {
+        if (petType.equals("dog")) {
+            if (dogSpace > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            if (catSpace > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
 }
