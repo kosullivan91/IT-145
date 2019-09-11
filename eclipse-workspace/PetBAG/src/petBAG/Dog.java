@@ -116,7 +116,10 @@ public class Dog {
      * the field. Getters provide read access and provide visibility into the field value.
      */
     
-    //Setters. Void return type because they don't return a value.
+    /* Setters. Void return type because they don't return a value.
+     * The methods still have a return statement even though return type is void
+     * in order to clear the stack frame (i.e. local variables created for the method).
+     */
     
     public void setPetType(String petType) {
         this.petType = petType;
@@ -219,18 +222,18 @@ public class Dog {
     }
     
     public void checkOut() {
-        //TODO: N/A. Out of scope for assignment
+        //TODO: N/A. Out of Assignment Scope
     }
     
     public void getPet() {
-        //TODO: Is this method needed for assignment?
+        //TODO: N/A. Out of Assignment Scope
     }
     
     public void createPet() {
-        //TODO: Is this method needed for assignment?
+        //TODO: N/A. Out of Assignment Scope
     }
     
     public void updatePet() {
-        //TODO: Is this method needed for assignment?
+        //TODO: N/A. Out of Assignment Scope
     }
 }
