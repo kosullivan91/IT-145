@@ -34,6 +34,12 @@ public class LabProgram {
         for the OS to shut is down automatically.
         https://stackoverflow.com/questions/43060776/why-is-scanner-close-useful-in-java/43060995*/
         scnr.close();
+        
+       /* The main() method has a void return type it does not return a value.
+        * The method still has a return statement even though return type is void
+        * in order to clear the stack frame (i.e. local variables created for the method).
+        */
+        return; 
    
    }
 }
