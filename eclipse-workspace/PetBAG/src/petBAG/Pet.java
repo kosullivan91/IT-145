@@ -67,12 +67,16 @@ public class Pet {
          * is inconsequential because prior to decrementing the value will be assigned to
          * the Cat or Dog object's catSpaceNbr and dogSpaceNbr, respectively. 
          * 
-         * While these dogSpace and catSpace initialization statements are redundant,
-         * they are added for program readability to show that the object's dogSpace and catSpace
-         * field values are being initialized to the class variable values.
+         * dogSpace and catSpace initialization statements are not included because they are static fields.
+         * The object's dogSpace and catSpace field values will be initialized to the class variable values
+         * at class instantiation.
+         * Per stackoverflow, "when you declare something as static, you are saying that it is a member 
+         * of the class, not the object (hence why there is only one). Therefore it doesn't make sense 
+         * to access it on the object, because that particular data member is associated with the class.
+         * https://stackoverflow.com/questions/5642834/why-should-the-static-field-be-accessed-in-a-static-way
          */
-        this.dogSpace = dogSpace;
-        this.catSpace = catSpace;
+        // this.dogSpace = dogSpace; Commented out here, but shown for posterity.
+        // this.catSpace = catSpace; Commented out here, but shown for posterity.
         daysStay = -1;
         amountDue = -1.0;
     }
@@ -86,12 +90,13 @@ public class Pet {
          * does not include a parameter for that field.   
          */
         petAge = -1;
-        /* While these dogSpace and catSpace initialization statements are redundant,
-         * they are added for program readability to show that the object's dogSpace and catSpace
-         * field values are being initialized to the class variable values.
+        /* Just as with the default constructor, dogSpace and catSpace initialization 
+         * statements are not included because they are static fields.
+         * The object's dogSpace and catSpace field values will be initialized to the class variable values
+         * at class instantiation.  See the default constructor for further discussion.
          */
-        this.dogSpace = dogSpace;
-        this.catSpace = catSpace;
+        // this.dogSpace = dogSpace; Commented out here, but shown for posterity.
+        // this.catSpace = catSpace; Commented out here, but shown for posterity.
         daysStay = -1;
         amountDue = -1.0;
     }
