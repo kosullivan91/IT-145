@@ -11,13 +11,15 @@ public class Pet {
     private String petType;
     private String petName;
     private int petAge;
-    /* The the checkIn() method decrements the dogSpace and catSpace
+    /* dogSpace and catSpace are initialized to 30 and 12, respectively,
+     * initially for this class.  The PetBAG spec calls for the ability to modify
+     * these as needed.  Additionally, the checkIn() method decrements the dogSpace and catSpace
      * fields when a pet is checked in.  Due to scope constraints, these
      * field values must be defined outside any class method so they 
      * are accessible throughout the program.  They should not be set as a 
      * predefined value.  We want to have these fields common to all objects. 
      * This is accomplished with the static modifier to make these class variables.
-     * are associated with the class- each instance of the class shares the class variable.
+     * Class variables are associated with the class- each instance of the class shares the class variable.
      * Any object can change the value of a class variable.
      * https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
      */

@@ -18,15 +18,15 @@ public class Dog {
      * these as needed.  Additionally, the checkIn() method decrements these
      * fields when a pet is checked in.  Due to scope constraints, these
      * field values must be defined outside any class method so they 
-     * are accessible throughout the program.  They also should not be set in the
-     * constructor as each object initialization should set these fields
-     * to the space available based on prior activities, not a predefined value.
-     * When the parent portions of the Dog class are migrated to the Pet
-     * class, these fields will become member fields for the main program class
-     * housing the main() program method.   
+     * are accessible throughout the program.  They should not be set as a 
+     * predefined value.  We want to have these fields common to all objects. 
+     * This is accomplished with the static modifier to make these class variables.
+     * Class variables are associated with the class- each instance of the class shares the class variable.
+     * Any object can change the value of a class variable.
+     * https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html   
      */
-    private int dogSpace = 30;
-    private int catSpace = 12;
+    private static int dogSpace = 30;
+    private static int catSpace = 12;
     private int daysStay;
     private double amountDue;
     public int dogSpaceNbr;
@@ -61,14 +61,17 @@ public class Dog {
          * data types.   
          */
         petAge = -1;
-       /* When a Pet is checked in under the checkIn() method, the dogSpace
-        * and catSpace fields are decremented to record the space reduction.  
-        * Subsequent instantiations should look to the global dogSpace and catSpace
-        * values to reflect any updates to space availability from prior
-        * calls to checkIn() and can therefore not be a hard-coded value.
-        */
-        dogSpace = dogSpace;
-        catSpace = catSpace;
+        /* When a Pet is checked in under the checkIn() method, the dogSpace
+         * and catSpace fields are decremented to record the space reduction.  
+         * Subsequent instantiations should look to the class variable dogSpace and catSpace
+         * values to reflect any updates to space availability from prior
+         * calls to checkIn() and can therefore not be a hard-coded value.
+         * That these value changes will be modified by each object checkIn()
+         * is inconsequential because prior to decrementing the value will be assigned to
+         * the Cat or Dog object's catSpaceNbr and dogSpaceNbr, respectively. 
+         */ 
+        this.dogSpace = dogSpace;
+        this.catSpace = catSpace;
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;

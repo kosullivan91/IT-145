@@ -57,7 +57,12 @@ public class ModuleTwoDogTest {
         System.out.println(dogObject.getDogSpaceNbr());
         System.out.println(dogObject.getDogWeight());
         System.out.println(dogObject.getGrooming());
-                
+
+        // Verify class variable change in dogObject2
+        System.out.println("*********DOG OBJECT 2*********");
+        System.out.println(dogObject.getDogSpace());
+        System.out.println(dogObject.getCatSpace());
+        
     }
 
 }
