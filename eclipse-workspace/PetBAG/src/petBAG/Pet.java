@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Pet {
 
-    //Field declaration.  Fields are initialized in the class constructor.
+    /* Field declaration.  Fields are initialized in the class constructor.
+     * Fields are private, as denoted by the '-' in the UML class diagram.
+     */
     
     private String petType;
     private String petName;
@@ -14,5 +16,7 @@ public class Pet {
     private int catSpace;
     private int daysStay;
     private int amountDue;
+    
+   /* Default Constructor.  
     
 }
