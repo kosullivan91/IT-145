@@ -30,7 +30,7 @@ function checkIn():
                 INPUT Y or N
             ENDHILE
             
-            IF customer is a return client THEN
+            IF customer is an existing client THEN
                 UPDATE existing pet information
             ELSE
                 ADD new pet information
@@ -40,7 +40,7 @@ function checkIn():
             INPUT the number of days
            
             IF the customer's pet type is a dog THEN
-                IF the duration of the stay is greater than 2 THEN
+                IF the duration of the stay is greater than 2 days THEN
                     SET grooming to TRUE
                 ELSE
                     SET grooming to FALSE
