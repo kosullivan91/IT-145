@@ -86,7 +86,7 @@ public class petBAG {
         System.out.println("Amount Due: " + cat11.getAmountDue());
         System.out.println("Space Number: " + cat11.getCatSpaceNbr());
         
-        // Test Static field manipulation - PASS
+        // Test Static field manipulation - PASS    
         // cat1.setDogSpace(22);
         // cat11.setCatSpace(15);
         
