@@ -205,7 +205,7 @@ public class Dog {
     }
     
     /* Getters. Return type is the data type of the field being returned.
-     * Getter methods take no arguments when called and therefore
+     * Getter methods take no arguments when called and 
      * do not need to be defined with any parameters in the method signature.
      */
     
@@ -250,6 +250,7 @@ public class Dog {
     }
     
     // Other methods.  These methods are currently out of scope.
+
     public void checkIn() {
         //TODO: N/A. Out of Assignment Scope
     }
