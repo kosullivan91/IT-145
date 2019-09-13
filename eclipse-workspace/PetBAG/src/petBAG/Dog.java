@@ -20,7 +20,7 @@ public class Dog {
      * The planned implementation of the checkIn() method decrements these
      * fields when a pet is checked in.    
      * These fields should be common to all objects and not be instance specific. 
-     * This is accomplished with the static modifier to make class variables.
+     * This is accomplished with the static modifier to make them class variables.
      * Class variables are associated with the class.
      * Each instance of the class shares the class variable.
      * Any object can change the value of a class variable.
@@ -36,14 +36,14 @@ public class Dog {
     public boolean grooming; // true/false is best representation whether grooming is needed
     
    /* Class constructors.
-    * With the checkIn() method defined later, petType input determines the 
+    * With the checkIn() method to be defined later, petType input determines the 
     * object type to be instantiated (i.e. Cat or Dog).  
     * Passing petType into the constructor saves having to call setPetType separately.
     * The checkIn() method requires the user to determine whether
     * the client is a new or returning customer.  Passing petName 
     * into the instantiation call saves having to call setPetName
     * separately and can also aid in any future enhancement record search 
-    * that might entail cross-referencing petNaem against database records instantaneously.
+    * that might entail cross-referencing petName against database records instantly.
     * If any constructor is defined, the compiler does not implicitly define a 
     * default constructor (i.e. no parameters).  Best practice is to explicitly
     * define a default constructor and rely on method overloading for other constructors
@@ -58,9 +58,10 @@ public class Dog {
         petType = "None";
         petName = "None";
         
-        /* Fields of type int and double are initialized to a default value of -1/-1.0 
-         * when the constructor method signature does not include a parameter for
-         * that field.  Therefore, the petAge, daysStay, amountDue, dogSpaceNbr, 
+        /* Per our zyBooks, fields of type int and double are typically initialized 
+         * to a default value of -1/-1.0 when the constructor method signature 
+         * does not include a parameter for that field.  
+         * The petAge, daysStay, amountDue, dogSpaceNbr, 
          * and dogWeight fields are initialized to -1 for their respective
          * data types.   
          */
@@ -78,22 +79,22 @@ public class Dog {
          * the Cat or Dog object's catSpaceNbr and dogSpaceNbr, respectively. 
          * 
          * dogSpace and catSpace initialization statements are not included because 
-         * they are static fields.  Each object's dogSpace and catSpace field values 
-         * will be initialized to the class variable values at instantiation.
-         * Per stackoverflow, "when you declare something as static, you are saying that it is a member 
-         * of the class, not the object (hence why there is only one). Therefore it doesn't make sense 
-         * to access it on the object, because that particular data member is associated with the class.
+         * they are static fields and are initialized above.  Each instance's 
+         * dogSpace and catSpace field values will be initialized to the class
+         * variable values at instantiation. Per stackoverflow, 
+         * "when you declare something as static, you are saying that it is a member 
+         * of the class, not the object (hence why there is only one). 
+         * Therefore it doesn't make sense to access it on the object, 
+         * because that particular data member is associated with the class.
          * https://stackoverflow.com/questions/5642834/why-should-the-static-field-be-accessed-in-a-static-way
          */
         
-        // this.dogSpace = dogSpace; Commented out, shown for posterity.
-        // this.catSpace = catSpace; Commented out, shown for posterity. 
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;
         dogWeight = -1;
         
-        /* Fields of type boolean are initialized to a default value of false
+        /* Fields of type boolean are typically initialized to a default value of false
          * when the constructor method signature does not include a parameter for
          * that field. 
          */
