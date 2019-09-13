@@ -100,35 +100,37 @@ public class Dog {
          */
         
         grooming = false;
+        
     }
     
     public Dog(String petType, String petName) { 
+        
         this.petType = petType;
         this.petName = petName;
-        /* Fields of type int and double are initialized to a default value of -1/-1.0 
-         * when the constructor method signature does not include a parameter for
-         * that field.  Therefore, the petAge, daysStay, amountDue, dogSpaceNbr, 
-         * and dogWeight fields are initialized to -1 for their respective
-         * data types.   
+        
+        /* Just as in the default constructor, the petAge, daysStay, 
+         * amountDue, dogSpaceNbr, and dogWeight fields are initialized 
+         * to -1 for their respective data types.   
          */
+        
         petAge = -1;
-       /* When a Pet is checked in under the checkIn() method, the dogSpace
-        * and catSpace fields are decremented to record the space reduction.  
-        * Subsequent instantiations should look to the global dogSpace and catSpace
-        * values to reflect any updates to space availability from prior
-        * calls to checkIn() and can therefore not be a hard-coded value.
-        */
-        this.dogSpace = dogSpace;
-        this.catSpace = catSpace;
+       
+        /* dogSpace and catSpace are static fields initialized
+         * at the class level above and therefore not included here.  
+         * See default constructor for further detail.
+         */
+        
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;
         dogWeight = -1;
-        /* Fields of type boolean are initialized to a default value of false
-         * when the constructor method signature does not include a parameter for
-         * that field. 
+
+        /* Just as in the default constructor, grooming is type boolean
+         * and is initialized to a default value of false. 
          */
+        
         grooming = false;
+        
     }
     
     /* Setters and Getters
