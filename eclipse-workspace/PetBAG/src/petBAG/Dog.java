@@ -135,15 +135,23 @@ public class Dog {
     
     /* Setters and Getters
      * Setter methods establish an interface to write class fields.
+     * Getter methods establish an interface to read class fields.
      * The concept of encapsulation is implemented by way of making read and
      * write access to private fields available to other classes through
-     * public setter and getter methods.  Setters provide write functionality to update 
-     * the field. Getters provide read access and provide visibility into the field value.
+     * public setter and getter methods.  This controls how outside
+     * classes can manipulate the object and hides the underlying
+     * code/implementation details from the class user.  
+     * Setters provide write functionality to update 
+     * the field. Getters provide read access and provide visibility 
+     * into the field value.
      */
     
     /* Setters. Void return type because they don't return a value.
-     * The methods still have a return statement even though return type is void
-     * in order to clear the stack frame (i.e. local variables created for the method).
+     * The methods still have a return statement.
+     * Per zyBooks, best practice is to always include a
+     * return statement, even when the return type is void.
+     * This is done in order to clear the stack frame 
+     * (i.e. local variables created for the method).
      */
     
     public void setPetType(String petType) {
