@@ -3,10 +3,10 @@ package petBAG;
 public class ModuleTwoDogTest {
         
     public static void main(String[] args) {
+        System.out.println("********REFACTOR TESTS********");
+        Dog dogObject = new Dog("dog", "Sammy", 25);
+        Dog dogObject2 = new Dog();
         
-//        Dog dogObject = new Dog("dog", "Sammy");
-//        Dog dogObject2 = new Dog();
-        /*
       //Test default constructor
         System.out.println("*****DEFAULT CONSTRUCTOR******");
         System.out.println(dogObject2.getPetType());
@@ -58,15 +58,11 @@ public class ModuleTwoDogTest {
         System.out.println(dogObject.getDogWeight());
         System.out.println(dogObject.getGrooming());
 
-        // Verify class variable change in dogObject2
+        // Verify no dogSpace/catSpace variable change in dogObject2
         System.out.println("*********DOG OBJECT 2*********");
-        System.out.println(dogObject.getDogSpace());
-        System.out.println(dogObject.getCatSpace());
-        */
-        
-        System.out.println("********REFACTOR TESTS********");
-        
-        
+        System.out.println(dogObject2.getDogSpace());
+        System.out.println(dogObject2.getCatSpace());
+                       
     }
 
 }
