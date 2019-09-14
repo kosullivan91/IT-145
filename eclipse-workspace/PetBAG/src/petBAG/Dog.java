@@ -3,49 +3,62 @@ package petBAG;
 public class Dog {
 
     /* Field declaration.  Fields are initialized in the class constructor,
-     * with the exception of dogSpace and catSpace (explained below).
-     * Fields specific to the Pet class per the UML class diagram
-     * will be migrated over in the next project and are private, 
-     * as denoted by the '-' in the UML class diagram.
-     * Fields specific to the Dog class in the UML class diagram are public, 
+     * Fields specific to the Pet class will be migrated over in the next project.
+     * These fields are private, denoted by the '-' in the UML class diagram.
+     * Fields specific to the Dog class are public, 
      * as denoted by the '+' in the UML class diagram.
+     * Numeric fields such as petAge, dogSpace, catSpace, etc. are
+     * declared as int data types, not float.double (with the exception of
+     * the amountDue field).  Best practice is to use int in lieu
+     * of float/double when the value is countable and not measured.
      */
     
     private String petType;
     private String petName;
-    private int petAge; // use an int not float/double; age is countable not measured.
+    private int petAge; 
     
-    /* dogSpace and catSpace are initialized to 30 and 12, respectively.
-     * The PetBAG spec calls for the ability to modify these fields as needed.  
-     * The planned implementation of the checkIn() method decrements these
-     * fields when a pet is checked in.    
-     * These fields should be common to all objects and not be instance specific. 
-     * This is accomplished with the static modifier to make them class variables.
-     * Class variables are associated with the class.
+    /* The PetBAG spec calls for the ability to modify the dogSpace and catSpace
+     * fields as needed, as these represent vacant space availability.  
+     * The planned implementation of the checkIn() method 
+     * decrements these fields when a pet is checked in to account for the 
+     * reduction in vacancy.    
+     * These fields should theoretically be common to all objects and not be instance specific
+     * to globally track vacant space availability. 
+     * In practice, this would be accomplished with the static modifier 
+     * to make them class variables.  Class variables are associated with the class.
      * Each instance of the class shares the class variable.
-     * Any object can change the value of a class variable.
-     * https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html   
+     * Any object can change the value of a class variable 
+     * (https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html).   
+     * This is not best practice, as its contrary to the object oriented paradigm. 
+     * Per discussion on Stack Overflow, it violates the principle that data is 
+     * encapsulated in objects.  Statics in Java are analogous to global variables
+     * in non OOP languages and avoid scope boundaries 
+     * (https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil).
      */
     
-    private static int dogSpace = 30;
-    private static int catSpace = 12;
+    private int dogSpace;
+    private int catSpace;
     private int daysStay;
-    private double amountDue; // double is best representation of currency learned so far
+    private double amountDue; // double is the best representation of currency learned so far
     public int dogSpaceNbr;
     public int dogWeight;
-    public boolean grooming; // true/false is best representation whether grooming is needed
+    public boolean grooming; // true/false is best representation of whether grooming is needed
     
    /* Class constructors.
-    * With the checkIn() method to be defined later, petType input determines the 
-    * object type to be instantiated (i.e. Cat or Dog).  
+    * With the planned implementation for the checkIn() method to be defined later, 
+    * petType input determines the object type to be instantiated (i.e. Cat or Dog).  
     * Passing petType into the constructor saves having to call setPetType separately.
     * The checkIn() method requires the user to determine whether
     * the client is a new or returning customer.  Passing petName 
     * into the instantiation call saves having to call setPetName
     * separately and can also aid in any future enhancement record search 
     * that might entail cross-referencing petName against database records instantly.
+    * Additionally, to keep dogSpace correctly updated at object instantiation,
+    * this field should be leveraged in a parameterized constructor so the 
+    * appropriate value is set as it is key input in determining
+    * whether vacant space is available.
     * If any constructor is defined, the compiler does not implicitly define a 
-    * default constructor (i.e. no parameters).  Best practice is to explicitly
+    * default constructor (i.e. no parameters).  Per zyBooks, best practice is to explicitly
     * define a default constructor and rely on method overloading for other constructors
     * so that an object creation like Dog dog = new Dog() without arguments remains
     * supported.  The compiler will throw an error if the default constructor is not defined
@@ -58,37 +71,17 @@ public class Dog {
         petType = "None";
         petName = "None";
         
-        /* Per our zyBooks, fields of type int and double are typically initialized 
+        /* Per zyBooks, fields of type int and double are typically initialized 
          * to a default value of -1/-1.0 when the constructor method signature 
          * does not include a parameter for that field.  
-         * The petAge, daysStay, amountDue, dogSpaceNbr, 
+         * The petAge, dogSpace, catSpace, daysStay, amountDue, dogSpaceNbr, 
          * and dogWeight fields are initialized to -1 for their respective
          * data types.   
          */
         
         petAge = -1;
-        
-        /* When a Pet is checked in under the checkIn() method, the dogSpace
-         * and catSpace fields are decremented to record the space reduction.  
-         * Subsequent instantiations should look to the class variable dogSpace and catSpace
-         * values to reflect any updates to space availability from prior
-         * calls to checkIn() and these fields can therefore not be 
-         * hard-coded values set by the constructor at each object instantiation.
-         * That these value changes will be modified by each object checkIn()
-         * is inconsequential because prior to decrementing, the value will be assigned to
-         * the Cat or Dog object's catSpaceNbr and dogSpaceNbr, respectively. 
-         * 
-         * dogSpace and catSpace initialization statements are not included because 
-         * they are static fields and are initialized above.  Each instance's 
-         * dogSpace and catSpace field values will be initialized to the class
-         * variable values at instantiation. Per stackoverflow, 
-         * "when you declare something as static, you are saying that it is a member 
-         * of the class, not the object (hence why there is only one). 
-         * Therefore it doesn't make sense to access it on the object, 
-         * because that particular data member is associated with the class.
-         * https://stackoverflow.com/questions/5642834/why-should-the-static-field-be-accessed-in-a-static-way
-         */
-        
+        dogSpace = -1;
+        catSpace = -1;
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;
@@ -103,7 +96,7 @@ public class Dog {
         
     }
     
-    public Dog(String petType, String petName) { 
+    public Dog(String petType, String petName, int dogSpace) { 
         
         this.petType = petType;
         this.petName = petName;
@@ -115,11 +108,20 @@ public class Dog {
         
         petAge = -1;
        
-        /* dogSpace and catSpace are static fields initialized
-         * at the class level above and therefore not included here.  
-         * See default constructor for further detail.
+        /* When a Pet is checked in under the planned implementation of
+         * the checkIn() method, the fields or variables representing cat
+         * and dog space vacancy are decremented to record the vacancy reduction.  
+         * Subsequent instantiations should know these current values
+         * to reflect updates from prior calls to checkIn().  
+         * These values should therefore be passed into a parameterized 
+         * constructor at object instantiation.  For the Dog class, the 
+         * dogSpace field should be initialized to the value passed in
+         * representing dog space vacancy.  catSpace is initialized to -1
+         * as it does not apply to the Dog class.
          */
         
+        this.dogSpace = dogSpace;
+        catSpace = -1;
         daysStay = -1;
         amountDue = -1.0;
         dogSpaceNbr = -1;

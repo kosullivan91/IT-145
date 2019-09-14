@@ -4,9 +4,9 @@ public class ModuleTwoDogTest {
         
     public static void main(String[] args) {
         
-        Dog dogObject = new Dog("dog", "Sammy");
-        Dog dogObject2 = new Dog();
-        
+//        Dog dogObject = new Dog("dog", "Sammy");
+//        Dog dogObject2 = new Dog();
+        /*
       //Test default constructor
         System.out.println("*****DEFAULT CONSTRUCTOR******");
         System.out.println(dogObject2.getPetType());
@@ -62,6 +62,10 @@ public class ModuleTwoDogTest {
         System.out.println("*********DOG OBJECT 2*********");
         System.out.println(dogObject.getDogSpace());
         System.out.println(dogObject.getCatSpace());
+        */
+        
+        System.out.println("********REFACTOR TESTS********");
+        
         
     }
 
