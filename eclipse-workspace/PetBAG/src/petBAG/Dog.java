@@ -1,3 +1,8 @@
+/* Jeff Perkinson
+ * IT-145 T1605 SNHU
+ * September 2019
+ */
+
 package petBAG;
 
 public class Dog {
@@ -8,9 +13,9 @@ public class Dog {
      * Fields specific to the Dog class are public, 
      * as denoted by the '+' in the UML class diagram.
      * Numeric fields such as petAge, dogSpace, catSpace, etc. are
-     * declared as int data types, not float.double (with the exception of
+     * declared as int data types, not float or double (with the exception of
      * the amountDue field).  Best practice is to use int in lieu
-     * of float/double when the value is countable and not measured.
+     * of float or double when the value is countable and not measured.
      */
     
     private String petType;
@@ -60,7 +65,7 @@ public class Dog {
     * If any constructor is defined, the compiler does not implicitly define a 
     * default constructor (i.e. no parameters).  Per zyBooks, best practice is to explicitly
     * define a default constructor and rely on method overloading for other constructors
-    * so that an object creation like Dog dog = new Dog() without arguments remains
+    * so that an object creation statement like Dog dog = new Dog() without arguments remains
     * supported.  The compiler will throw an error if the default constructor is not defined
     * and a call is made to it.
     */ 
@@ -98,8 +103,9 @@ public class Dog {
     
     public Dog(String petType, String petName, int dogSpace) { 
         
-        this.petType = petType;
-        this.petName = petName;
+        this.petType = petType; // 'this' keyword clarifies ambiguity.
+        this.petName = petName; // The object value is set to the argument
+                                // passed in.
         
         /* Just as in the default constructor, the petAge, daysStay, 
          * amountDue, dogSpaceNbr, and dogWeight fields are initialized 
