@@ -142,10 +142,8 @@ public class Dog {
      * write access to private fields available to other classes through
      * public setter and getter methods.  This controls how outside
      * classes can manipulate the object and hides the underlying
-     * code/implementation details from the class user.  
-     * Setters provide write functionality to update 
-     * the field. Getters provide read access and provide visibility 
-     * into the field value.
+     * code/implementation details of those reads and writes 
+     * from the class user.  
      */
     
     /* Setters. Void return type because they don't return a value.
@@ -157,8 +155,9 @@ public class Dog {
      */
     
     public void setPetType(String petType) {
-        this.petType = petType;
-        return;
+        this.petType = petType; // 'this' keyword clarifies ambiguity.
+        return;                 //  The object value is set to the argument
+                                //  passed in.
     }
     
     public void setPetName(String petName) {
