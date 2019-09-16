@@ -6,27 +6,41 @@ public class Pet {
 
     /* Field declaration.  Fields are initialized in the class constructor.
      * Fields are private, as denoted by the '-' in the UML class diagram.
+     * Numeric fields such as petAge, dogSpace, catSpace, etc. are
+     * declared as int data types, not float or double (with the exception of
+     * the amountDue field).  Best practice is to use int in lieu
+     * of float or double when the value is countable and not measured.
      */
     
     private String petType;
     private String petName;
     private int petAge;
-    /* dogSpace and catSpace are initialized to 30 and 12, respectively,
-     * initially for this class.  The PetBAG spec calls for the ability to modify
-     * these as needed.  Additionally, the checkIn() method decrements the dogSpace and catSpace
-     * fields when a pet is checked in.  Due to scope constraints, these
-     * field values must be defined outside any class method so they 
-     * are accessible throughout the program.  They should not be set as a 
-     * predefined value.  We want to have these fields common to all objects. 
-     * This is accomplished with the static modifier to make these class variables.
-     * Class variables are associated with the class- each instance of the class shares the class variable.
-     * Any object can change the value of a class variable.
-     * https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+    
+    /* The PetBAG spec calls for the ability to modify the dogSpace and catSpace
+     * fields as needed, as these represent vacant space availability.  
+     * The planned implementation of the checkIn() method 
+     * decrements these fields when a pet is checked in to account for the 
+     * reduction in vacancy.    
+     * These fields should theoretically be common to all objects and not be 
+     * instance specific in order to globally track vacant space availability. 
+     * In practice, this would be accomplished using the static modifier 
+     * to make them each class variables.  Class variables are associated with 
+     * the class and each instance of the class shares the class variable.
+     * Any object can change the value of a class variable 
+     * (https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html).   
+     * This is not best practice, as its contrary to the object oriented paradigm. 
+     * Per discussion on Stack Overflow, it violates the principle that data be 
+     * encapsulated in objects.  Statics in Java are analogous to global variables
+     * in non OOP languages and avoid scope boundaries 
+     * (https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil).
+     * dogSpace and catSpace values will be influenced by the parameterized 
+     * constructor (discussed below).
      */
-    private static int dogSpace = 30;
-    private static int catSpace = 12;
+    
+    private int dogSpace;
+    private int catSpace;
     private int daysStay;
-    private double amountDue;
+    private double amountDue; // double is the best representation of currency learned so far
     
     /* Class constructors.
      * With the checkIn() method defined later, petType input determines the 
