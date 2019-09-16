@@ -205,56 +205,24 @@ public class Pet {
         return amountDue;
     }
     
-    // Other methods.  Only checkIn() is in scope for the assignment.
+    // Other methods.  Their definition is out of scope for the assignment.
     public void checkIn() {
-        //TODO: Write this method.
+        // TODO: N/A. Out of Assignment Scope.
     }
     
     public void checkOut() {
-        /* TODO: N/A. Out of Assignment Scope.
-         * This method will check the pet out of petBAG.
-         * It could involve calls to updatePet(), setAmountDue(),
-         * getAmountDue(), getDaysStay(), etc. 
-         */
+        // TODO: N/A. Out of Assignment Scope.
     }
     
     public void getPet() {
-        /* TODO: N/A. Out of Assignment Scope.
-         * This method will retrieve the pet object
-         * to read its properties.
-         */
+        // TODO: N/A. Out of Assignment Scope.
     }
     
     public void createPet() {
-        /* TODO: N/A. Out of Assignment Scope.
-         * This method will create a new object
-         * and set its properties.
-         */
+        // TODO: N/A. Out of Assignment Scope.
     }
     
     public void updatePet() {
-        /* TODO: N/A. Out of Assignment Scope.
-         * This method will retrieve the pet object
-         * to update (write) its properties.
-         */
-    }
-    
-    public boolean isSpaceAvailable(String petType) {
-        if (petType.equals("dog")) {
-            if (dogSpace > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            if (catSpace > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        // TODO: N/A. Out of Assignment Scope.
     }
 }
