@@ -17,7 +17,8 @@ public class Pet {
     private int petAge;
     
     /* The PetBAG spec calls for the ability to modify the dogSpace and catSpace
-     * fields as needed, as these represent vacant space availability.  
+     * fields as needed, as these represent vacant space availability
+     * for each respective pet type.  
      * The planned implementation of the checkIn() method 
      * decrements these fields when a pet is checked in to account for the 
      * reduction in vacancy.    
@@ -43,74 +44,82 @@ public class Pet {
     private double amountDue; // double is the best representation of currency learned so far
     
     /* Class constructors.
-     * With the checkIn() method defined later, petType input determines the 
-     * object type to be instantiated (i.e. Cat or Dog).  
-     * Passing petType into a parameterized constructor saves having to call setPetType separately.
-     * The checkIn() method also calls for the user to determine whether
-     * the client is a new or returning customer.  Passing petName 
-     * into a parameterized constructor saves having to call setPetName
-     * separately and can also aid in any type of future enhancement record search 
-     * that might entail cross-referencing against database records.
-     * The Dog and Cat classes will need to include a parameterized constructor
-     * that calls the base class's parameterized constructor.  This parameterized constructor
-     * should be called for each respective Dog and Cat object instantiated during checkIn().
-     * If any constructor is defined, the compiler does not implicitly define a 
-     * default constructor (i.e. no parameters).  Best practice is to explicitly
-     * define a default constructor and rely on method overloading for parameterized constructors
-     * so that object creation like Pet pet = new Pet() without arguments remains
-     * supported.  The compiler will throw an error if the default constructor is not defined
-     * and an attempt to instantiate an object without arguments is made.
-     */
+    * If any constructor is defined, the compiler does not implicitly define a 
+    * default constructor (i.e. no parameters).  Per zyBooks, best practice is to explicitly
+    * define a default constructor and rely on method overloading for other constructors
+    * so that an object creation statement like Pet pet = new Pet() without arguments remains
+    * supported.  The compiler will throw an error if the default constructor is not defined
+    * and a call is made to it.
+    * With the planned implementation for the checkIn() method, 
+    * petType input determines the object type to be instantiated (i.e. Cat or Dog).  
+    * Passing petType into a parameterized constructor saves having to call 
+    * setPetType separately.  The checkIn() method also requires the user to 
+    * determine whether the client is a new or returning customer.  
+    * Passing petName into a parameterized constructor could aid in
+    * any future enhancement record search that might entail cross-referencing
+    * petName against database records instantly, while also saving
+    * the need to call setPetName separately.
+    * In order to instantiate an object with the appropriate dogSpace and catSpace
+    * values, these fields should be leveraged in a parameterized 
+    * constructor so the appropriate value is set, as it is key
+    * input in determining whether vacant space is available.
+    * Because derived classes (i.e. Cat and Dog) can make use of the base
+    * class constructors in their own constructor methods by using the 
+    * super keyword, the parameterized Pet class constructor utilizes 
+    * dogSpace and catSpace parameters that can be passed in as 
+    * arguments at each derived class object instantiation to accurately reflect
+    * available vacant space that will be used to determine whether there
+    * is vacancy and the pet can be checked in.
+    */
     
     // Default constructor- no parameters.
     public Pet() {
+        
         petType = "None";
         petName = "None";
-        /* Fields of type int and double are initialized to a default value of -1/-1.0 
-         * when the constructor method signature does not include a parameter for
-         * that field.  Therefore, the petAge, daysStay, and amountDue
-         * fields are initialized to -1 for their respective data types.   
+        
+        /* Per zyBooks, fields of type int and double are typically initialized 
+         * to a default value of -1/-1.0 when the constructor method signature 
+         * does not include a parameter for that field.  
+         * The petAge, dogSpace, catSpace, daysStay, and amountDue 
+         * fields are initialized to -1 for their respective
+         * data types.   
          */
+        
         petAge = -1;
-        /* When a Pet is checked in under the checkIn() method, the dogSpace
-         * and catSpace fields are decremented to record the space reduction.  
-         * Subsequent instantiations should look to the class variable dogSpace and catSpace
-         * values to reflect any updates to space availability from prior
-         * calls to checkIn() and can therefore not be a hard-coded value.
-         * That these value changes will be modified by each object checkIn()
-         * is inconsequential because prior to decrementing the value will be assigned to
-         * the Cat or Dog object's catSpaceNbr and dogSpaceNbr, respectively. 
-         * 
-         * dogSpace and catSpace initialization statements are not included because they are static fields.
-         * The object's dogSpace and catSpace field values will be initialized to the class variable values
-         * at class instantiation.
-         * Per stackoverflow, "when you declare something as static, you are saying that it is a member 
-         * of the class, not the object (hence why there is only one). Therefore it doesn't make sense 
-         * to access it on the object, because that particular data member is associated with the class.
-         * https://stackoverflow.com/questions/5642834/why-should-the-static-field-be-accessed-in-a-static-way
-         */
-        // this.dogSpace = dogSpace; Commented out here, but shown for posterity.
-        // this.catSpace = catSpace; Commented out here, but shown for posterity.
+        dogSpace = -1;
+        catSpace = -1;
         daysStay = -1;
         amountDue = -1.0;
     }
     
-    // Parameterized constructor with petType and petName parameters
-    public Pet(String petType, String petName) {
-        this.petType = petType;
-        this.petName = petName;
+    // Parameterized constructor
+    public Pet(String petType, String petName, int dogSpace, int catSpace) {
+        
+        this.petType = petType; // 'this' keyword clarifies ambiguity.
+        this.petName = petName; // The object value is set to the argument
+                                // passed in.
+        
         /* Just as above, fields of type int and double are initialized to a
          * default value of -1/-1.0 when the constructor method signature 
          * does not include a parameter for that field.   
          */
+        
         petAge = -1;
-        /* Just as with the default constructor, dogSpace and catSpace initialization 
-         * statements are not included because they are static fields.
-         * The object's dogSpace and catSpace field values will be initialized to the class variable values
-         * at class instantiation.  See the default constructor for further discussion.
+        
+        /* When a Pet is checked in under the planned implementation of
+         * the checkIn() method, the fields or variables representing cat
+         * and dog space vacancy are decremented to record the vacancy reduction.  
+         * Subsequent instantiations should know these current values
+         * to reflect updates from prior calls to checkIn().  
+         * These values should therefore be passed into a parameterized 
+         * constructor at object instantiation.  The dogSpace and
+         * catSpace fields should be initialized to the values passed in
+         * representing dog and cat space vacancy.
          */
-        // this.dogSpace = dogSpace; Commented out here, but shown for posterity.
-        // this.catSpace = catSpace; Commented out here, but shown for posterity.
+        
+        this.dogSpace = dogSpace;
+        this.catSpace = catSpace;
         daysStay = -1;
         amountDue = -1.0;
     }
