@@ -38,6 +38,14 @@ public class Dog {
 
     // methods
 
+    // setter method for topTrick
+    public void setToptrick(String trick) {
+        topTrick = trick;
+        
+        // return even when return type is void to clear the stack frame.
+        return;
+    }
+
 
     // method used to print Dog information
     public String toString() {
