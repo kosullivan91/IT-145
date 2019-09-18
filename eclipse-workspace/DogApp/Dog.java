@@ -1,10 +1,40 @@
 public class Dog {
 
     // class variables
+    // private access modifiers are used to promote encapsulation
+    private String type;
+    private String breed;
+    private String name;
+    private String topTrick; 
 
-
-    // constructor
-
+    // constructor(s)
+   /* Two constructors are defined.  The default constructor
+    * that takes no parameters and the parameterized constructor
+    * that incorporates the type, breed, and name fields.
+    * If any constructor is defined, the compiler does not implicitly define a 
+    * default constructor.  Per zyBooks, best practice is to explicitly
+    * define a default constructor and rely on method overloading 
+    * for other constructors so that an object creation statement 
+    * like Dog dog = new Dog() without arguments remains
+    * supported.  The compiler will throw an error if the 
+    * default constructor is not defined and a call is made to it. 
+    */
+    
+    // default constructor
+    public Dog() {
+        type = "";
+        breed = "";
+        name = "";
+        topTrick = "";
+    }
+    
+    // parameterized constructor
+    public Dog (String type, String breed, String name) {
+        this.type = type;
+        this.breed = breed;
+        this.name = name;
+        topTrick = "";
+    }
 
     // methods
 
