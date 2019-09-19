@@ -1,7 +1,9 @@
 package petBAG;
 
-// Import Scanner class to collect user input needed for checkIn() method.
-import java.util.Scanner;
+/* Scanner class is not imported to collect user input.
+ * It will be imported as part of the class
+ * that houses the main() method for PetBAG.
+ */
 
 public class Pet {
 
