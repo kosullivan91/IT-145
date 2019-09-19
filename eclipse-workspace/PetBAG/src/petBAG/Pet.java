@@ -1,5 +1,6 @@
 package petBAG;
 
+// Import Scanner class to collect user input needed for checkIn() method.
 import java.util.Scanner;
 
 public class Pet {
@@ -17,20 +18,19 @@ public class Pet {
     private int petAge;
     
     /* The PetBAG spec calls for the ability to modify the dogSpace and catSpace
-     * fields as needed, as these represent vacant space availability
-     * for each respective pet type.  
+     * fields as needed, as these represent vacant space availability.  
      * The planned implementation of the checkIn() method 
      * decrements these fields when a pet is checked in to account for the 
      * reduction in vacancy.    
      * These fields should theoretically be common to all objects and not be 
-     * instance specific in order to globally track vacant space availability. 
+     * instance specific to globally track vacant space availability. 
      * In practice, this would be accomplished using the static modifier 
      * to make them each class variables.  Class variables are associated with 
      * the class and each instance of the class shares the class variable.
      * Any object can change the value of a class variable 
      * (https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html).   
      * This is not best practice, as its contrary to the object oriented paradigm. 
-     * Per discussion on Stack Overflow, it violates the principle that data be 
+     * Per discussion on Stack Overflow, it violates the principle that data is 
      * encapsulated in objects.  Statics in Java are analogous to global variables
      * in non OOP languages and avoid scope boundaries 
      * (https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil).
@@ -59,17 +59,17 @@ public class Pet {
     * any future enhancement record search that might entail cross-referencing
     * petName against database records instantly, while also saving
     * the need to call setPetName separately.
-    * In order to instantiate an object with the appropriate dogSpace and catSpace
+    * To instantiate an object with the appropriate dogSpace and catSpace
     * values, these fields should be leveraged in a parameterized 
     * constructor so the appropriate value is set, as it is key
     * input in determining whether vacant space is available.
-    * Because derived classes (i.e. Cat and Dog) can make use of the base
+    * Derived classes (i.e. Cat and Dog) can make use of the base
     * class constructors in their own constructor methods by using the 
-    * super keyword, the parameterized Pet class constructor utilizes 
+    * super keyword.  The parameterized Pet class constructor utilizes 
     * dogSpace and catSpace parameters that can be passed in as 
-    * arguments at each derived class object instantiation to accurately reflect
-    * available vacant space that will be used to determine whether there
-    * is vacancy and the pet can be checked in.
+    * arguments for each derived class object instantiation to accurately reflect
+    * the available vacant space that will be used to determine whether there
+    * is vacancy.
     */
     
     // Default constructor- no parameters.
@@ -100,9 +100,8 @@ public class Pet {
         this.petName = petName; // The object value is set to the argument
                                 // passed in.
         
-        /* Just as above, fields of type int and double are initialized to a
-         * default value of -1/-1.0 when the constructor method signature 
-         * does not include a parameter for that field.   
+        /* Just as in the default constructor, the petAge, daysStay, and amountDue
+         * fields are initialized to -1 for their respective data types.   
          */
         
         petAge = -1;
