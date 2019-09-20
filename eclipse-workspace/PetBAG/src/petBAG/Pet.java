@@ -1,3 +1,8 @@
+/* Jeff Perkinson
+ * IT-145 T1605
+ * September 2019
+ */
+
 package petBAG;
 
 /* Scanner class is not imported to collect user input.
