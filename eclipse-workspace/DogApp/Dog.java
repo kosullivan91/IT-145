@@ -7,10 +7,10 @@ public class Dog {
     private String name;
     private String topTrick; 
 
-    // constructor(s)
+    // constructors
    /* Two constructors are defined.  The default constructor
-    * that takes no parameters and the parameterized constructor
-    * that incorporates the type, breed, and name fields.
+    * takes no parameters and the parameterized constructor
+    * incorporates the type, breed, and name fields.
     * If any constructor is defined, the compiler does not implicitly define a 
     * default constructor.  Per zyBooks, best practice is to explicitly
     * define a default constructor and rely on method overloading 
