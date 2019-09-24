@@ -42,6 +42,17 @@ public class Corgi extends Dog {
 
     // mutator methods
     
+    // set the member field weight to the argument provided
+    public void setWeight(int pounds) {
+        weight = pounds;
+        return; // good practice is to return even when
+                // return type is void to clear the stack frame.
+    }
+    
+    // set the member field age to the argument provided
+    public void setAge(int years) {
+        age = years;
+    }
 
     // override toString() method to include additional dog information
     @Override
