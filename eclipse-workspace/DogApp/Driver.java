@@ -11,7 +11,6 @@ public class Driver {
         
         // print the output to the console
         System.out.println(corgi.toString());
-
     }
 
 }
