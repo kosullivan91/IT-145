@@ -1,5 +1,9 @@
 public class ItemToPurchase {
    //Private fields - itemName, itemPrice, and itemQuanity
+    
+    private String itemName;
+    private int itemPrice;
+    private int itemQuantity;
 
    /*Default Constructor
     itemName - Initialized to "none"
@@ -7,11 +11,48 @@ public class ItemToPurchase {
     itemQuantity - Initialized ito 0
    */
     
+    public ItemToPurchase() {
+        itemName = "none";
+        itemPrice = 0;
+        itemQuantity = 0;
+    }
+    
    //public member methods (mutators & accessors)
    
    //setName() & getName() 
    //setPrice() & getPrice() 
-   //setQuantity() & getQuantity() 
+   //setQuantity() & getQuantity()
+    
+   //setters
+    
+    public void setName(String name) {
+        itemName = name;
+        return;     //return statement to clear the stack frame.
+    }
+    
+    public void setPrice(int price) {
+        itemPrice = price;
+        return;
+    }
+    
+    public void setQuantity(int quantity) {
+        itemQuantity = quantity;
+        return;
+    }
+    
+   //getters
+    
+    public String getName() {
+        return itemName;
+    }
+    
+    public int getPrice() {
+        return itemPrice;
+    }
+    
+    public int getQuantity() {
+        return itemQuantity;
+    }
    
    //print item to purchase
    
