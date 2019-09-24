@@ -13,8 +13,8 @@ public class Dog {
     private String topTrick; 
 
     // constructors
-   /* Two constructors are defined.  The default constructor
-    * takes no parameters and the parameterized constructor
+   /* The default constructor is not defined.
+    * The parameterized constructor
     * incorporates the type, breed, and name fields.
     * If any constructor is defined, the compiler does not implicitly define a 
     * default constructor.  Per zyBooks, best practice is to explicitly
@@ -22,16 +22,11 @@ public class Dog {
     * for other constructors so that an object creation statement 
     * like Dog dog = new Dog() without arguments remains
     * supported.  The compiler will throw an error if the 
-    * default constructor is not defined and a call is made to it. 
+    * default constructor is not defined and a call is made to it.
+    * The default constructor has not been defined here as its
+    * use would require additional setter methods that are not
+    * part of the UML class diagram provided. 
     */
-    
-    // default constructor
-    public Dog() {
-        type = "";
-        breed = "";
-        name = "";
-        topTrick = "";
-    }
     
     // parameterized constructor
     public Dog (String type, String breed, String name) {
@@ -51,26 +46,6 @@ public class Dog {
                 // return type is void to clear the stack frame.
     }
     
-    /* Remaining setter methods.
-     * While not required under the assignment, they
-     * are needed to support the default constructor.
-     */
-
-     public void setType(String type) {
-         this.type = type;
-         return;
-     }
-
-     public void setBreed(String breed) {
-         this.breed = breed;
-         return;
-     }
-
-     public void setName(String name) {
-         this.name = name;
-         return;
-     }
-
     // method used to print Dog information
     public String toString() {
         String temp = "\nDOG DATA\n" + name + " is a " + breed +
