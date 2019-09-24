@@ -50,6 +50,26 @@ public class Dog {
         return; // good practice is to return even when
                 // return type is void to clear the stack frame.
     }
+    
+    /* Remaining setter methods.
+     * While not required under the assignment, they
+     * are needed to support the default constructor.
+     */
+
+     public void setType(String type) {
+         this.type = type;
+         return;
+     }
+
+     public void setBreed(String breed) {
+         this.breed = breed;
+         return;
+     }
+
+     public void setName(String name) {
+         this.name = name;
+         return;
+     }
 
     // method used to print Dog information
     public String toString() {
