@@ -8,7 +8,7 @@ public class ItemToPurchase {
    /*Default Constructor
     itemName - Initialized to "none"
     itemPrice - Initialized to 0
-    itemQuantity - Initialized ito 0
+    itemQuantity - Initialized to 0
    */
     
     public ItemToPurchase() {
