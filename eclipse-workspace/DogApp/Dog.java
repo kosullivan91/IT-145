@@ -1,3 +1,8 @@
+/* Jeff Perkinson
+ * IT-145 T1605
+ * September 2019
+ */
+
 public class Dog {
 
     // class variables
@@ -30,10 +35,10 @@ public class Dog {
     
     // parameterized constructor
     public Dog (String type, String breed, String name) {
-        this.type = type;
-        this.breed = breed;
-        this.name = name;
-        topTrick = "";
+        this.type = type;   // use of 'this' keyword refers to the  
+        this.breed = breed; // object being instantiated and sets its
+        this.name = name;   // member fields to the arguments passed
+        topTrick = "";      // in during the instantiation call.
     }
 
     // methods
@@ -45,7 +50,6 @@ public class Dog {
         return; // good practice is to return even when
                 // return type is void to clear the stack frame.
     }
-
 
     // method used to print Dog information
     public String toString() {
