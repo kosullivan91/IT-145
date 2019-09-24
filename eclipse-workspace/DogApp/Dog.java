@@ -42,8 +42,8 @@ public class Dog {
     public void setToptrick(String trick) {
         topTrick = trick;
         
-        // return even when return type is void to clear the stack frame.
-        return;
+        return; // good practice is to return even when
+                // return type is void to clear the stack frame.
     }
 
 

@@ -8,7 +8,7 @@ public class Corgi extends Dog {
     // constructors
     /* Two constructors are defined.  The default constructor
      * takes no parameters and the parameterized constructor
-     * incorporates the type, breed, and name fields.
+     * incorporates the type, breed, name, weight, and age fields.
      * If any constructor is defined, the compiler does not implicitly define a 
      * default constructor.  Per zyBooks, best practice is to explicitly
      * define a default constructor and rely on method overloading 
@@ -19,7 +19,7 @@ public class Corgi extends Dog {
      */    
     
     // default constructor
-    /* int data type are typically initialized to -1 when
+    /* int data types are typically initialized to -1 when
      * the method signature does not call for a parameter pertaining
      * to the initialization of the given field.
      */
@@ -52,6 +52,7 @@ public class Corgi extends Dog {
     // set the member field age to the argument provided
     public void setAge(int years) {
         age = years;
+        return;
     }
 
     // override toString() method to include additional dog information
