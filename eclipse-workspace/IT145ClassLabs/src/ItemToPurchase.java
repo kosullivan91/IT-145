@@ -1,17 +1,17 @@
 public class ItemToPurchase {
    
-   //Private fields - itemName, itemPrice, and itemQuanity
-   //Fields are private to promote encapsulation.
+   // Private fields - itemName, itemPrice, and itemQuanity
+   // Fields are private to promote encapsulation.
     
     private String itemName;
     private int itemPrice;
     private int itemQuantity;
 
-   /*Default Constructor
-    itemName - Initialized to "none"
-    itemPrice - Initialized to 0
-    itemQuantity - Initialized to 0
-   */
+   /* Default Constructor
+    * itemName - Initialized to "none"
+    * itemPrice - Initialized to 0
+    * itemQuantity - Initialized to 0
+    */
     
     public ItemToPurchase() {
         itemName = "none";
@@ -19,19 +19,19 @@ public class ItemToPurchase {
         itemQuantity = 0;
     }
     
-   //public member methods (mutators & accessors)
-   //methods to be defined include
-   //setName() & getName() 
-   //setPrice() & getPrice() 
-   //setQuantity() & getQuantity()
+   // public member methods (mutators & accessors)
+   // methods to be defined include
+   // setName() & getName() 
+   // setPrice() & getPrice() 
+   // setQuantity() & getQuantity()
     
-   //setters
+   // setters
     
     public void setName(String name) {
         itemName = name;
-        return;     //use a return statement even when
-                    //return type is void
-                    //to clear the stack frame.
+        return;     // use a return statement even when
+                    // return type is void
+                    // to clear the stack frame.
     }
     
     public void setPrice(int price) {
@@ -44,7 +44,7 @@ public class ItemToPurchase {
         return;
     }
     
-   //getters
+   // getters
     
     public String getName() {
         return itemName;
@@ -58,13 +58,13 @@ public class ItemToPurchase {
         return itemQuantity;
     }
    
-    //calculate and return item total cost in shopping cart
+    // calculate and return item's total cost in shopping cart
     
     public int totalCost() {
         return (itemPrice * itemQuantity);
     }
     
-    //print item to purchase
+    // print item to purchase
     public void printItemPurchase() {
         System.out.println(itemName + " " + itemQuantity + " @ $" + itemPrice +  
                             " = $" + (itemPrice * itemQuantity));
