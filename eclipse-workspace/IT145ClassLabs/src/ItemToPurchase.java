@@ -1,6 +1,6 @@
 public class ItemToPurchase {
    
-    //Private fields - itemName, itemPrice, and itemQuanity
+   //Private fields - itemName, itemPrice, and itemQuanity
    //Fields are private to promote encapsulation.
     
     private String itemName;
@@ -20,7 +20,7 @@ public class ItemToPurchase {
     }
     
    //public member methods (mutators & accessors)
-   
+   //methods to be defined include
    //setName() & getName() 
    //setPrice() & getPrice() 
    //setQuantity() & getQuantity()
@@ -29,7 +29,7 @@ public class ItemToPurchase {
     
     public void setName(String name) {
         itemName = name;
-        return;     //return statement even when
+        return;     //use a return statement even when
                     //return type is void
                     //to clear the stack frame.
     }
