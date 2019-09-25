@@ -28,11 +28,8 @@ public class ShoppingCartPrinter {
       item1.setPrice(productPrice);
       item1.setQuantity(productQuantity);
       
-      //Tests
-      System.out.println(item1.getName());
-      System.out.println(item1.getPrice());
-      System.out.println(item1.getQuantity());
- 
+      scnr.nextLine();
+      
       // Get item 2 details from user, create itemToPurchase object
       System.out.println("Item 2");
       System.out.println("Enter the item name: ");
@@ -44,11 +41,6 @@ public class ShoppingCartPrinter {
       item2.setName(productName);
       item2.setPrice(productPrice);
       item2.setQuantity(productQuantity);
-      
-      //Tests
-      System.out.println(item2.getName());
-      System.out.println(item2.getPrice());
-      System.out.println(item2.getQuantity());
       
       // Add costs of two items and print total
       // cartTotal = item one price + item two price
