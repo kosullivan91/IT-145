@@ -53,13 +53,21 @@ public class ShoppingCartPrinter {
           System.out.println("Enter the item name: ");
           productName = scnr.nextLine();
           System.out.println("Enter the item price: ");
-          productPrice = scnr.nextInt();
+          
+          /* That scnr.nextInt() does not read the newline character
+           * (i.e. 'Enter' key ) creates errors in the zyBooks lab.
+           * To workaround this constraint, the input
+           * must be captured as a String and converted to an
+           * int using Integer.parseInt. 
+           * https://stackoverflow.com/questions/13102045/scanner-is-skipping-nextline-after-using-next-or-nextfoo
+           */
+          
+          productPrice = Integer.parseInt(scnr.nextLine());
           System.out.println("Enter the item quantity: ");
-          productQuantity = scnr.nextInt();
+          productQuantity = Integer.parseInt(scnr.nextLine());
           shoppingList.get(i).setName(productName);
           shoppingList.get(i).setPrice(productPrice);
           shoppingList.get(i).setQuantity(productQuantity);
-          scnr.nextLine();
       }
       
       // Add costs of the items and print the total
