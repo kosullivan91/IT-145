@@ -1,5 +1,7 @@
 public class ItemToPurchase {
-   //Private fields - itemName, itemPrice, and itemQuanity
+   
+    //Private fields - itemName, itemPrice, and itemQuanity
+   //Fields are private to promote encapsulation.
     
     private String itemName;
     private int itemPrice;
@@ -27,7 +29,9 @@ public class ItemToPurchase {
     
     public void setName(String name) {
         itemName = name;
-        return;     //return statement to clear the stack frame.
+        return;     //return statement even when
+                    //return type is void
+                    //to clear the stack frame.
     }
     
     public void setPrice(int price) {
@@ -55,14 +59,14 @@ public class ItemToPurchase {
     }
    
     //calculate and return item total cost in shopping cart
+    
     public int totalCost() {
         return (itemPrice * itemQuantity);
     }
     
-   //print item to purchase
-   
-   public void printItemPurchase() {
-      System.out.println(itemName + " " + itemQuantity + " @ $" + itemPrice +  
-                         " = $" + (itemPrice * itemQuantity));
+    //print item to purchase
+    public void printItemPurchase() {
+        System.out.println(itemName + " " + itemQuantity + " @ $" + itemPrice +  
+                            " = $" + (itemPrice * itemQuantity));
    }
 }
