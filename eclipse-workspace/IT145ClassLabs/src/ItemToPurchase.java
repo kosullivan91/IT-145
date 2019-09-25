@@ -54,10 +54,15 @@ public class ItemToPurchase {
         return itemQuantity;
     }
    
+    //calculate and return item total cost in shopping cart
+    public int totalCost() {
+        return (itemPrice * itemQuantity);
+    }
+    
    //print item to purchase
    
    public void printItemPurchase() {
-      System.out.println(itemQuantity + " " + itemName + " $" + itemPrice +  
+      System.out.println(itemName + " " + itemQuantity + " @ $" + itemPrice +  
                          " = $" + (itemPrice * itemQuantity));
    }
 }

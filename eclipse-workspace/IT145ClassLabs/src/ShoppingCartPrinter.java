@@ -44,10 +44,20 @@ public class ShoppingCartPrinter {
       
       // Add costs of two items and print total
       // cartTotal = item one price + item two price
-      // Totoal Cost
+      
+      // Total Cost
+      System.out.println("TOTAL COST");
+      
       // item one information
+      item1.printItemPurchase();
+      
       // item two information
+      item2.printItemPurchase();      
+      
+      System.out.println();
+      
       // Total output
+      System.out.println("Total: $" + (item1.totalCost() + item2.totalCost()));
       
       return;
    }
