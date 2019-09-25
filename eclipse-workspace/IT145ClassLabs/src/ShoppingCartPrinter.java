@@ -1,8 +1,8 @@
 // import the Scanner class to facilitate
-// Scanner object instantiation.
+// Scanner object instantiation
 import java.util.Scanner;
 
-// import the ArrayList utility to enable ArrayList creation
+// import the ArrayList utility to facilitate ArrayList creation
 import java.util.ArrayList;
 
 public class ShoppingCartPrinter {
@@ -17,11 +17,12 @@ public class ShoppingCartPrinter {
       int productQuantity = 0;
       int cartTotal = 0;
   
-      /* Create an ArrayList for the purposes of iteration to prompt
-       * users for item info.  The ArrayList makes it easy to add
-       * additional item objects and expand the list, without
-       * having to modify the for loop used to capture item info
-       * from the user for each item purchased.
+      /* Create an ArrayList to facilitate subsequent iteration
+       * to reduce program statements and make it scalable.  
+       * The ArrayList makes it easy to add
+       * additional item objects and expand the shopping list without
+       * having to modify any for loop used to capture input or output 
+       * information for each item purchased.
        */
       
       ArrayList<ItemToPurchase> shoppingList = new ArrayList<ItemToPurchase>();
@@ -30,11 +31,11 @@ public class ShoppingCartPrinter {
       ItemToPurchase item1 = new ItemToPurchase();
       ItemToPurchase item2 = new ItemToPurchase();
       
-      // Add the newly created items to the shoppingList ArrayList
+      // Add the newly created items to the shoppingList ArrayList.
       shoppingList.add(item1);
       shoppingList.add(item2);
 
-      // Get item details from user and set corresponding object fields
+      // Get item details from user and set the corresponding object fields
       
       /* A for loop lets us populate the shopping cart using
        * a minimal amount of code.  For each item in shoppingList,
@@ -44,7 +45,7 @@ public class ShoppingCartPrinter {
        * and is equal to the length of shoppingList.
        * Best practice is to use a for loop when the number of iterations
        * is known ahead of time, and a while loop when the number of iterations
-       * is unknown.
+       * is unknown (e.g. loop until a specific value is given).
        */
       
       for(i = 0; i < shoppingList.size(); ++i) {
@@ -61,8 +62,8 @@ public class ShoppingCartPrinter {
           scnr.nextLine();
       }
       
-      // Add costs of two items and print total
-      // cartTotal = item one price + item two price
+      // Add costs of the items and print the total
+      // e.g. cartTotal = item one price + item two price
       
       // Total Cost
       System.out.println("TOTAL COST");
@@ -86,8 +87,11 @@ public class ShoppingCartPrinter {
       
       System.out.println();
       
-      //Total output
+      // Total output
       System.out.println("Total: $" + cartTotal);
+      
+      // Close the Scanner object to conserve resources
+      scnr.close();
       
       return;
    }
