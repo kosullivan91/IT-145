@@ -43,10 +43,13 @@ public class Driver {
                               + "T - Transfer animal/place in service\n"
                               + "E - Process end of service (retirement/death)\n"
                               + "Q - Quit application\n";
+                
+        /* Capture and store the user's selection from the option menu
+         * Initialize it to an empty char so the application loop
+         * is entered.
+         */
         
-        // Capture and store the user's selection from the option menu
-        
-        char userSelection;
+        char userSelection = ' ';
 
         // create ArrayList
 
@@ -54,46 +57,48 @@ public class Driver {
         // Create New Monkey
         // Add new objects to ArrayList
         
-        // Present user with option menu for functionality selection
-        
         System.out.println("Welcome to Grazioso Salvare.");
-        System.out.println(optionsMenu);
-                
-        /* Capture the user's input, convert it to upper case,
-         * and grab only the first element to ensure 
-         * method input consistency
-         */
         
-        userSelection = scnr.nextLine().toUpperCase().charAt(0);
-                
-        /* Loop to ensure the user enters a valid selection.
-         * A while loop is used instead of a for loop because the
-         * number of loop iterations is unknown at onset entry
-         * into the loop. 
-         */
-        
-        while (userSelection != 'R' && userSelection != 'U' && userSelection != 'P' && userSelection != 'A' &&
-               userSelection != 'T' && userSelection != 'E' && userSelection != 'Q') {
-            System.out.println("Invalid selection");
-            System.out.println(optionsMenu);
-            userSelection = scnr.nextLine().toUpperCase().charAt(0);
-        }
-        
-        /* Execute functionality selected.
-         * This is nested in a while loop to continue to present
-         * the option menu after each function execution
-         * until user quits the application.
-         * A while loop is used instead of a for loop because the
-         * number of loop iterations is unknown at onset entry
-         * into the loop.
+        /* Application start.
+         * Present user with option menu for functionality selection
+         * and ensure valid input.
          */
         
         while (userSelection != 'Q') {
-            // execute function chosen
-            
             System.out.println(optionsMenu);
+            
+            /* Capture the user's input, convert it to upper case,
+             * and grab only the first element to ensure 
+             * method input consistency
+             */
+            
             userSelection = scnr.nextLine().toUpperCase().charAt(0);
+            
+            /* Loop to ensure the user enters a valid selection.
+             * A while loop is used instead of a for loop because the
+             * number of loop iterations is unknown at onset entry
+             * into the loop. 
+             */
+            
+            while (userSelection != 'R' && userSelection != 'U' && userSelection != 'P' && userSelection != 'A' &&
+                    userSelection != 'T' && userSelection != 'E' && userSelection != 'Q') {
+                 System.out.println("Invalid selection");
+                 System.out.println(optionsMenu);
+                 userSelection = scnr.nextLine().toUpperCase().charAt(0);
+             }
+            
+            /* Execute functionality selected.
+             * This is nested in a while loop to continue to present
+             * the option menu after each function execution
+             * until user quits the application.
+             * A while loop is used instead of a for loop because the
+             * number of loop iterations is unknown at onset entry
+             * into the loop.
+             */
+            
         }
+        
+        System.out.println("Goodbye.  Grazio Salvare, Jeff Perkinson \u00A92019");
 
     }
     
