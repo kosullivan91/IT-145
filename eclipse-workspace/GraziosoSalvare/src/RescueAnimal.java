@@ -146,8 +146,112 @@ public class RescueAnimal {
      * still provided even with the void return type in order to
      * clear the stack frame (i.e. local variable space created
      * for method execution)
+     * Method parameters are of type matching the type of the
+     * field being modified through the method.
+     * For naming simplicity, method parameters share the same
+     * identifier as the field being modified.  Making use of the
+     * 'this' keyword clarifies ambiguity.  The object's field value
+     * is set to the argument passed in to the method call.
      */
     
+    public void setName(String name) {
+        this.name = name;
+        return;
+    }
     
+    public void setType(String type) {
+        this.type = type;
+        return;
+    }
+    
+    public void setGender(String gender) {
+        this.gender = gender;
+        return;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+        return;
+    }
+    
+    public void setWeight(float weight) {
+        this.weight = weight;
+        return;
+    }
+    
+    public void setAcquisitionDate(SimpleDateFormat acquisitionDate) {
+        this.acquisitionDate = acquisitionDate;
+        return;
+    }
+    
+    public void setStatusDate(SimpleDateFormat statusDate) {
+        this.statusDate = statusDate;
+        return;
+    }
+    
+    public void setAcquisitionSource(String acquisitionSource) {
+        this.acquisitionSource = acquisitionSource;
+        return;
+    }
+    
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+        return;
+    }
+    
+    public void setTrainingLocation(String trainingLocation) {
+        this.trainingLocation = trainingLocation;
+        return;
+    }
+    
+    public void setTrainingStart(SimpleDateFormat trainingStart) {
+        this.trainingStart = trainingStart;
+        return;
+    }
+    
+    public void setTrainingEnd(SimpleDateFormat trainingEnd) {
+        this.trainingEnd = trainingEnd;
+        return;
+    }
+    
+    public void setTrainingStatus(String trainingStatus) {
+        this.trainingStatus = trainingStatus;
+        return;
+    }
+    
+    public void setInServiceCountry(String inServiceCountry) {
+        this.inServiceCountry = inServiceCountry;
+        return;
+    }
+    
+    public void setInServiceCity(String inServiceCity) {
+        this.inServiceCity = inServiceCity;
+        return;
+    }
+    
+    public void setInServiceAgency(String inServiceAgency) {
+        this.inServiceAgency = inServiceAgency;
+        return;
+    }
+    
+    public void setInServicePOC(String inServicePOC) {
+        this.inServicePOC = inServicePOC;
+        return;
+    }
+    
+    public void setInServiceEmail(String inServiceEmail) {
+        this.inServiceEmail = inServiceEmail;
+        return;
+    }
+    
+    public void setInServicePhone(String inServicePhone) {
+        this.inServicePhone = inServicePhone;
+        return;
+    }
+    
+    public void setInServicePostalAddress(String inServicePostalAddress) {
+        this.inServicePostalAddress = inServicePostalAddress;
+        return;
+    }
     
 }
