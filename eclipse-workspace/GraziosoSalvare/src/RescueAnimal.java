@@ -21,6 +21,7 @@ public class RescueAnimal {
      * of those reads/writes from the class user.     
      */
     
+    // TODO: do these align with the spec?
     private String name;
     private String type;
     private String gender;
