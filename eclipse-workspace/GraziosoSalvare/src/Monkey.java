@@ -1,4 +1,4 @@
 
-public class Monkey {
+public class Monkey extends RescueAnimal {
 
 }

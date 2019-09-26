@@ -148,109 +148,114 @@ public class RescueAnimal {
      * for method execution)
      * Method parameters are of type matching the type of the
      * field being modified through the method.
-     * For naming simplicity, method parameters share the same
-     * identifier as the field being modified.  Making use of the
-     * 'this' keyword clarifies ambiguity.  The object's field value
-     * is set to the argument passed in to the method call.
+     * In many cases for naming simplicity, method parameters share 
+     * the same identifier as the field being modified.  
+     * Making use of the 'this' keyword clarifies ambiguity.  
+     * The object's field value is set to the argument 
+     * passed in to the method call.  However, the team has chosen
+     * a different approach, as evidenced in the Dog class.
+     * For consistency, the parameter identifier in the below
+     * setter methods differs from the member field identifier
+     * and the 'this' keyword is not utilized.
      */
     
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String animalName) {
+        name = animalName;
         return;
     }
     
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String animalType) {
+        type = animalType;
         return;
     }
     
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGender(String animalGender) {
+        gender = animalGender;
         return;
     }
     
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int animalAge) {
+        age = animalAge;
         return;
     }
     
-    public void setWeight(float weight) {
-        this.weight = weight;
+    public void setWeight(float animalWeight) {
+        weight = animalWeight;
         return;
     }
     
-    public void setAcquisitionDate(SimpleDateFormat acquisitionDate) {
-        this.acquisitionDate = acquisitionDate;
+    public void setAcquisitionDate(SimpleDateFormat animalAcquisitionDate) {
+        acquisitionDate = animalAcquisitionDate;
         return;
     }
     
-    public void setStatusDate(SimpleDateFormat statusDate) {
-        this.statusDate = statusDate;
+    public void setStatusDate(SimpleDateFormat animalStatusDate) {
+        statusDate = animalStatusDate;
         return;
     }
     
-    public void setAcquisitionSource(String acquisitionSource) {
-        this.acquisitionSource = acquisitionSource;
+    public void setAcquisitionSource(String animalAcquisitionSource) {
+        acquisitionSource = animalAcquisitionSource;
         return;
     }
     
-    public void setReserved(boolean reserved) {
-        this.reserved = reserved;
+    public void setReserved(boolean isReserved) {
+        reserved = isReserved;
         return;
     }
     
-    public void setTrainingLocation(String trainingLocation) {
-        this.trainingLocation = trainingLocation;
+    public void setTrainingLocation(String animalTrainingLocation) {
+        trainingLocation = animalTrainingLocation;
         return;
     }
     
-    public void setTrainingStart(SimpleDateFormat trainingStart) {
-        this.trainingStart = trainingStart;
+    public void setTrainingStart(SimpleDateFormat animalTrainingStart) {
+        trainingStart = animalTrainingStart;
         return;
     }
     
-    public void setTrainingEnd(SimpleDateFormat trainingEnd) {
-        this.trainingEnd = trainingEnd;
+    public void setTrainingEnd(SimpleDateFormat animalTrainingEnd) {
+        trainingEnd = animalTrainingEnd;
         return;
     }
     
-    public void setTrainingStatus(String trainingStatus) {
-        this.trainingStatus = trainingStatus;
+    public void setTrainingStatus(String animalTrainingStatus) {
+        trainingStatus = animalTrainingStatus;
         return;
     }
     
-    public void setInServiceCountry(String inServiceCountry) {
-        this.inServiceCountry = inServiceCountry;
+    public void setInServiceCountry(String serviceCountry) {
+        inServiceCountry = serviceCountry;
         return;
     }
     
-    public void setInServiceCity(String inServiceCity) {
-        this.inServiceCity = inServiceCity;
+    public void setInServiceCity(String serviceCity) {
+        inServiceCity = serviceCity;
         return;
     }
     
-    public void setInServiceAgency(String inServiceAgency) {
-        this.inServiceAgency = inServiceAgency;
+    public void setInServiceAgency(String serviceAgency) {
+        inServiceAgency = serviceAgency;
         return;
     }
     
-    public void setInServicePOC(String inServicePOC) {
-        this.inServicePOC = inServicePOC;
+    public void setInServicePOC(String servicePOC) {
+        inServicePOC = servicePOC;
         return;
     }
     
-    public void setInServiceEmail(String inServiceEmail) {
-        this.inServiceEmail = inServiceEmail;
+    public void setInServiceEmail(String serviceEmail) {
+        inServiceEmail = serviceEmail;
         return;
     }
     
-    public void setInServicePhone(String inServicePhone) {
-        this.inServicePhone = inServicePhone;
+    public void setInServicePhone(String servicePhone) {
+        inServicePhone = servicePhone;
         return;
     }
     
-    public void setInServicePostalAddress(String inServicePostalAddress) {
-        this.inServicePostalAddress = inServicePostalAddress;
+    public void setInServicePostalAddress(String servicePostalAddress) {
+        inServicePostalAddress = servicePostalAddress;
         return;
     }
     
