@@ -7,19 +7,6 @@ import java.util.Scanner;
 
 public class Driver {
 
-    /* enum type declaration occurs outside of the main method.
-     * A enum is being declared for application menu options
-     * to ensure user selection is a valid selection and provide
-     * future expansion capabilities by simply adding menu option
-     * values to the enum.
-     * Per the Oracle Java documentation, you should use enum 
-     * types any time you need to represent a fixed set 
-     * of constants, including the choices on a menu.
-     * https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
-     */
-    //TODO: figure out this enum?
-//    public enum MenuOptions {'R','U','P','A','T','E','Q'}
-    
     public static void main(String[] args) {
 
         // Class variables
@@ -80,6 +67,8 @@ public class Driver {
              * into the loop. 
              */
             
+            
+            //TODO: can we use an Enum here?
             while (userSelection != 'R' && userSelection != 'U' && userSelection != 'P' && userSelection != 'A' &&
                     userSelection != 'T' && userSelection != 'E' && userSelection != 'Q') {
                  System.out.println("Invalid selection");
