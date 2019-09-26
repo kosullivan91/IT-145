@@ -7,6 +7,19 @@ import java.util.Scanner;
 
 public class Driver {
 
+    /* enum type declaration occurs outside of the main method.
+     * A enum is being declared for application menu options
+     * to ensure user selection is a valid selection and provide
+     * future expansion capabilities by simply adding menu option
+     * values to the enum.
+     * Per the Oracle Java documentation, you should use enum 
+     * types any time you need to represent a fixed set 
+     * of constants, including the choices on a menu.
+     * https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
+     */
+    //TODO: figure out this enum?
+//    public enum MenuOptions {'R','U','P','A','T','E','Q'}
+    
     public static void main(String[] args) {
 
         // Class variables
@@ -18,7 +31,8 @@ public class Driver {
         /* Application options menu.  This is stored in a single
          * variable that can be passed into each print command at
          * various application points to prevent code redundancy
-         * and consolidate updates to a single location in the code.  
+         * and consolidate future option updates to a single
+         * location in the code.  
          */
         
         String optionsMenu =    "Please select an option.\n"
@@ -84,8 +98,7 @@ public class Driver {
     }
     
 
-
-    // Method to process request for a rescue animal
+   // Method to process request for a rescue animal
 
 
 
