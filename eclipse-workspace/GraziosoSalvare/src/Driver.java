@@ -38,11 +38,13 @@ public class Driver {
         
         char userSelection = ' ';
 
-        // create ArrayList
+        // TODO: Arrays for eligible breeds?
+        
+        // TODO: create ArrayList
 
-        // Create New Dog
-        // Create New Monkey
-        // Add new objects to ArrayList
+        // TODO: Create New Dog
+        // TODO: Create New Monkey
+        // TODO: Add new objects to ArrayList
         
         System.out.println("Welcome to Grazioso Salvare.");
         
@@ -67,7 +69,6 @@ public class Driver {
              * into the loop. 
              */
             
-            
             //TODO: can we use an Enum here?
             while (userSelection != 'R' && userSelection != 'U' && userSelection != 'P' && userSelection != 'A' &&
                     userSelection != 'T' && userSelection != 'E' && userSelection != 'Q') {
@@ -84,6 +85,30 @@ public class Driver {
              * number of loop iterations is unknown at onset entry
              * into the loop.
              */
+            
+            if(userSelection == 'R') {
+                System.out.println("FIXME Process request for a rescue animal");
+            }
+            
+            if(userSelection == 'U') {
+                System.out.println("FIXME: Update information on existing animals");
+            }
+            
+            if(userSelection == 'P') {
+                System.out.println("FIXME: Print animals by training phase");
+            }
+            
+            if(userSelection == 'A') {
+                System.out.println("FIXME: Add new animal");
+            }
+            
+            if(userSelection == 'T') {
+                System.out.println("FIXME: Transfer animal/place in service");
+            }
+            
+            if(userSelection == 'E') {
+                System.out.println("FIXME: Process end of service (retirement/death)");
+            }
             
         }
         
