@@ -5,18 +5,22 @@
  * for the class fields representing date values.
  * http://tutorials.jenkov.com/java-internationalization/simpledateformat.html
  */
+
 import java.text.SimpleDateFormat;
 
 public class RescueAnimal {
 
     // Class variables
+    
     /* Access modifiers are private to promote encapsulation.
      * Encapsulation restricts direct access to member fields,
-     * only exposing read write access through public methods
+     * only exposing read/write access through public methods
      * (getters and setters defined below).  This practice 
-     * controls how outside classes can influence the values
-     * of these member fields.  
+     * controls how outside classes manipulate the object 
+     * and hides the underlying code/implementation details 
+     * of those reads/writes from the class user.     
      */
+    
     private String name;
     private String type;
     private String gender;
@@ -41,12 +45,18 @@ public class RescueAnimal {
     private String inServicePostalAddress;
 
     // Default constructor
+    
     public RescueAnimal() {
     
     }
 
     // Accessor Methods (getters)
-    // Access modifiers are public to promote encapsulation practices
+    
+    /* Getter methods establish an interface to read class fields.
+     * Access modifiers are public to promote encapsulation.
+     * Each method has a return type matching the type of the field
+     * the method is accessing.
+     */
     
     public String getName() {
         return name;
@@ -130,5 +140,14 @@ public class RescueAnimal {
     
     // Mutator Methods (setters)
 
-
+    /* Access modifiers are public to promote encapsulation.
+     * Setter methods establish an interface to write class fields.
+     * Methods have a void return type.  A return statement is
+     * still provided even with the void return type in order to
+     * clear the stack frame (i.e. local variable space created
+     * for method execution)
+     */
+    
+    
+    
 }
