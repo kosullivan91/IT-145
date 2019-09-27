@@ -54,12 +54,22 @@ public class Driver {
         String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
                                   "Tamarin"};
         
-        // TODO: create ArrayList
-
-        // TODO: Create New Dog
-        // TODO: Create New Monkey
-        // TODO: Add new objects to ArrayList
+        /* ArrayList animalStore is an ArrayList of RescueAnimal
+         * objects to serve as the application's database of animals.
+         */
         
+        ArrayList<RescueAnimal> animalStore = new ArrayList<RescueAnimal>();
+        
+        // TODO: Create New Dog
+        Dog rescueDog1 = new Dog();
+        rescueDog1.setName("Fido");
+        // TODO: Create New Monkey
+        Monkey rescueMonkey1 = new Monkey();
+        rescueMonkey1.setName("Jeeves");
+        // TODO: Add new objects to ArrayList
+        animalStore.add(rescueDog1);
+        animalStore.add(rescueMonkey1);
+               
         System.out.println("Welcome to Grazioso Salvare.");
         
         /* Application start.
@@ -67,15 +77,18 @@ public class Driver {
          * and ensure valid input.
          */
         
+        System.out.println(optionsMenu);
+        userSelection = scnr.nextLine().toUpperCase().charAt(0);
+        
         while (userSelection != 'Q') {
-            System.out.println(optionsMenu);
+//            System.out.println(optionsMenu);
             
             /* Capture the user's input, convert it to upper case,
              * and grab only the first element to ensure 
              * method input consistency
              */
             
-            userSelection = scnr.nextLine().toUpperCase().charAt(0);
+//            userSelection = scnr.nextLine().toUpperCase().charAt(0);
             
             /* Loop to ensure the user enters a valid selection.
              * A while loop is used instead of a for loop because the
@@ -112,8 +125,41 @@ public class Driver {
                 System.out.println("FIXME: Print animals by training phase");
             }
             
+            /* Add a new animal to the database (i.e. ArrayList animalStore).
+             * User is prompted to enter the animal type and the respective
+             * object type is created and added to animalStore.  User is
+             * then prompted to add animal information, which is added to
+             * the object using the respective field setters.
+             */
+            
             if(userSelection == 'A') {
-                System.out.println("FIXME: Add new animal");
+                String animalTypeMenu = "Please select the animal type.\n"
+                                      + "1 - Dog\n"
+                                      + "2 - Monkey";
+                
+                System.out.println(animalTypeMenu);
+                int addSelection = scnr.nextInt();
+                scnr.nextLine();
+                
+                // Loop to validate user input
+                
+                while(addSelection != 1 && addSelection != 2) {
+                    System.out.println("Invalid selection.");
+                    System.out.println(animalTypeMenu);
+                    addSelection = scnr.nextInt();
+                    scnr.nextLine();
+                }
+                
+                if(addSelection == 1) {
+                    Dog newAnimal = new Dog();
+                    newAnimal.setType("Dog");
+                    // call method to add animal
+                }
+                else {
+                    Monkey newAnimal = new Monkey();
+                    newAnimal.setType("Monkey");
+                    // call method to add animal
+                }
             }
             
             if(userSelection == 'T') {
@@ -123,6 +169,10 @@ public class Driver {
             if(userSelection == 'E') {
                 System.out.println("FIXME: Process end of service (retirement/death)");
             }
+            
+            System.out.println(optionsMenu);
+            //TODO: Hitting 'Enter' w/o an option selection crashes the program
+            userSelection = scnr.nextLine().toUpperCase().charAt(0);
             
         }
         
