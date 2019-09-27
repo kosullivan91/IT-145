@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 // Import Java ArrayList class to facilitate ArrayList
 // creation to house animal objects for iteration
+import java.util.ArrayList;
 
 public class Driver {
 
@@ -38,7 +39,20 @@ public class Driver {
         
         char userSelection = ' ';
 
-        // TODO: Arrays for eligible breeds?
+        /* Arrays representing eligible dog breeds and monkey species
+         * per the specification.  These arrays will enforce appropriate
+         * breed/species assignment when setting the breed/species 
+         * value on a particular object.  
+         */
+        
+        String[] dogBreeds = {"American pit bull terrier", "Beagle", "Belgian Malinois",
+                              "Border collie", "Bloodhound", "Coonhound", "English springer spaniel",
+                              "German shepherd", "German shorthaired pointer", "Golden retriever",
+                              "Labrador retriever", "Nova Scotia duck tolling retriever",
+                              "Rough collie", "Smooth collie"};
+        
+        String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
+                                  "Tamarin"};
         
         // TODO: create ArrayList
 
