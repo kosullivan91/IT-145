@@ -233,50 +233,45 @@ public class Driver {
         // Char variable to hold user's choice to drive setter called
         char userSelection;
         
-        /* ArrayLists representing eligible dog breeds and monkey species
-         * per the specification.  These ArrayLists will enforce appropriate
+        /* Arrays representing eligible dog breeds and monkey species
+         * per the specification.  These arrays will enforce appropriate
          * breed/species assignment when setting the breed/species 
-         * value on a particular object.  
-         * ArrayLists are used here instead of general arrays of primitive
-         * types to (1) facilitate scalability/breed expansion and
-         * (2) promote efficiency in input validation through using
-         * built-in 'asList().contains' methods in lieu of a standard for loop.
-         * https://stackoverflow.com/questions/1128723/how-do-i-determine-whether-an-array-contains-a-particular-value-in-java
+         * value on a particular object.
          */
         
-        ArrayList<String> dogBreeds = new ArrayList<String>();
-        dogBreeds.add("american pit bull terrier");
-        dogBreeds.add("beagle");
-        dogBreeds.add("belgian malinois");
-        dogBreeds.add("border collie");
-        dogBreeds.add("bloodhound");
-        dogBreeds.add("coonhound");
-        dogBreeds.add("english springer spaniel");
-        dogBreeds.add("german shepherd");
-        dogBreeds.add("german shorthaired pointer");
-        dogBreeds.add("golden retriever");
-        dogBreeds.add("labrador retriever");
-        dogBreeds.add("nova scotia duck tolling retriever");
-        dogBreeds.add("rough collie");
-        dogBreeds.add("smooth collie");
-        
-        ArrayList<String> monkeySpecies = new ArrayList<String>();
-        monkeySpecies.add("capuchin");
-        monkeySpecies.add("guenon");
-        monkeySpecies.add("macaque");
-        monkeySpecies.add("marmoset");
-        monkeySpecies.add("squirrel monkey");
-        monkeySpecies.add("tamarin");
+//        ArrayList<String> dogBreeds = new ArrayList<String>();
+//        dogBreeds.add("american pit bull terrier");
+//        dogBreeds.add("beagle");
+//        dogBreeds.add("belgian malinois");
+//        dogBreeds.add("border collie");
+//        dogBreeds.add("bloodhound");
+//        dogBreeds.add("coonhound");
+//        dogBreeds.add("english springer spaniel");
+//        dogBreeds.add("german shepherd");
+//        dogBreeds.add("german shorthaired pointer");
+//        dogBreeds.add("golden retriever");
+//        dogBreeds.add("labrador retriever");
+//        dogBreeds.add("nova scotia duck tolling retriever");
+//        dogBreeds.add("rough collie");
+//        dogBreeds.add("smooth collie");
+//        
+//        ArrayList<String> monkeySpecies = new ArrayList<String>();
+//        monkeySpecies.add("capuchin");
+//        monkeySpecies.add("guenon");
+//        monkeySpecies.add("macaque");
+//        monkeySpecies.add("marmoset");
+//        monkeySpecies.add("squirrel monkey");
+//        monkeySpecies.add("tamarin");
 
         
-//        String[] dogBreeds = {"American pit bull terrier", "Beagle", "Belgian Malinois",
-//                              "Border collie", "Bloodhound", "Coonhound", "English springer spaniel",
-//                              "German shepherd", "German shorthaired pointer", "Golden retriever",
-//                              "Labrador retriever", "Nova Scotia duck tolling retriever",
-//                              "Rough collie", "Smooth collie"};
-//        
-//        String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
-//                                  "Tamarin"};
+        String[] dogBreeds = {"American pit bull terrier", "Beagle", "Belgian malinois",
+                              "Border collie", "Bloodhound", "Coonhound", "English springer spaniel",
+                              "German shepherd", "German shorthaired pointer", "Golden retriever",
+                              "Labrador retriever", "Nova Scotia duck tolling retriever",
+                              "Rough collie", "Smooth collie"};
+        
+        String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
+                                  "Tamarin"};
         
         System.out.println("Add new " + animal.getType() + ".");
         System.out.println(addAnimalOptionsMenu);
@@ -326,15 +321,20 @@ public class Driver {
                 // String variable to capture user's breed input for validation and setter argument
                 String breedInput;
                 
+                // Boolean variable to determine whether input is valid
+                boolean isValidBreed;
+                
                 if(animalType == "dog") {
                     System.out.println("Please enter a breed.");
                     breedInput = scnr.nextLine();
-                    
+                    isValidBreed = isValidString(dogBreeds, breedInput);
+                    System.out.println(isValidBreed);
                 }
                 else {
-                    for(int i = 0; i < monkeySpecies.size(); ++i) {
-                        System.out.println(monkeySpecies.get(i));
-                    }
+                    System.out.println("Please enter a species.");
+                    breedInput = scnr.nextLine();
+                    isValidBreed = isValidString(monkeySpecies, breedInput);
+                    System.out.println(isValidBreed);
                 }
             }
             
@@ -363,6 +363,17 @@ public class Driver {
             userSelection = scnr.nextLine().toUpperCase().charAt(0);
             
         }     
+    }
+    
+    // Method to validate is String input is a valid entry in a String array
+    public static boolean isValidString(String[] stringArray, String inputString) {
+        boolean isValid = false;
+        for(int i = 0; i < stringArray.length; ++i) {
+            if(inputString.toLowerCase().equals(stringArray[i].toLowerCase())) {
+                isValid = true;
+            }
+        }
+        return isValid;
     }
 
     // Method to out process animals for the farm or in-service placement
