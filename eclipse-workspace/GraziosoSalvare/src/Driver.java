@@ -8,13 +8,17 @@ import java.util.ArrayList;
 
 public class Driver {
 
+    /* Scanner object to capture user input.
+     * The object is declared as static so it is
+     * accessible as the user input object for 
+     * all methods in the class.
+     */
+    
+    static Scanner scnr = new Scanner(System.in);
+    
     public static void main(String[] args) {
 
         // Class variables
-        
-        // Scanner object to capture user input
-        
-        Scanner scnr = new Scanner(System.in);
         
         /* Application options menu.  This is stored in a single
          * variable that can be passed into each print command at
@@ -39,21 +43,6 @@ public class Driver {
         
         char userSelection = ' ';
 
-        /* Arrays representing eligible dog breeds and monkey species
-         * per the specification.  These arrays will enforce appropriate
-         * breed/species assignment when setting the breed/species 
-         * value on a particular object.  
-         */
-        
-        String[] dogBreeds = {"American pit bull terrier", "Beagle", "Belgian Malinois",
-                              "Border collie", "Bloodhound", "Coonhound", "English springer spaniel",
-                              "German shepherd", "German shorthaired pointer", "Golden retriever",
-                              "Labrador retriever", "Nova Scotia duck tolling retriever",
-                              "Rough collie", "Smooth collie"};
-        
-        String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
-                                  "Tamarin"};
-        
         /* ArrayList animalStore is an ArrayList of RescueAnimal
          * objects to serve as the application's database of animals.
          */
@@ -78,18 +67,18 @@ public class Driver {
          */
         
         System.out.println(optionsMenu);
+
+        /* Capture the user's input, convert it to upper case,
+         * and grab only the first element to ensure 
+         * method input consistency
+         */
+        
         userSelection = scnr.nextLine().toUpperCase().charAt(0);
         
+        // continue running until users opts to quit
+        
         while (userSelection != 'Q') {
-//            System.out.println(optionsMenu);
-            
-            /* Capture the user's input, convert it to upper case,
-             * and grab only the first element to ensure 
-             * method input consistency
-             */
-            
-//            userSelection = scnr.nextLine().toUpperCase().charAt(0);
-            
+                     
             /* Loop to ensure the user enters a valid selection.
              * A while loop is used instead of a for loop because the
              * number of loop iterations is unknown at onset entry
@@ -104,8 +93,16 @@ public class Driver {
                  userSelection = scnr.nextLine().toUpperCase().charAt(0);
              }
             
+            /* Break out of the main loop if user opts to
+             * quit from the validation loop.
+             */
+            
+            if(userSelection == 'Q') {
+                break;
+            }
+            
             /* Execute functionality selected.
-             * This is nested in a while loop to continue to present
+             * This is nested in a while loop so as to continue to present
              * the option menu after each function execution
              * until user quits the application.
              * A while loop is used instead of a for loop because the
@@ -114,7 +111,7 @@ public class Driver {
              */
             
             if(userSelection == 'R') {
-                System.out.println("FIXME Process request for a rescue animal");
+                System.out.println("FIXME: Process request for a rescue animal");
             }
             
             if(userSelection == 'U') {
@@ -127,9 +124,9 @@ public class Driver {
             
             /* Add a new animal to the database (i.e. ArrayList animalStore).
              * User is prompted to enter the animal type and the respective
-             * object type is created and added to animalStore.  User is
-             * then prompted to add animal information, which is added to
-             * the object using the respective field setters.
+             * object type is created and added to animalStore.  
+             * The addAnimal() method is then called and the newly created
+             * animal object is passed as its argument.
              */
             
             if(userSelection == 'A') {
@@ -152,16 +149,21 @@ public class Driver {
                 
                 if(addSelection == 1) {
                     Dog newAnimal = new Dog();
-                    newAnimal.setType("Dog");
+                    newAnimal.setType("dog");
+                    // add the animal to the DB
+                    animalStore.add(newAnimal);
                     // call method to add animal
                     addAnimal(newAnimal);
                 }
                 else {
                     Monkey newAnimal = new Monkey();
-                    newAnimal.setType("Monkey");
+                    newAnimal.setType("monkey");
+                 // add the animal to the DB
+                    animalStore.add(newAnimal);
                     // call method to add animal
                     addAnimal(newAnimal);
                 }
+                
             }
             
             if(userSelection == 'T') {
@@ -202,27 +204,119 @@ public class Driver {
      * Monkey class arguments.  Regardless of the animal type to be added, the
      * same method can be called.  This prevents repetition of code
      * in the program.
+     * The static modifier is used so the method can be called without the
+     * need to create an object beforehand.  
      */
 
     public static void addAnimal(RescueAnimal animal) {
+        
         /* Calls to class setters will allow the user to set certain
          * object fields.  Only the fields pertinent to new animal
          * intake will be available to set through this method.
          * Fields such as those pertaining to training or placing in 
          * service will be exposed through other methods, such as
          * updating existing records or transferring an animal into 
-         * service. 
+         * service.  Per the specification, when a new animal is taken
+         * in, the breed, gender, age, weight, date, and location acquired
+         * are recorded. 
          */
         
-        String addAnimalOptions =     "Please select an option.\n"
-                                    + "N - Add name.\n"
-                                    + "G - Add gender.\n"
-                                    + "A - Add age\n"
-                                    + "W - Add weight\n"
-                                    + "D - Add acquisition date\n"
-                                    + "S - Add acquistion source\n";
+        String addAnimalOptionsMenu =     "Please select an option.\n"
+                                        + "B - Add breed/species\n"
+                                        + "G - Add gender\n"
+                                        + "A - Add age\n"
+                                        + "W - Add weight\n"
+                                        + "D - Add acquisition date\n"
+                                        + "S - Add acquistion source\n"
+                                        + "R - Return to main menu\n";
         
-       
+        // Char variable to hold user's choice to drive setter called
+        char userSelection;
+        
+        /* Arrays representing eligible dog breeds and monkey species
+         * per the specification.  These arrays will enforce appropriate
+         * breed/species assignment when setting the breed/species 
+         * value on a particular object.  
+         */
+        
+        String[] dogBreeds = {"American pit bull terrier", "Beagle", "Belgian Malinois",
+                              "Border collie", "Bloodhound", "Coonhound", "English springer spaniel",
+                              "German shepherd", "German shorthaired pointer", "Golden retriever",
+                              "Labrador retriever", "Nova Scotia duck tolling retriever",
+                              "Rough collie", "Smooth collie"};
+        
+        String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
+                                  "Tamarin"};
+        
+        System.out.println("Add new " + animal.getType() + ".");
+        System.out.println(addAnimalOptionsMenu);
+        
+        userSelection = scnr.nextLine().toUpperCase().charAt(0);
+        
+        // continue running until users opts to return to main
+        
+        while (userSelection != 'R') {
+                     
+            /* Loop to ensure the user enters a valid selection.
+             * A while loop is used instead of a for loop because the
+             * number of loop iterations is unknown at onset entry
+             * into the loop. 
+             */
+            
+            //TODO: can we use an Enum here?
+            while (userSelection != 'B' && userSelection != 'G' && userSelection != 'A' && userSelection != 'W' &&
+                    userSelection != 'D' && userSelection != 'S' && userSelection != 'R') {
+                 System.out.println("Invalid selection");
+                 System.out.println(addAnimalOptionsMenu);
+                 userSelection = scnr.nextLine().toUpperCase().charAt(0);
+             }
+            
+            /* Break out of the main loop if user opts to
+             * quit from the validation loop.
+             */
+            
+            if(userSelection == 'R') {
+                break;
+            }
+        
+            /* Execute functionality selected.
+             * This is nested in a while loop so as to continue to present
+             * the option menu after each function execution
+             * until user returns to the main menu.
+             * A while loop is used instead of a for loop because the
+             * number of loop iterations is unknown at onset entry
+             * into the loop.
+             */
+            
+            if(userSelection == 'B') {
+                System.out.println("FIXME: Call setter to add breed");
+            }
+            
+            if(userSelection == 'G') {
+                System.out.println("FIXME: Call setter to add gender");
+            }
+            
+            if(userSelection == 'A') {
+                System.out.println("FIXME: Call setter to add age");
+            }
+            
+            if(userSelection == 'W') {
+                System.out.println("FIXME: Call setter to add weight");
+            }
+            
+            if(userSelection == 'D') {
+                System.out.println("FIXME: Call setter to add acquisition date");
+            }
+            
+            if(userSelection == 'S') {
+                System.out.println("FIXME: Call setter to add acquisition source");
+            }
+            
+            System.out.println(addAnimalOptionsMenu);
+            //TODO: Hitting 'Enter' w/o an option selection crashes the program
+            userSelection = scnr.nextLine().toUpperCase().charAt(0);
+            
+        }     
     }
 
     // Method to out process animals for the farm or in-service placement
