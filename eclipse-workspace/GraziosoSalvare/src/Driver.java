@@ -154,11 +154,13 @@ public class Driver {
                     Dog newAnimal = new Dog();
                     newAnimal.setType("Dog");
                     // call method to add animal
+                    addAnimal(newAnimal);
                 }
                 else {
                     Monkey newAnimal = new Monkey();
                     newAnimal.setType("Monkey");
                     // call method to add animal
+                    addAnimal(newAnimal);
                 }
             }
             
@@ -176,7 +178,7 @@ public class Driver {
             
         }
         
-        System.out.println("Goodbye.  Grazio Salvare, Jeff Perkinson \u00A92019");
+        System.out.println("Goodbye.  Grazioso Salvare, Jeff Perkinson \u00A92019");
 
     }
     
@@ -193,9 +195,35 @@ public class Driver {
 
 
 
-    // Method to add animals
+    /* Method to add animals.
+     * By taking advantage of inheritance, the method can be defined
+     * with a parameter of RescueAnimal, which in turn supports
+     * calls to the method in main() supported for both Dog and
+     * Monkey class arguments.  Regardless of the animal type to be added, the
+     * same method can be called.  This prevents repetition of code
+     * in the program.
+     */
 
-
+    public static void addAnimal(RescueAnimal animal) {
+        /* Calls to class setters will allow the user to set certain
+         * object fields.  Only the fields pertinent to new animal
+         * intake will be available to set through this method.
+         * Fields such as those pertaining to training or placing in 
+         * service will be exposed through other methods, such as
+         * updating existing records or transferring an animal into 
+         * service. 
+         */
+        
+        String addAnimalOptions =     "Please select an option.\n"
+                                    + "N - Add name.\n"
+                                    + "G - Add gender.\n"
+                                    + "A - Add age\n"
+                                    + "W - Add weight\n"
+                                    + "D - Add acquisition date\n"
+                                    + "S - Add acquistion source\n";
+        
+       
+    }
 
     // Method to out process animals for the farm or in-service placement
 
