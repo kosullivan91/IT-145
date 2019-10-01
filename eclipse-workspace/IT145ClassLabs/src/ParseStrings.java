@@ -31,6 +31,7 @@ public class ParseStrings {
         
         boolean hasComma = userString.contains(",");
         
+        
         /* Report an error if the input string does not contain a comma. 
          * Continue to prompt until a valid string is entered.
          * Program assumes two separate Strings if userInput
@@ -47,6 +48,17 @@ public class ParseStrings {
             userString = scnr.nextLine();
             hasComma = userString.contains(",");
         }
+        
+        //Add a space after the comma if one does not exist
+        //for ease of parsing.
+        
+        boolean hasCommaSpace = userString.contains(", ");   
+        
+        if(!hasCommaSpace) {
+            userString = userString.replace(",", ", ");
+        }
+               
+        System.out.println(userString);
         
         //Extract the two words from the input String and remove spaces
         //Output the spaces
