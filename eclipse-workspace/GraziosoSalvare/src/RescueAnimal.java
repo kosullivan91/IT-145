@@ -21,7 +21,6 @@ public class RescueAnimal {
      * of those reads/writes from the class user.     
      */
     
-    // TODO: do these align with the spec?
     private String name;
     private String type;
     private String gender;
@@ -46,6 +45,12 @@ public class RescueAnimal {
     private String inServicePostalAddress;
 
     // Default constructor
+    /* The Default constructor will initialize each field
+     * to its default Java value by type (e.g. null for String,
+     * false for boolean, 0 for int and float,
+     * and null for SimpleDateFormat).
+     * http://www.c4learn.com/java/java-default-values/
+     */
     
     public RescueAnimal() {
     
@@ -157,7 +162,7 @@ public class RescueAnimal {
      * a different approach, as evidenced in the Dog class.
      * For consistency, the parameter identifier in the below
      * setter methods differs from the member field identifier
-     * and the 'this' keyword is not utilized.
+     * and the 'this' keyword is not used.
      */
     
     public void setName(String animalName) {
