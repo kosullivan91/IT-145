@@ -125,7 +125,7 @@ public class Driver {
             /* Add a new animal to the database (i.e. ArrayList animalStore).
              * User is prompted to enter the animal type and the respective
              * object type is created and added to animalStore.  
-             * The addAnimal() method is then called and the newly created
+             * The intakeAnimal() method is then called and the newly created
              * animal object is passed as its argument.
              */
             
@@ -153,7 +153,7 @@ public class Driver {
                     // add the animal to the DB
                     animalStore.add(newAnimal);
                     // call method to add animal
-                    addAnimal(newAnimal);
+                    intakeAnimal(newAnimal);
                 }
                 else {
                     Monkey newAnimal = new Monkey();
@@ -161,7 +161,7 @@ public class Driver {
                  // add the animal to the DB
                     animalStore.add(newAnimal);
                     // call method to add animal
-                    addAnimal(newAnimal);
+                    intakeAnimal(newAnimal);
                 }
                 
             }
@@ -187,7 +187,7 @@ public class Driver {
 
    // Method to process request for a rescue animal
 
-
+    
 
     // Method(s) to update information on existing animals
 
@@ -197,7 +197,7 @@ public class Driver {
 
 
 
-    /* Method to add animals.
+    /* Method to intake animals.
      * By taking advantage of inheritance, the method can be defined
      * with a parameter of RescueAnimal, which in turn supports
      * calls to the method in main() supported for both Dog and
@@ -208,7 +208,7 @@ public class Driver {
      * need to create an object beforehand.  
      */
 
-    public static void addAnimal(RescueAnimal animal) {
+    public static void intakeAnimal(RescueAnimal animal) {
         
         /* Calls to class setters will allow the user to set certain
          * object fields.  Only the fields pertinent to new animal
@@ -224,7 +224,7 @@ public class Driver {
          * and defaults the acquisition date to the current date. 
          */
         
-        String addAnimalOptionsMenu =     "Please select an option.\n"
+        String intakeAnimalOptionsMenu =     "Please select an option.\n"
                                         + "B - Add breed/species\n"
                                         + "G - Add gender\n"
                                         + "A - Add age\n"
@@ -258,7 +258,7 @@ public class Driver {
         //TODO: default the acquisition date to the current date.
         
         System.out.println("Add new " + animal.getType() + ".");
-        System.out.println(addAnimalOptionsMenu);
+        System.out.println(intakeAnimalOptionsMenu);
         
         userSelection = scnr.nextLine().toUpperCase().charAt(0);
         
@@ -276,7 +276,7 @@ public class Driver {
             while (userSelection != 'B' && userSelection != 'G' && userSelection != 'A' && userSelection != 'W' &&
                     userSelection != 'D' && userSelection != 'S' && userSelection != 'R') {
                  System.out.println("Invalid selection");
-                 System.out.println(addAnimalOptionsMenu);
+                 System.out.println(intakeAnimalOptionsMenu);
                  userSelection = scnr.nextLine().toUpperCase().charAt(0);
              }
             
@@ -342,7 +342,7 @@ public class Driver {
                 System.out.println("FIXME: Call setter to add acquisition source");
             }
             
-            System.out.println(addAnimalOptionsMenu);
+            System.out.println(intakeAnimalOptionsMenu);
             //TODO: Hitting 'Enter' w/o an option selection crashes the program
             userSelection = scnr.nextLine().toUpperCase().charAt(0);
             

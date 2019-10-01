@@ -3,8 +3,6 @@ public class Monkey extends RescueAnimal {
 
     // Class variables
     
-    // TODO: why are these public? 
-    
     public String species;  // Analogous to breed used for Dog
                             // Per the spec only specific species
                             // are eligible for training.
@@ -83,7 +81,7 @@ public class Monkey extends RescueAnimal {
      * Methods have a void return type.  A return statement is
      * still provided even with the void return type in order to
      * clear the stack frame (i.e. local variable space created
-     * for method execution)
+     * for method execution).
      * Method parameters are of type matching the type of the
      * field being modified through the method.
      * In many cases for naming simplicity, method parameters share 
@@ -94,7 +92,7 @@ public class Monkey extends RescueAnimal {
      * a different approach, as evidenced in the Dog class.
      * For consistency, the parameter identifier in the below
      * setter methods differs from the member field identifier
-     * and the 'this' keyword is not utilized.
+     * and the 'this' keyword is not used.
      */
     
     public void setSpecies(String animalSpecies) {
