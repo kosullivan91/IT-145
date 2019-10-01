@@ -6,7 +6,16 @@ public class ParseStrings {
     public static void main(String[] args) {
         
         //instantiate a Scanner object for capturing user input
+        
         Scanner scnr = new Scanner(System.in);
+        
+        //declare the Scanner object for the input string stream
+        
+        Scanner stringStream;
+        
+        //declare String variables for holding parsed words
+        String firstWord;
+        String secondWord;
         
         //prompt the user for a String that contains two Strings
         //separated by a comma
@@ -39,8 +48,24 @@ public class ParseStrings {
             hasComma = userString.contains(",");
         }
         
-        //close the Scanner to conserve resources
+        //Extract the two words from the input String and remove spaces
+        //Output the spaces
+        
+        //initialize the input string stream from userString
+        stringStream = new Scanner(userString);
+        
+        //Extract the two words from the input string and remove spaces
+        //chain the String replace() method to the parsed String
+        //object returned by stringStream.next() to remove the comma
+        
+        firstWord = stringStream.next().replace(",", "");
+        secondWord = stringStream.next();
+        System.out.println("First word: " + firstWord);
+        System.out.println("Second word: " + secondWord); //TODO: Jill,Allen does not work
+        
+        //close the Scanner objects to conserve resources
         scnr.close();
+        stringStream.close();
         
         return; //return even when return type is void
                 //to clear the stack frame
