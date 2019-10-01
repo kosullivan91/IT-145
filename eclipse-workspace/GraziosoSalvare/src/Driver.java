@@ -218,7 +218,10 @@ public class Driver {
          * updating existing records or transferring an animal into 
          * service.  Per the specification, when a new animal is taken
          * in, the breed, gender, age, weight, date, and location acquired
-         * are recorded. 
+         * are recorded.  Additionally, dogs are given a status of 'intake'
+         * before training starts.  The assumption is made the same will be done
+         * for monkeys, so this function sets trainingStatus to 'intake'
+         * and defaults the acquisition date to the current date. 
          */
         
         String addAnimalOptionsMenu =     "Please select an option.\n"
@@ -226,7 +229,7 @@ public class Driver {
                                         + "G - Add gender\n"
                                         + "A - Add age\n"
                                         + "W - Add weight\n"
-                                        + "D - Add acquisition date\n"
+                                        + "D - Modify acquisition date (curent date is default)\n"
                                         + "S - Add acquistion source\n"
                                         + "R - Return to main menu\n";
         
@@ -239,31 +242,6 @@ public class Driver {
          * value on a particular object.
          */
         
-//        ArrayList<String> dogBreeds = new ArrayList<String>();
-//        dogBreeds.add("american pit bull terrier");
-//        dogBreeds.add("beagle");
-//        dogBreeds.add("belgian malinois");
-//        dogBreeds.add("border collie");
-//        dogBreeds.add("bloodhound");
-//        dogBreeds.add("coonhound");
-//        dogBreeds.add("english springer spaniel");
-//        dogBreeds.add("german shepherd");
-//        dogBreeds.add("german shorthaired pointer");
-//        dogBreeds.add("golden retriever");
-//        dogBreeds.add("labrador retriever");
-//        dogBreeds.add("nova scotia duck tolling retriever");
-//        dogBreeds.add("rough collie");
-//        dogBreeds.add("smooth collie");
-//        
-//        ArrayList<String> monkeySpecies = new ArrayList<String>();
-//        monkeySpecies.add("capuchin");
-//        monkeySpecies.add("guenon");
-//        monkeySpecies.add("macaque");
-//        monkeySpecies.add("marmoset");
-//        monkeySpecies.add("squirrel monkey");
-//        monkeySpecies.add("tamarin");
-
-        
         String[] dogBreeds = {"American pit bull terrier", "Beagle", "Belgian malinois",
                               "Border collie", "Bloodhound", "Coonhound", "English springer spaniel",
                               "German shepherd", "German shorthaired pointer", "Golden retriever",
@@ -272,6 +250,12 @@ public class Driver {
         
         String[] monkeySpecies = {"Capuchin", "Guenon", "Macaque", "Marmoset", "Squirrel monkey",
                                   "Tamarin"};
+        
+        //set trainingStatus to 'intake'
+        
+        animal.setTrainingStatus("intake");
+        
+        //TODO: default the acquisition date to the current date.
         
         System.out.println("Add new " + animal.getType() + ".");
         System.out.println(addAnimalOptionsMenu);
