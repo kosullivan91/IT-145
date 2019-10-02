@@ -142,34 +142,57 @@ public class Driver {
                                       + "2 - Monkey";
                 
                 System.out.println(animalTypeMenu);
-                int addSelection = scnr.nextInt();
-                scnr.nextLine();
+                
+                /* nextInt() does not read the newline character
+                 * (i.e. 'Enter' key ).
+                 * To workaround this constraint, the input
+                 * must be captured as a String and converted to an
+                 * int using Integer.parseInt. 
+                 * https://stackoverflow.com/questions/13102045/scanner-is-skipping-nextline-after-using-next-or-nextfoo
+                 */
+                 
+                int intakeSelection = Integer.parseInt(scnr.nextLine());
+                System.out.println("Selection: " + intakeSelection); // TEST OK
+                //int intakeSelection = scnr.nextInt();
+                //System.out.println(intakeSelection); //TEST OK
                 
                 // Loop to validate user input
                 
-                while(addSelection != 1 && addSelection != 2) {
+                while(intakeSelection != 1 && intakeSelection != 2) {
                     System.out.println("Invalid selection.");
                     System.out.println(animalTypeMenu);
-                    addSelection = scnr.nextInt();
-                    scnr.nextLine();
+                    
+                   /* Just as above, the input
+                    * must be captured as a String and converted to an
+                    * int using Integer.parseInt.
+                    */
+                    
+                    intakeSelection = Integer.parseInt(scnr.nextLine());
+                    System.out.println("Selection in Invalid Loop: " + intakeSelection); //TEST OK
+                    // use nextLine() Scanner method to capture carriage return
+                    // scnr.nextLine();
                 }
                 
-                if(addSelection == 1) {
+                if(intakeSelection == 1) {
+                    System.out.println("DOG SELECTED"); //TEST OK
                     Dog newAnimal = new Dog();
                     newAnimal.setType("dog");
                     // add the animal to the DB
                     animalStore.add(newAnimal);
+                    System.out.println(animalStore); //TEST OK
                     // call method to add animal
-                    intakeAnimal(newAnimal);
+                    //intakeAnimal(newAnimal);
                     
                 }
                 else {
+                    System.out.println("MONKEY SELECTED"); //TEST OK
                     Monkey newAnimal = new Monkey();
                     newAnimal.setType("monkey");
-                 // add the animal to the DB
+                    // add the animal to the DB
                     animalStore.add(newAnimal);
+                    System.out.println(animalStore); //TEST OK
                     // call method to add animal
-                    intakeAnimal(newAnimal);
+                    // intakeAnimal(newAnimal);
                 }
                 
             }
@@ -189,7 +212,7 @@ public class Driver {
             
         }
         
-        System.out.println("Goodbye.  Grazioso Salvare, Jeff Perkinson \u00A92019");
+        System.out.println("Goodbye. Grazioso Salvare, Jeff Perkinson \u00A92019");
         
         scnr.close(); //close the Scanner object to conserve resources
         
