@@ -181,7 +181,8 @@ public class Driver {
                     animalStore.add(newAnimal);
                     System.out.println(animalStore); //TEST OK
                     // call method to add animal
-                    //intakeAnimal(newAnimal);
+                    System.out.println("Calling intakeAnimal for DOG"); //TEST OK
+                    intakeAnimal(newAnimal);
                     
                 }
                 else {
@@ -192,7 +193,8 @@ public class Driver {
                     animalStore.add(newAnimal);
                     System.out.println(animalStore); //TEST OK
                     // call method to add animal
-                    // intakeAnimal(newAnimal);
+                    System.out.println("Calling intakeAnimal for MONKEY"); //TEST OK
+                    intakeAnimal(newAnimal);
                 }
                 
             }
@@ -206,8 +208,9 @@ public class Driver {
             }
             
             System.out.println(optionsMenu);
-            //TODO: Hitting 'Enter' w/o an option selection crashes the program
             userSelection = scnr.nextLine().toUpperCase().charAt(0);
+            // Hitting 'Enter' without an option selection crashes the program
+            // TODO: Loop to fix it
             System.out.println(userSelection); //TEST OK
             
         }
@@ -247,7 +250,7 @@ public class Driver {
         
         //Scanner object to capture user input
         
-        Scanner scnr = new Scanner(System.in);
+        Scanner readInput = new Scanner(System.in);
         
         /* Calls to class setters will allow the user to set certain
          * object fields.  Only the fields pertinent to new animal
@@ -305,12 +308,13 @@ public class Driver {
          * method input consistency for branching decisions.
          */
         
-        userSelection = scnr.nextLine().toUpperCase().charAt(0);
+        userSelection = readInput.nextLine().toUpperCase().charAt(0);
+        System.out.println("Initial userSeclection: " + userSelection); //TEST OK
         
         // continue running until users opts to return to main
         
         while (userSelection != 'R') {
-                     
+            
             /* Loop to ensure the user enters a valid selection.
              * A while loop is used instead of a for loop because the
              * number of loop iterations is unknown at onset entry
@@ -321,8 +325,9 @@ public class Driver {
                     userSelection != 'D' && userSelection != 'S' && userSelection != 'R') {
                  System.out.println("Invalid selection");
                  System.out.println(intakeAnimalOptionsMenu);
-                 userSelection = scnr.nextLine().toUpperCase().charAt(0);
-                 scnr.nextLine();
+                 userSelection = readInput.nextLine().toUpperCase().charAt(0);
+                 System.out.println("Selection while in invalid loop: " + userSelection);
+                 // scnr.nextLine();
              }
             
             /* Break out of the main loop if user opts to
@@ -352,13 +357,13 @@ public class Driver {
                 
                 if(animalType == "dog") {
                     System.out.println("Please enter a breed.");
-                    breedInput = scnr.nextLine();
+                    breedInput = readInput.nextLine();
                     isValidBreed = isValidString(dogBreeds, breedInput);
                     System.out.println(isValidBreed);
                 }
                 else {
                     System.out.println("Please enter a species.");
-                    breedInput = scnr.nextLine();
+                    breedInput = readInput.nextLine();
                     isValidBreed = isValidString(monkeySpecies, breedInput);
                     System.out.println(isValidBreed);
                 }
@@ -386,11 +391,11 @@ public class Driver {
             
             System.out.println(intakeAnimalOptionsMenu);
             //TODO: Hitting 'Enter' w/o an option selection crashes the program
-            userSelection = scnr.nextLine().toUpperCase().charAt(0);
+            userSelection = readInput.nextLine().toUpperCase().charAt(0);
             
         }     
         
-        scnr.close(); //close the Scanner object to conserve resources
+//        readInput.close(); //close the Scanner object to conserve resources  TODO: Closing this causes the bug
         
         return; //return even when return type is void to clear the stack frame
         
