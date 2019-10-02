@@ -116,7 +116,7 @@ public class Driver {
                 System.out.println("FIXME: Print animals by training phase (Out of Assignment Scope)");
             }
             
-            /* Add a new animal to the database (i.e. ArrayList animalStore).
+            /* Add a new animal to the data store (i.e. ArrayList animalStore).
              * User is prompted to enter the animal type and the respective
              * object type is created and added to animalStore.  
              * The intakeAnimal() method is then called and the newly created
@@ -148,6 +148,7 @@ public class Driver {
                     animalStore.add(newAnimal);
                     // call method to add animal
                     intakeAnimal(newAnimal);
+                    
                 }
                 else {
                     Monkey newAnimal = new Monkey();
@@ -183,16 +184,13 @@ public class Driver {
     }
     
 
-   // Method to process request for a rescue animal
+    // Method to process request for a rescue animal (Out of assignment scope)
 
     
-
-    // Method(s) to update information on existing animals
-
+    // Method(s) to update information on existing animals (Out of assignment scope)
 
 
-    // Method to display matrix of animals based on location and status/training phase
-
+    // Method to display matrix of animals based on location and status/training phase (Out of assignment scope)
 
 
     /* Method to intake animals.
@@ -207,6 +205,10 @@ public class Driver {
      */
 
     public static void intakeAnimal(RescueAnimal animal) {
+        
+        //Scanner object to capture user input
+        
+        Scanner scnr = new Scanner(System.in);
         
         /* Calls to class setters will allow the user to set certain
          * object fields.  Only the fields pertinent to new animal
@@ -345,6 +347,11 @@ public class Driver {
             userSelection = scnr.nextLine().toUpperCase().charAt(0);
             
         }     
+        
+        scnr.close(); //close the Scanner object to conserve resources
+        
+        return; //return even when return type is void to clear the stack frame
+        
     }
     
     // Method to validate is String input is a valid entry in a String array
@@ -358,17 +365,12 @@ public class Driver {
         return isValid;
     }
 
-    // Method to out process animals for the farm or in-service placement
+    // Method to out process animals for the farm or in-service placement (Out of assignment scope)
 
 
-
-    // Method to display in-service animals
-
+    // Method to display in-service animals (Out of assignment scope)
 
 
-    // Process reports from in-service agencies reporting death/retirement
-
-
-
+    // Process reports from in-service agencies reporting death/retirement (Out of assignment scope)
 
 }
