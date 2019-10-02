@@ -8,22 +8,20 @@ import java.util.ArrayList;
 
 public class Driver {
 
-    /* Scanner object to capture user input.
-     * The object is declared as static so it is
-     * accessible as the user input object for 
-     * all methods in the class.
-     */
     
-    static Scanner scnr = new Scanner(System.in);
     
     public static void main(String[] args) {
 
+        //Scanner object to capture user input
+        
+        Scanner scnr = new Scanner(System.in);
+        
         // Class variables
         
         /* Application options menu.  This is stored in a single
          * variable that can be passed into each print command at
          * various application points to prevent code redundancy
-         * and consolidate future option updates to a single
+         * and consolidate future option menu updates to a single
          * location in the code.  
          */
         
@@ -31,25 +29,24 @@ public class Driver {
                               + "R - Process request for new service animal\n"
                               + "U - Update existing animal records\n"
                               + "P - Print animals by training phase\n"
-                              + "A - Add new animal\n"
+                              + "I - Intake new animal\n"
                               + "T - Transfer animal/place in service\n"
                               + "E - Process end of service (retirement/death)\n"
                               + "Q - Quit application\n";
                 
-        /* Capture and store the user's selection from the option menu
-         * Initialize it to an empty char so the application loop
-         * is entered.
+        /* Declare a variable to capture and store
+         * the user's selection from the option menu.
          */
         
-        char userSelection = ' ';
+        char userSelection;
 
         /* ArrayList animalStore is an ArrayList of RescueAnimal
-         * objects to serve as the application's database of animals.
+         * objects to serve as the application's data store of animals.
          */
         
         ArrayList<RescueAnimal> animalStore = new ArrayList<RescueAnimal>();
         
-        // TODO: Create New Dog
+        /*// TODO: Create New Dog
         Dog rescueDog1 = new Dog();
         rescueDog1.setName("Fido");
         // TODO: Create New Monkey
@@ -58,6 +55,7 @@ public class Driver {
         // TODO: Add new objects to ArrayList
         animalStore.add(rescueDog1);
         animalStore.add(rescueMonkey1);
+        */
                
         System.out.println("Welcome to Grazioso Salvare.");
         
@@ -70,7 +68,7 @@ public class Driver {
 
         /* Capture the user's input, convert it to upper case,
          * and grab only the first element to ensure 
-         * method input consistency
+         * method input consistency for branching decisions.
          */
         
         userSelection = scnr.nextLine().toUpperCase().charAt(0);
@@ -85,15 +83,14 @@ public class Driver {
              * into the loop. 
              */
             
-            //TODO: can we use an Enum here?
-            while (userSelection != 'R' && userSelection != 'U' && userSelection != 'P' && userSelection != 'A' &&
+            while (userSelection != 'R' && userSelection != 'U' && userSelection != 'P' && userSelection != 'I' &&
                     userSelection != 'T' && userSelection != 'E' && userSelection != 'Q') {
                  System.out.println("Invalid selection");
                  System.out.println(optionsMenu);
                  userSelection = scnr.nextLine().toUpperCase().charAt(0);
              }
             
-            /* Break out of the main loop if user opts to
+            /* Break out of the main application loop if user opts to
              * quit from the validation loop.
              */
             
@@ -102,24 +99,21 @@ public class Driver {
             }
             
             /* Execute functionality selected.
-             * This is nested in a while loop so as to continue to present
-             * the option menu after each function execution
-             * until user quits the application.
-             * A while loop is used instead of a for loop because the
-             * number of loop iterations is unknown at onset entry
-             * into the loop.
+             * This is nested in a while loop so as to continue to be
+             * available each time the option menu is presented
+             * after each function execution until the user quits the application.
              */
             
             if(userSelection == 'R') {
-                System.out.println("FIXME: Process request for a rescue animal");
+                System.out.println("FIXME: Process request for a rescue animal (Out of Assignment Scope)");
             }
             
             if(userSelection == 'U') {
-                System.out.println("FIXME: Update information on existing animals");
+                System.out.println("FIXME: Update information on existing animals (Out of Assignment Scope)");
             }
             
             if(userSelection == 'P') {
-                System.out.println("FIXME: Print animals by training phase");
+                System.out.println("FIXME: Print animals by training phase (Out of Assignment Scope)");
             }
             
             /* Add a new animal to the database (i.e. ArrayList animalStore).
@@ -129,8 +123,8 @@ public class Driver {
              * animal object is passed as its argument.
              */
             
-            if(userSelection == 'A') {
-                String animalTypeMenu = "Please select the animal type.\n"
+            if(userSelection == 'I') {
+                String animalTypeMenu = "Please select the animal type for intake.\n"
                                       + "1 - Dog\n"
                                       + "2 - Monkey";
                 
@@ -167,11 +161,11 @@ public class Driver {
             }
             
             if(userSelection == 'T') {
-                System.out.println("FIXME: Transfer animal/place in service");
+                System.out.println("FIXME: Transfer animal/place in service (Out of Assignment Scope)");
             }
             
             if(userSelection == 'E') {
-                System.out.println("FIXME: Process end of service (retirement/death)");
+                System.out.println("FIXME: Process end of service (retirement/death) (Out of Assignment Scope)");
             }
             
             System.out.println(optionsMenu);
@@ -181,6 +175,10 @@ public class Driver {
         }
         
         System.out.println("Goodbye.  Grazioso Salvare, Jeff Perkinson \u00A92019");
+        
+        scnr.close(); //close the Scanner object to conserve resources
+        
+        return; //return even when return type is void to clear the stack frame
 
     }
     
