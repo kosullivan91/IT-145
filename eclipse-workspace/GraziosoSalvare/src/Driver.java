@@ -1,14 +1,23 @@
-// Import Java Scanner class to facilitate Scanner object
-// creation to capture user input.
+//Import Java Scanner class to facilitate Scanner object
+//creation to capture user input.
 import java.util.Scanner;
 
-// Import Java ArrayList class to facilitate ArrayList
-// creation to house animal objects for iteration
+//Import Java ArrayList class to facilitate ArrayList
+//creation to house animal objects for iteration
 import java.util.ArrayList;
 
-public class Driver {
+/* The SimpleDateFormat class is used to format dates according to
+ * the format specified by the class user at object instantiation.
+ * This class is imported here to facilitate date formatting
+ * for the class fields representing date values.
+ * http://tutorials.jenkov.com/java-internationalization/simpledateformat.html
+ */
 
-    
+import java.text.SimpleDateFormat;
+import java.util.Date; //TODO: address import comments
+//https://stackoverflow.com/questions/5175728/how-to-get-the-current-date-time-in-java
+
+public class Driver {
     
     public static void main(String[] args) {
 
@@ -72,6 +81,7 @@ public class Driver {
          */
         
         userSelection = scnr.nextLine().toUpperCase().charAt(0);
+        System.out.println(userSelection);  // TEST OK
         
         // continue running until users opts to quit
         
@@ -88,14 +98,17 @@ public class Driver {
                  System.out.println("Invalid selection");
                  System.out.println(optionsMenu);
                  userSelection = scnr.nextLine().toUpperCase().charAt(0);
+                 System.out.println(userSelection); //TEST OK
              }
             
             /* Break out of the main application loop if user opts to
              * quit from the validation loop.
              */
             
+            System.out.println(userSelection);  //TEST OK
+            
             if(userSelection == 'Q') {
-                break;
+                break; //TEST OK
             }
             
             /* Execute functionality selected.
@@ -172,6 +185,7 @@ public class Driver {
             System.out.println(optionsMenu);
             //TODO: Hitting 'Enter' w/o an option selection crashes the program
             userSelection = scnr.nextLine().toUpperCase().charAt(0);
+            System.out.println(userSelection); //TEST OK
             
         }
         
@@ -196,12 +210,14 @@ public class Driver {
     /* Method to intake animals.
      * By taking advantage of inheritance, the method can be defined
      * with a parameter of RescueAnimal, which in turn supports
-     * calls to the method in main() supported for both Dog and
-     * Monkey class arguments.  Regardless of the animal type to be added, the
+     * calls to the method in main() passing both Dog and
+     * Monkey class arguments, or any future animal class that
+     * is derived from RescueAnimal.  
+     * Regardless of the animal type to be added, the
      * same method can be called.  This prevents repetition of code
      * in the program.
-     * The static modifier is used so the method can be called without the
-     * need to create an object beforehand.  
+     * The static modifier is used so the method can be called from main() 
+     * without the need to create an object beforehand.  
      */
 
     public static void intakeAnimal(RescueAnimal animal) {
@@ -233,7 +249,7 @@ public class Driver {
                                         + "S - Add acquistion source\n"
                                         + "R - Return to main menu\n";
         
-        // Char variable to hold user's choice to drive setter called
+        // Char variable to hold user's choice to drive branching
         char userSelection;
         
         /* Arrays representing eligible dog breeds and monkey species
@@ -256,9 +272,15 @@ public class Driver {
         animal.setTrainingStatus("intake");
         
         //TODO: default the acquisition date to the current date.
-        
+          
         System.out.println("Add new " + animal.getType() + ".");
         System.out.println(intakeAnimalOptionsMenu);
+        
+        /* Like in main(), capture the user's input, 
+         * convert it to upper case,
+         * and grab only the first element to ensure 
+         * method input consistency for branching decisions.
+         */
         
         userSelection = scnr.nextLine().toUpperCase().charAt(0);
         
@@ -272,12 +294,12 @@ public class Driver {
              * into the loop. 
              */
             
-            //TODO: can we use an Enum here?
             while (userSelection != 'B' && userSelection != 'G' && userSelection != 'A' && userSelection != 'W' &&
                     userSelection != 'D' && userSelection != 'S' && userSelection != 'R') {
                  System.out.println("Invalid selection");
                  System.out.println(intakeAnimalOptionsMenu);
                  userSelection = scnr.nextLine().toUpperCase().charAt(0);
+                 scnr.nextLine();
              }
             
             /* Break out of the main loop if user opts to
@@ -292,9 +314,6 @@ public class Driver {
              * This is nested in a while loop so as to continue to present
              * the option menu after each function execution
              * until user returns to the main menu.
-             * A while loop is used instead of a for loop because the
-             * number of loop iterations is unknown at onset entry
-             * into the loop.
              */
             
             if(userSelection == 'B') {
