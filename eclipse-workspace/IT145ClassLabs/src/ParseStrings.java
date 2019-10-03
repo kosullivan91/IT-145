@@ -9,25 +9,24 @@ public class ParseStrings {
         
         Scanner scnr = new Scanner(System.in);
         
-        //declare the Scanner object for the input string stream
+        //declare and initialize another Scanner object for the input string stream
         
         Scanner stringStream = null;
         
         //declare String variables for holding parsed words
+        
         String firstWord;
         String secondWord;
         
         //prompt the user for a String that contains two Strings
         //separated by a comma, use a loop to handle multiple
-        //line of input.  Continue until the user enters 'q' to
+        //lines of input.  Continue until the user enters 'q' to
         //quit.  A while loop is used as iteration entry is based on
         //user input and the number of iterations is unknown.
         
         System.out.println("Enter input string: ");
         String userString = scnr.nextLine();
-        
-        System.out.println(userString);
-        
+             
         //Loop until user enters 'q' or 'Q' to quit
         while(!userString.equals("q") && !userString.contentEquals("Q")) {
         
@@ -54,15 +53,27 @@ public class ParseStrings {
                 System.out.println("Enter input string: ");
                 userString = scnr.nextLine();
                 hasComma = userString.contains(",");
+                if(userString.equals("q") || userString.contentEquals("Q")) {
+                    break;
+                }
+            }
+            
+            if(userString.equals("q") || userString.contentEquals("Q")) {
+                break;
             }
             
             //Add a space after the comma if one does not exist
             //for ease of parsing.
             
-            boolean hasCommaSpace = userString.contains(", ");   
+            boolean hasCommaSpace = userString.contains(", ");
+            boolean hastwoCommaSpace = userString.contains(" , ");
             
             if(!hasCommaSpace) {
                 userString = userString.replace(",", ", ");
+            }
+            
+            if(hastwoCommaSpace) {
+                userString = userString.replace(" , ", ", ");
             }
                    
             //Extract the two words from the input String and remove spaces
@@ -79,14 +90,18 @@ public class ParseStrings {
             secondWord = stringStream.next();
             System.out.println("First word: " + firstWord);
             System.out.println("Second word: " + secondWord);
+            System.out.println();
+            System.out.println();
             
             System.out.println("Enter input string: ");
             userString = scnr.nextLine();
+            
+            //close the stringStream Scanner object to conserve resources
+            stringStream.close();
         }
                 
-        //close the Scanner objects to conserve resources
+        //close the scnr Scanner object to conserve resources
         scnr.close();
-        stringStream.close();
         
         return; //return even when return type is void
                 //to clear the stack frame
