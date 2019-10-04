@@ -355,32 +355,16 @@ public class Driver {
                 String animalType = animal.getType();
                 
                 // String variable to capture user's breed input for validation and setter argument
-                String breedInput;
+                String breedInput = "";
                 
                 // Boolean variable to determine whether input is valid
-                boolean isValidBreed;
+                boolean isValidBreed = false;
                 
                 if(animalType == "dog") {
-                    System.out.println("Please enter a breed.");
-                    validEntryChecker(dogBreeds);
-                    breedInput = readInput.nextLine();
-                    isValidBreed = isValidString(dogBreeds, breedInput);
-                    while(!isValidBreed) {
-                        System.out.println("Invalid entry.");
-                        System.out.println("Please enter a breed.");
-                        validEntryChecker(dogBreeds);
-                        breedInput = readInput.nextLine();
-                        isValidBreed = isValidString(dogBreeds, breedInput);
-                    }
-                    //System.out.println("Breed has been set to " + animal.getBreed()); // TODO: NOT working
+                    setDogBreed((Dog) animal, dogBreeds, readInput, breedInput, isValidBreed);
                 }
                 else {
-                    System.out.println("Please enter a species.");
-                    validEntryChecker(monkeySpecies);
-                    breedInput = readInput.nextLine();
-                    isValidBreed = isValidString(monkeySpecies, breedInput);
-                    System.out.println(isValidBreed);
-                }
+                    setMonkeySpecies((Monkey) animal, monkeySpecies, readInput, breedInput, isValidBreed);
             }
             
             if(userSelection == 'G') {
@@ -424,7 +408,10 @@ public class Driver {
             }
             
             if(userSelection == 'S') {
-                System.out.println("FIXME: Call setter to add acquisition source");
+                System.out.println("Enter source of acquisition.");
+                String animalAcquisitionSource = readInput.nextLine();
+                animal.setAcquisitionSource(animalAcquisitionSource);
+                System.out.println("Acquisition source has been set to " + animal.getAcquisitionSource());
             }
             
             System.out.println(intakeAnimalOptionsMenu);
@@ -437,6 +424,7 @@ public class Driver {
         
         return; //return even when return type is void to clear the stack frame
         
+        }
     }
     
     // Method to validate is String input is a valid entry in a String array
@@ -456,8 +444,43 @@ public class Driver {
         for(int i = 0; i < stringArray.length; ++i) {
             System.out.println(stringArray[i]);
         }
+        return;
     }
 
+    // Method to set Dog breed
+    public static void setDogBreed(Dog dog, String[] stringArray, Scanner readInput, String breedInput, boolean isValidBreed) {
+        System.out.println("Please enter a breed.");
+        validEntryChecker(stringArray);
+        breedInput = readInput.nextLine();
+        isValidBreed = isValidString(stringArray, breedInput);
+        while(!isValidBreed) {
+            System.out.println("Invalid entry.");
+            System.out.println("Please enter a breed.");
+            validEntryChecker(stringArray);
+            breedInput = readInput.nextLine();
+            isValidBreed = isValidString(stringArray, breedInput);
+        }
+        dog.setBreed(breedInput);
+        System.out.println("Breed has been set to " + dog.getBreed());
+    }
+    
+    // Method to set Monkey Species
+    public static void setMonkeySpecies(Monkey monkey, String[] stringArray, Scanner readInput, String breedInput, boolean isValidBreed) {
+        System.out.println("Please enter a species.");
+        validEntryChecker(stringArray);
+        breedInput = readInput.nextLine();
+        isValidBreed = isValidString(stringArray, breedInput);
+        while(!isValidBreed) {
+            System.out.println("Invalid entry.");
+            System.out.println("Please enter a species.");
+            validEntryChecker(stringArray);
+            breedInput = readInput.nextLine();
+            isValidBreed = isValidString(stringArray, breedInput);
+        }
+        monkey.setSpecies(breedInput);
+        System.out.println("Species has been set to " + monkey.getSpecies());
+    }
+    
     // Method to out process animals for the farm or in-service placement (Out of assignment scope)
 
 
