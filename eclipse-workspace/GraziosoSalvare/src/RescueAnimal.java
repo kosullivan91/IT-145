@@ -1,12 +1,23 @@
+/* Jeff Perkinson
+ * IT-145 T1605
+ * October 2019
+ */
+
 
 /* The SimpleDateFormat class is used to format dates according to
  * the format specified by the class user at object instantiation.
- * This class is imported here to facilitate date formatting
+ * This class was part of the original project fial and
+ * was imported here to facilitate date formatting
  * for the class fields representing date values.
  * http://tutorials.jenkov.com/java-internationalization/simpledateformat.html
- */
+ * import java.text.SimpleDateFormat;
+ * Per the discussion board on 10/3/19, we were advised to use the Date
+ * class from the standard Java library to most easily utilize date
+ * types for this project.  The Date class is imported below and all
+ * SimpleDateFormat types have been changed to Date type.
+ * */
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RescueAnimal {
 
@@ -26,14 +37,14 @@ public class RescueAnimal {
     private String gender;
     private int age;
     private float weight;
-    private SimpleDateFormat acquisitionDate;
-    private SimpleDateFormat statusDate;
+    private Date acquisitionDate;
+    private Date statusDate;
     private String acquisitionSource;
     private Boolean reserved;
 
     private String trainingLocation;
-    private SimpleDateFormat trainingStart;
-    private SimpleDateFormat trainingEnd;
+    private Date trainingStart;
+    private Date trainingEnd;
     private String trainingStatus;
 
     private String inServiceCountry;
@@ -84,11 +95,11 @@ public class RescueAnimal {
         return weight;
     }
     
-    public SimpleDateFormat getAcquisitionDate() {
+    public Date getAcquisitionDate() {
         return acquisitionDate;
     }
     
-    public SimpleDateFormat getStatusDate() {
+    public Date getStatusDate() {
         return statusDate;
     }
     
@@ -104,11 +115,11 @@ public class RescueAnimal {
         return trainingLocation;
     }
     
-    public SimpleDateFormat getTrainingStart() {
+    public Date getTrainingStart() {
         return trainingStart;
     }
     
-    public SimpleDateFormat getTrainingEnd() {
+    public Date getTrainingEnd() {
         return trainingEnd;
     }
     
@@ -190,12 +201,12 @@ public class RescueAnimal {
         return;
     }
     
-    public void setAcquisitionDate(SimpleDateFormat animalAcquisitionDate) {
+    public void setAcquisitionDate(Date animalAcquisitionDate) {
         acquisitionDate = animalAcquisitionDate;
         return;
     }
     
-    public void setStatusDate(SimpleDateFormat animalStatusDate) {
+    public void setStatusDate(Date animalStatusDate) {
         statusDate = animalStatusDate;
         return;
     }
@@ -215,12 +226,12 @@ public class RescueAnimal {
         return;
     }
     
-    public void setTrainingStart(SimpleDateFormat animalTrainingStart) {
+    public void setTrainingStart(Date animalTrainingStart) {
         trainingStart = animalTrainingStart;
         return;
     }
     
-    public void setTrainingEnd(SimpleDateFormat animalTrainingEnd) {
+    public void setTrainingEnd(Date animalTrainingEnd) {
         trainingEnd = animalTrainingEnd;
         return;
     }
