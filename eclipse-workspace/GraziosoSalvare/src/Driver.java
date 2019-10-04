@@ -362,12 +362,21 @@ public class Driver {
                 
                 if(animalType == "dog") {
                     System.out.println("Please enter a breed.");
+                    validEntryChecker(dogBreeds);
                     breedInput = readInput.nextLine();
                     isValidBreed = isValidString(dogBreeds, breedInput);
-                    System.out.println(isValidBreed);
+                    while(!isValidBreed) {
+                        System.out.println("Invalid entry.");
+                        System.out.println("Please enter a breed.");
+                        validEntryChecker(dogBreeds);
+                        breedInput = readInput.nextLine();
+                        isValidBreed = isValidString(dogBreeds, breedInput);
+                    }
+                    //System.out.println("Breed has been set to " + animal.getBreed()); // TODO: NOT working
                 }
                 else {
                     System.out.println("Please enter a species.");
+                    validEntryChecker(monkeySpecies);
                     breedInput = readInput.nextLine();
                     isValidBreed = isValidString(monkeySpecies, breedInput);
                     System.out.println(isValidBreed);
@@ -393,11 +402,21 @@ public class Driver {
             }
             
             if(userSelection == 'A') {
-                System.out.println("FIXME: Call setter to add age");
+                System.out.println("Enter animal's age.");
+                int animalAge = readInput.nextInt();
+                readInput.nextLine();   // called to capture the carriage return not 
+                                        //captured by nextInt().
+                animal.setAge(animalAge);
+                System.out.println("Animal age has been set to " + animal.getAge());
             }
             
             if(userSelection == 'W') {
-                System.out.println("FIXME: Call setter to add weight");
+                System.out.println("Enter animal's weight.");
+                float animalWeight = readInput.nextFloat();
+                readInput.nextLine();   // called to capture the carriage return not 
+                                        //captured by nextInt().
+                animal.setWeight(animalWeight);
+                System.out.println("Animal weight has been set to " + animal.getWeight());
             }
             
             if(userSelection == 'D') {
@@ -429,6 +448,14 @@ public class Driver {
             }
         }
         return isValid;
+    }
+    
+    // Method to output valid entries from String array
+    public static void validEntryChecker(String[] stringArray) {
+        System.out.println("Valid entries are:");
+        for(int i = 0; i < stringArray.length; ++i) {
+            System.out.println(stringArray[i]);
+        }
     }
 
     // Method to out process animals for the farm or in-service placement (Out of assignment scope)
