@@ -1,3 +1,8 @@
+/* Jeff Perkinson
+ * IT-145 T1605
+ * October 2019
+ */
+
 //Import Java Scanner class to facilitate Scanner object
 //creation to capture user input.
 import java.util.Scanner;
@@ -13,9 +18,9 @@ import java.util.ArrayList;
  * http://tutorials.jenkov.com/java-internationalization/simpledateformat.html
  */
 
-import java.text.SimpleDateFormat;
-import java.util.Date; //TODO: address import comments
-//https://stackoverflow.com/questions/5175728/how-to-get-the-current-date-time-in-java
+//Import Java Date class to support Date types needed for certain
+//RescueAnimal fields.
+import java.util.Date; 
 
 public class Driver {
     
@@ -370,7 +375,21 @@ public class Driver {
             }
             
             if(userSelection == 'G') {
-                System.out.println("FIXME: Call setter to add gender");
+                String genderPrompt =     "Please enter animal gender\n"
+                                        + "Male\n"
+                                        + "Female";
+                System.out.println(genderPrompt);
+                String animalGender = readInput.nextLine().toLowerCase();
+                
+                System.out.println(animalGender);
+                
+                while(!animalGender.equals("male") && !animalGender.equals("female")) {
+                    System.out.println("Invalid Selection.");
+                    System.out.println(genderPrompt);
+                }
+                
+                animal.setGender(animalGender);
+                System.out.println("Animal gender has been set to " + animal.getGender());
             }
             
             if(userSelection == 'A') {
