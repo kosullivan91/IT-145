@@ -10,12 +10,19 @@ import java.util.Scanner;
 //Import Java ArrayList class to facilitate ArrayList
 //creation to house animal objects for iteration
 import java.util.ArrayList;
-
+import java.text.ParseException;
 /* The SimpleDateFormat class is used to format dates according to
  * the format specified by the class user at object instantiation.
- * This class is imported here to facilitate date formatting
+ * This class was part of the original project file and
+ * was imported here to facilitate date formatting
  * for the class fields representing date values.
  * http://tutorials.jenkov.com/java-internationalization/simpledateformat.html
+ */
+import java.text.SimpleDateFormat;
+
+/* Per the discussion board on 10/3/19, we were advised to use the Date
+ * class from the standard Java library to most easily utilize date
+ * types for this project.
  */
 
 //Import Java Date class to support Date types needed for certain
@@ -59,17 +66,6 @@ public class Driver {
          */
         
         ArrayList<RescueAnimal> animalStore = new ArrayList<RescueAnimal>();
-        
-        /*// TODO: Create New Dog
-        Dog rescueDog1 = new Dog();
-        rescueDog1.setName("Fido");
-        // TODO: Create New Monkey
-        Monkey rescueMonkey1 = new Monkey();
-        rescueMonkey1.setName("Jeeves");
-        // TODO: Add new objects to ArrayList
-        animalStore.add(rescueDog1);
-        animalStore.add(rescueMonkey1);
-        */
                
         System.out.println("Welcome to Grazioso Salvare.");
         
@@ -86,9 +82,12 @@ public class Driver {
          */
         
         userSelection = scnr.nextLine().toUpperCase().charAt(0);
-        System.out.println(userSelection);  // TEST OK
-        
-        // continue running until users opts to quit
+               
+        /* Continue running until users opts to quit.
+         * A while loop is used instead of a for loop because the
+         * number of loop iterations is unknown at onset entry
+         * into the loop. 
+         */
         
         while (userSelection != 'Q') {
                      
@@ -103,21 +102,18 @@ public class Driver {
                  System.out.println("Invalid selection");
                  System.out.println(optionsMenu);
                  userSelection = scnr.nextLine().toUpperCase().charAt(0);
-                 System.out.println(userSelection); //TEST OK
              }
             
             /* Break out of the main application loop if user opts to
              * quit from the validation loop.
              */
-            
-            System.out.println(userSelection);  //TEST OK
-            
+              
             if(userSelection == 'Q') {
-                break; //TEST OK
+                break;
             }
             
             /* Execute functionality selected.
-             * This is nested in a while loop so as to continue to be
+             * This is nested the a while loop so as to continue to be
              * available each time the option menu is presented
              * after each function execution until the user quits the application.
              */
@@ -157,9 +153,6 @@ public class Driver {
                  */
                  
                 int intakeSelection = Integer.parseInt(scnr.nextLine());
-                System.out.println("Selection: " + intakeSelection); // TEST OK
-                //int intakeSelection = scnr.nextInt();
-                //System.out.println(intakeSelection); //TEST OK
                 
                 // Loop to validate user input
                 
@@ -173,32 +166,29 @@ public class Driver {
                     */
                     
                     intakeSelection = Integer.parseInt(scnr.nextLine());
-                    System.out.println("Selection in Invalid Loop: " + intakeSelection); //TEST OK
-                    // use nextLine() Scanner method to capture carriage return
-                    // scnr.nextLine();
+                    System.out.println("Selection in Invalid Loop: " + intakeSelection);
                 }
                 
                 if(intakeSelection == 1) {
-                    System.out.println("DOG SELECTED"); //TEST OK
+                    System.out.println("Dog Intake.");
                     Dog newAnimal = new Dog();
                     newAnimal.setType("dog");
-                    // add the animal to the DB
+
+                    // add the animal to the data store
                     animalStore.add(newAnimal);
-                    System.out.println(animalStore); //TEST OK
+
                     // call method to add animal
-                    System.out.println("Calling intakeAnimal for DOG"); //TEST OK
                     intakeAnimal(newAnimal);
-                    
                 }
                 else {
-                    System.out.println("MONKEY SELECTED"); //TEST OK
+                    System.out.println("Monkey Intake.");
                     Monkey newAnimal = new Monkey();
                     newAnimal.setType("monkey");
-                    // add the animal to the DB
+
+                    // add the animal to the data store
                     animalStore.add(newAnimal);
-                    System.out.println(animalStore); //TEST OK
+                    
                     // call method to add animal
-                    System.out.println("Calling intakeAnimal for MONKEY"); //TEST OK
                     intakeAnimal(newAnimal);
                 }
                 
@@ -213,11 +203,7 @@ public class Driver {
             }
             
             System.out.println(optionsMenu);
-            userSelection = scnr.nextLine().toUpperCase().charAt(0);
-            // Hitting 'Enter' without an option selection crashes the program
-            // TODO: Loop to fix it
-            System.out.println(userSelection); //TEST OK
-            
+            userSelection = scnr.nextLine().toUpperCase().charAt(0);            
         }
         
         System.out.println("Goodbye. Grazioso Salvare, Jeff Perkinson \u00A92019");
@@ -267,8 +253,7 @@ public class Driver {
          * in, the breed, gender, age, weight, date, and location acquired
          * are recorded.  Additionally, dogs are given a status of 'intake'
          * before training starts.  The assumption is made the same will be done
-         * for monkeys, so this function sets trainingStatus to 'intake'
-         * and defaults the acquisition date to the current date. 
+         * for monkeys, so this function sets trainingStatus to 'intake'. 
          */
         
         String intakeAnimalOptionsMenu =     "Please select an option.\n"
@@ -276,7 +261,7 @@ public class Driver {
                                         + "G - Add gender\n"
                                         + "A - Add age\n"
                                         + "W - Add weight\n"
-                                        + "D - Modify acquisition date (curent date is default)\n"
+                                        + "D - Enter acquisition date\n"
                                         + "S - Add acquistion source\n"
                                         + "R - Return to main menu\n";
         
@@ -302,8 +287,6 @@ public class Driver {
         
         animal.setTrainingStatus("intake");
         
-        //TODO: default the acquisition date to the current date.
-          
         System.out.println("Add new " + animal.getType() + ".");
         System.out.println(intakeAnimalOptionsMenu);
         
@@ -314,7 +297,6 @@ public class Driver {
          */
         
         userSelection = readInput.nextLine().toUpperCase().charAt(0);
-        System.out.println("Initial userSeclection: " + userSelection); //TEST OK
         
         // continue running until users opts to return to main
         
@@ -331,8 +313,6 @@ public class Driver {
                  System.out.println("Invalid selection");
                  System.out.println(intakeAnimalOptionsMenu);
                  userSelection = readInput.nextLine().toUpperCase().charAt(0);
-                 System.out.println("Selection while in invalid loop: " + userSelection);
-                 // scnr.nextLine();
              }
             
             /* Break out of the main loop if user opts to
@@ -365,6 +345,7 @@ public class Driver {
                 }
                 else {
                     setMonkeySpecies((Monkey) animal, monkeySpecies, readInput, breedInput, isValidBreed);
+                }
             }
             
             if(userSelection == 'G') {
@@ -398,13 +379,30 @@ public class Driver {
                 System.out.println("Enter animal's weight.");
                 float animalWeight = readInput.nextFloat();
                 readInput.nextLine();   // called to capture the carriage return not 
-                                        //captured by nextInt().
+                                        // captured by nextInt().
                 animal.setWeight(animalWeight);
                 System.out.println("Animal weight has been set to " + animal.getWeight());
             }
             
             if(userSelection == 'D') {
-                System.out.println("FIXME: Call setter to add acquisition date");
+                            
+                System.out.print("Enter acquisition date (DD/MM/YYYY): ");
+                
+                // Capture the user's date input
+                // the try catch block appears to be the only way to successfully
+                // execute this.  Admittedly I am unclear about this and took
+                // the template from Stack Overflow.
+                // https://stackoverflow.com/questions/28008022/how-would-i-convert-a-user-input-for-date-of-birth-into-a-calendar-unit-type-to
+                
+                Date animalAcquisitionDate = null;
+                try {
+                    animalAcquisitionDate = new SimpleDateFormat("ddMMyyyy").parse(readInput.nextLine().replaceAll("/", ""));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                
+                animal.setAcquisitionDate(animalAcquisitionDate);
+                System.out.println("Acquisiiton date has been set to " + animal.getAcquisitionDate());             
             }
             
             if(userSelection == 'S') {
@@ -415,17 +413,12 @@ public class Driver {
             }
             
             System.out.println(intakeAnimalOptionsMenu);
-            //TODO: Hitting 'Enter' w/o an option selection crashes the program
-            userSelection = readInput.nextLine().toUpperCase().charAt(0);
-            
+            userSelection = readInput.nextLine().toUpperCase().charAt(0);            
         }     
-        
-//        readInput.close(); //close the Scanner object to conserve resources  TODO: Closing this causes the bug
         
         return; //return even when return type is void to clear the stack frame
         
         }
-    }
     
     // Method to validate is String input is a valid entry in a String array
     public static boolean isValidString(String[] stringArray, String inputString) {

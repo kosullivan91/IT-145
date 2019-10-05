@@ -6,7 +6,7 @@
 
 /* The SimpleDateFormat class is used to format dates according to
  * the format specified by the class user at object instantiation.
- * This class was part of the original project fial and
+ * This class was part of the original project file and
  * was imported here to facilitate date formatting
  * for the class fields representing date values.
  * http://tutorials.jenkov.com/java-internationalization/simpledateformat.html
