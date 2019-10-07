@@ -1,3 +1,8 @@
+/* Jeff Perkinosn
+ * IT-145-T1605
+ * October 2019
+ */
+
 import java.util.Scanner;
 
 public class Paint1 {
