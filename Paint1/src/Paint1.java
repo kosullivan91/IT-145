@@ -16,10 +16,10 @@ public class Paint1 {
         double gallonsPaintNeeded = 0.0;
 
         final double squareFeetPerGallons = 350.0;
-        boolean validHeight;            //boolean value to control do-while
+        boolean validHeight = true;     //boolean value to control do-while
                                         //loop for user's wall height input
 
-        boolean validWidth;             //boolean value to control do-while
+        boolean validWidth = true;      //boolean value to control do-while
                                         //loop for user's wall width input
 
         // Implement a do-while loop to ensure input is valid
@@ -34,7 +34,7 @@ public class Paint1 {
                     throw new Exception("Invalid height.");
                 }
             }
-            catch (InputMismatchException excpt) {  //TODO: This throws an infinite loop for String literal needs fixed.
+            catch (InputMismatchException excpt) {
                 System.out.println(excpt.getMessage());
                 validHeight = false;
             }
