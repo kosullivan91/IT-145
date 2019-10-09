@@ -76,5 +76,7 @@ public class Paint1 {
                                                                                     //gallonspaintneeded replaced with
                                                                                     //gallonsPaintNeeded
 
+        scnr.close();
+        return;
     }
 }
