@@ -5,11 +5,19 @@
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+//Import Java's Double class for input parsing and double type conversion
+//to aide in input validation
+import java.lang.Double;
 
 public class Paint1 {
 
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
+        //String variables needed to store user input for parsing
+        //and conversion to type double for input validation
+        String wallHeightAsString;
+        String wallWidthAsString;
+        
         double wallHeight = 0.0;
         double wallWidth = 0.0;
         double wallArea = 0.0;
@@ -19,7 +27,7 @@ public class Paint1 {
         boolean validHeight = true;            //boolean value to control do-while
                                         //loop for user's wall height input
 
-        boolean validWidth = true;             //boolean value to control do-while
+        boolean validWidth = true;      //boolean value to control do-while
                                         //loop for user's wall width input
 
         // Prompt user to input wall's height
@@ -28,17 +36,23 @@ public class Paint1 {
             validHeight = true;
             try {
                 System.out.println("Enter wall height (feet): ");
-                wallHeight = scnr.nextDouble();
+                //Store the input in a String for parsing and double type conversion
+                wallHeightAsString = scnr.nextLine();
+                //Convert user input to type double
+                //If conversion does not occur an exception will
+                //be thrown that is handled by the catch block
+                wallHeight = Double.parseDouble(wallHeightAsString);
+           
                 if (wallHeight <= 0) {
                     throw new Exception("Invalid height.");
                 }
             }
-            catch (InputMismatchException excpt) {
-                System.out.println(excpt.getMessage());
-                validHeight = false;
-            }
+            // catch (InputMismatchException excpt) {
+            //     System.out.println("Input type mismatch " + excpt.getMessage());
+            //     validHeight = false;
+            // }
             catch (Exception excpt) {
-                System.out.println(excpt.getMessage());
+                System.out.println("Bad value exception " + excpt.getMessage());
                 validHeight = false;
             }
         } while (!validHeight);
@@ -49,8 +63,18 @@ public class Paint1 {
             validWidth = true;
             try {
                 System.out.println("Enter wall width (feet): ");
-                wallWidth = scnr.nextDouble();      //first error, replaced duplicate wallHeight assignment
-                                                    //with wallWidth
+                //Store the input in a String for parsing and double type conversion
+                wallWidthAsString = scnr.nextLine();
+                //Convert user input to type double
+                //If conversion does not occur an exception will
+                //be thrown that is handled by the catch block
+                wallWidth = Double.parseDouble(wallWidthAsString);
+                
+                //wallWidth = scnr.nextDouble();    //first error, replaced duplicate wallHeight assignment
+                                                    //with wallWidth; this is commented out becasue the Double
+                                                    //class is leverage for input validation, so this statment 
+                                                    //is no longer needed, but remains for posterity to show
+                                                    //one of the inital bug fixes in the program
                 if(wallWidth <= 0) {
                     throw new Exception("Invalid width.");
                 }
