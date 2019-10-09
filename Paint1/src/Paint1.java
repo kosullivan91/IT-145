@@ -1,4 +1,4 @@
-/* Jeff Perkinosn
+/* Jeff Perkinson
  * IT-145-T1605
  * October 2019
  */
@@ -47,10 +47,6 @@ public class Paint1 {
                     throw new Exception("Invalid height.");
                 }
             }
-            // catch (InputMismatchException excpt) {
-            //     System.out.println("Input type mismatch " + excpt.getMessage());
-            //     validHeight = false;
-            // }
             catch (Exception excpt) {
                 System.out.println("Bad value exception " + excpt.getMessage());
                 validHeight = false;
@@ -79,12 +75,8 @@ public class Paint1 {
                     throw new Exception("Invalid width.");
                 }
             }
-            catch (InputMismatchException excpt) {
-                System.out.println(excpt.getMessage());
-                validWidth = false;
-            }
             catch (Exception excpt) {
-                System.out.println(excpt.getMessage());
+                System.out.println("Bad value exception " + excpt.getMessage());
                 validWidth = false;
             }
         } while(!validWidth);
