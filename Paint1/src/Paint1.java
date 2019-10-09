@@ -16,13 +16,12 @@ public class Paint1 {
         double gallonsPaintNeeded = 0.0;
 
         final double squareFeetPerGallons = 350.0;
-        boolean validHeight = true;     //boolean value to control do-while
+        boolean validHeight = true;            //boolean value to control do-while
                                         //loop for user's wall height input
 
-        boolean validWidth = true;      //boolean value to control do-while
+        boolean validWidth = true;             //boolean value to control do-while
                                         //loop for user's wall width input
 
-        // Implement a do-while loop to ensure input is valid
         // Prompt user to input wall's height
         // Implement a do-while loop to ensure input is valid and any exceptions are handled
         do {
@@ -44,22 +43,19 @@ public class Paint1 {
             }
         } while (!validHeight);
 
-        // Implement a do-while loop to ensure input is valid
         // Prompt user to input wall's width
-        // Implement a do-while loop to ensure input is valid and any exceptions are handled
-
+        // Implement a do-while loop to ensure input is valid
         do {
             validWidth = true;
             try {
                 System.out.println("Enter wall width (feet): ");
                 wallWidth = scnr.nextDouble();      //first error, replaced duplicate wallHeight assignment
                                                     //with wallWidth
-
-                if (wallWidth <= 0) {
+                if(wallWidth <= 0) {
                     throw new Exception("Invalid width.");
                 }
             }
-            catch (InputMismatchException excpt) {  //TODO: This throws an infinite loop for String literal needs fixed.
+            catch (InputMismatchException excpt) {
                 System.out.println(excpt.getMessage());
                 validWidth = false;
             }
@@ -67,9 +63,9 @@ public class Paint1 {
                 System.out.println(excpt.getMessage());
                 validWidth = false;
             }
-        } while (!validWidth);
-
-       // Calculate and output wall area
+        } while(!validWidth);
+        
+        // Calculate and output wall area
         wallArea = wallHeight * wallWidth;
         System.out.println("Wall area: " + wallArea + " square feet");      //second error, wallArea variable
                                                                             //was not included in print statement
