@@ -23,7 +23,7 @@ public class Paint1 {
                                         //loop for user's wall width input
 
         // Prompt user to input wall's height
-        // Implement a do-while loop to ensure input is valid and any exceptions are handled
+        // Implement a do-while loop with try-catch to ensure input is valid and any exceptions are handled
         do {
             validHeight = true;
             try {
@@ -44,7 +44,7 @@ public class Paint1 {
         } while (!validHeight);
 
         // Prompt user to input wall's width
-        // Implement a do-while loop to ensure input is valid
+        // Implement a do-while loop with try-catch to ensure input is valid and any exceptions are handled
         do {
             validWidth = true;
             try {
