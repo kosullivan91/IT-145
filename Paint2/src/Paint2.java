@@ -117,5 +117,8 @@ public class Paint2 {
 
          cansNeeded = Math.ceil(gallonsPaintNeeded);
          System.out.println("Cans needed: " + cansNeeded + " can(s)");
+    
+         scnr.close();
+         return;
     }
 }
