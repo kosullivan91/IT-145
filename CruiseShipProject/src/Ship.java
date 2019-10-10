@@ -6,7 +6,7 @@ public class Ship {
     private int roomOceanView;
     private int roomSuite;
     private int roomInterior;
-    private boolean inService;  // true is 'in service'
+    private boolean inService;
 
     // Constructor - default
     Ship() {
