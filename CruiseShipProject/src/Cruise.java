@@ -65,7 +65,13 @@ public class Cruise {
     // print cruise details
     public void printCruiseDetails() {
 
-        // complete this method
+        // prints a list, each cruise on a separate row
+
+        // Data should be placed in columns that correspond to the variables:
+        // cruise name, cruise ship name, departure port, destination, return port
+        // if there are no cruises in the inventory, output to the user as such
+        // follow appropriate naming conventions
+        // include descriptive in-line comments for all code you create and modify
 
     }
 

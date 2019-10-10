@@ -6,6 +6,7 @@ import static java.lang.Integer.parseInt;
 public class Driver {
 
     // class variables (add more as needed)
+    // ArrayLists for Ship, Cruise, and Passenger objects serve as application data store
     private static ArrayList<Ship> shipList = new ArrayList();
     private static ArrayList<Cruise> cruiseList = new ArrayList();
     private static ArrayList<Passenger> passengerList = new ArrayList();
@@ -21,12 +22,13 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-
+        return;     // return even when return type is void to clear the stack frame
     }
 
     // hardcoded ship data for testing
     // Initialize ship list
     public static void initializeShipList() {
+        // arguments - shipName, balcony, oceanview, suite, interior, inService
         add("Candy Cane", 20, 40, 10, 60, true);
         add("Peppermint Stick", 10, 20, 5, 40, true);
         add("Bon Bon", 12, 18, 2, 24, false);
@@ -36,6 +38,7 @@ public class Driver {
     // hardcoded cruise data for testing
     // Initialize cruise list
     public static void initializeCruiseList() {
+        // arguments - cruiseName, shipName, departure, destination, return
         Cruise newCruise = new Cruise("Southern Swirl", "Candy Cane", "Miami", "Cuba", "Miami");
         cruiseList.add(newCruise);
     }
