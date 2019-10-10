@@ -6,9 +6,10 @@ import static java.lang.Integer.parseInt;
 public class Driver {
 
     // class variables (add more as needed)
-    private static ArrayList<Ship> shipList = new ArrayList();
-    private static ArrayList<Cruise> cruiseList = new ArrayList();
-    private static ArrayList<Passenger> passengerList = new ArrayList();
+    // ArrayLists for Ship, Cruise, and Passenger objects serve as application data store
+    private static ArrayList<Ship> shipList = new ArrayList<Ship>();
+    private static ArrayList<Cruise> cruiseList = new ArrayList<Cruise>();
+    private static ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
 
 
     public static void main(String[] args) {
