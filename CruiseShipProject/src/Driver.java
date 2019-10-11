@@ -14,9 +14,12 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        initializeShipList();       // initial ships
-        initializeCruiseList();     // initial cruises
-        initializePassengerList();  // initial passengers
+        initializeShipList(shipList);       // initial ships
+        initializeCruiseList(cruiseList);   // initial cruises
+        initializePassengerList();          // initial passengers
+
+        System.out.println(shipList);
+        System.out.println(cruiseList);
 
         // add loop and code here that accepts and validates user input
         // and takes the appropriate action. include appropriate
@@ -27,23 +30,24 @@ public class Driver {
 
     // hardcoded ship data for testing
     // Initialize ship list
-    public static void initializeShipList() {
+    public static void initializeShipList(ArrayList<Ship> shipList) {  // added missing ArrayList<Ship> parameter
         // arguments - shipName, balcony, oceanview, suite, interior, inService
-        add("Candy Cane", 20, 40, 10, 60, true);
-        add("Peppermint Stick", 10, 20, 5, 40, true);
-        add("Bon Bon", 12, 18, 2, 24, false);
-        add("Candy Corn", 12, 18, 2, 24, false);
+        // add new ship objects to ArrayList<Ship> passed in as the argument in the method call
+        shipList.add(new Ship("Candy Cane", 20, 40, 10, 60, true));
+        shipList.add(new Ship("Peppermint Stick", 10, 20, 5, 40, true));
+        shipList.add(new Ship("Bon Bon", 12, 18, 2, 24, false));
+        shipList.add(new Ship("Candy Corn", 12, 18, 2, 24, false));
     }
 
     // hardcoded cruise data for testing
     // Initialize cruise list
-    public static void initializeCruiseList() {
+    public static void initializeCruiseList(ArrayList<Cruise> cruiseList) { // added missing ArrayList<Cruise> parameter
         // arguments - cruiseName, shipName, departure, destination, return
         Cruise newCruise = new Cruise("Southern Swirl", "Candy Cane", "Miami", "Cuba", "Miami");
         cruiseList.add(newCruise);
     }
 
-    // hardcoded cruise data for testing
+    // hardcoded passenger data for testing
     // Initialize passenger list
     public static void initializePassengerList() {
         Passenger newPassenger1 = new Passenger("Neo Anderson", "Southern Swirl", "STE");
