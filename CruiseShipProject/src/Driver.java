@@ -14,12 +14,9 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        initializeShipList(shipList);       // initial ships
-        initializeCruiseList(cruiseList);   // initial cruises
-        initializePassengerList();          // initial passengers
-
-        System.out.println(shipList);
-        System.out.println(cruiseList);
+        initializeShipList(shipList);           // initial ships
+        initializeCruiseList(cruiseList);       // initial cruises
+        initializePassengerList(passengerList); // initial passengers
 
         // add loop and code here that accepts and validates user input
         // and takes the appropriate action. include appropriate
@@ -49,7 +46,8 @@ public class Driver {
 
     // hardcoded passenger data for testing
     // Initialize passenger list
-    public static void initializePassengerList() {
+    public static void initializePassengerList(ArrayList<Passenger> passengerList) {    // added missing ArrayList<Passenger> parameter
+        // arguments - pName, pCruise, pRoomType
         Passenger newPassenger1 = new Passenger("Neo Anderson", "Southern Swirl", "STE");
         passengerList.add(newPassenger1);
 
