@@ -22,6 +22,11 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
+        for (int i = 0; i < cruiseList.size(); ++i) {
+            cruiseList.get(i).printCruiseDetails();
+            System.out.println();
+        }
+
         return;     // return even when return type is void to clear the stack frame
     }
 
@@ -42,6 +47,10 @@ public class Driver {
         // arguments - cruiseName, shipName, departure, destination, return
         Cruise newCruise = new Cruise("Southern Swirl", "Candy Cane", "Miami", "Cuba", "Miami");
         cruiseList.add(newCruise);
+        Cruise newCruise2 = new Cruise("Billy Belle", "Bon Bon", "Jacksonville", "Bermuda", "Jacksonville");
+        cruiseList.add(newCruise2);
+        Cruise newCruise3 = new Cruise("Hello Cruise", "Candy Corn", "New York", "Bermuda", "Jacksonville");
+        cruiseList.add(newCruise3);
     }
 
     // hardcoded passenger data for testing

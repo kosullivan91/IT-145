@@ -65,14 +65,42 @@ public class Cruise {
     // print cruise details
     public void printCruiseDetails() {
 
-        // prints a list, each cruise on a separate row
-
         // Data should be placed in columns that correspond to the variables:
         // cruise name, cruise ship name, departure port, destination, return port
         // if there are no cruises in the inventory, output to the user as such
         // follow appropriate naming conventions
         // include descriptive in-line comments for all code you create and modify
 
+        int spaceCount;                             // counter for space characters to
+                                                    // pad the cruise Name column
+
+        String spaceHolder = "";                    // spaceHolder to pad columns
+
+        String[] spaces = {"","","","",""};             // space character array to set padding for each field column
+        int[] spaceCounts = new int[5];                 // array of spaceCounts to set padding lengths
+
+        spaceCounts[0] = 20 - cruiseName.length();      // columns have a fixed width of 20 characters, the
+        spaceCounts[1] = 20 - cruiseShipName.length();  // width of the space character count is the fixed
+        spaceCounts[2] = 20 - departurePort.length();   // column width less the width of the applicable field
+        spaceCounts[3] = 20 - destination.length();
+        spaceCounts[4] = 20 - returnPort.length();
+
+        // the for loop iterates over the spaces array and increases
+        // each String in the array with the number of spaces equal to
+        // the column width not occupied by the field name value,
+        // adding space for each character position that remains after
+        // subtracting the length of the field value from the fixed
+        // column width of 20 characters
+
+        for (int i = 0; i < spaces.length; ++i) {
+            for (int j = 0; j < spaceCounts[i]; j++) {
+                spaces[i] += " ";
+            }
+        }
+
+        System.out.println(cruiseName + spaces[0] + cruiseShipName + spaces[1] +
+                departurePort + spaces[2] + destination + spaces[3] +
+                returnPort);
     }
 
     // method added to print ship's name vice memory address
