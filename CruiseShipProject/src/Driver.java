@@ -22,9 +22,6 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-        printShipList("name");
-        printShipList("active");
-        printShipList("full");
 
 
         return;     // return even when return type is void to clear the stack frame
@@ -196,6 +193,13 @@ public class Driver {
     public static void addShip() {
 
         // complete this method
+        // ensure the ship does not already exist in the system
+
+        // ensure all class variables are populated
+        // use try-catch exception handling to validate user input
+
+        // add ship to the system
+        // adds a new ship object, includes all class variables, updates appropriate ArrayList
 
     }
 
