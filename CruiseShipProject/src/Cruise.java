@@ -67,9 +67,6 @@ public class Cruise {
 
         // Data should be placed in columns that correspond to the variables:
         // cruise name, cruise ship name, departure port, destination, return port
-        // if there are no cruises in the inventory, output to the user as such
-        // follow appropriate naming conventions
-        // include descriptive in-line comments for all code you create and modify
 
         int spaceCount;                             // counter for space characters to
                                                     // pad the cruise Name column
