@@ -22,11 +22,6 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-        for (int i = 0; i < cruiseList.size(); ++i) {
-            cruiseList.get(i).printCruiseDetails();
-            System.out.println();
-        }
-
         return;     // return even when return type is void to clear the stack frame
     }
 
