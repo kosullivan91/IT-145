@@ -22,7 +22,6 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-        
 
         return;     // return even when return type is void to clear the stack frame
     }
@@ -91,9 +90,28 @@ public class Driver {
             }
         } else if (listType == "active") {
             System.out.println("\n\nSHIP LIST - Active");
+            // Loop through the ArrayList shipList
+            // If the ship is in service (i.e. Ship.inService is true),
+            // print the Ship name
+            // A for loop is used because the number of iterations
+            // are known at loop onset as determined by the size
+            // of the ArrayList shipList
 
-            // complete this code block
-
+            for (int i = 0; i < shipList.size(); i++) {
+                // method chaining is used here
+                // shipList.get(i) returns that Ship object
+                // stored at the given index
+                // Ship.getInService() is chained onto the end
+                // to return the boolean inService value for the
+                // particular Ship.
+                // inside the if block method chaining is used to
+                // call the toString method to print the shipName
+                if (shipList.get(i).getInService()) {
+                    System.out.println(shipList.get(i).toString()); // Ship.toString() overrides the
+                                                                    // parent Object class toString method
+                                                                    // and returns shipName
+                }
+            }
 
         } else if (listType == "full") {
             System.out.println("\n\nSHIP LIST - Full");
