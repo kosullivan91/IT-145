@@ -191,9 +191,45 @@ public class Driver {
 
     // Add a New Ship
     public static void addShip() {
+        // declare method variables
+        // these will be used to store user input and pass
+        // into the Ship constructor
+        String shipName;
+        int roomBalcony;
+        int roomOceanView;
+        int roomSuite;
+        int roomInterior;
+        boolean inService;
+        boolean validEntry = true;  // boolean variable to drive the validation loops
 
-        // complete this method
         // ensure the ship does not already exist in the system
+        // Prompt user to input the Ship's name
+        // Implement a do-while loop with try-catch to ensure input is valid and any exceptions are handled
+
+        do {
+            validHeight = true;
+            try {
+                System.out.println("Enter wall height (feet): ");
+                //Store the input in a String for parsing and double type conversion
+                wallHeightAsString = scnr.nextLine();
+                //Convert user input to type double
+                //If conversion does not occur an exception will
+                //be thrown that is handled by the catch block
+                wallHeight = Double.parseDouble(wallHeightAsString);
+
+                if (wallHeight <= 0) {
+                    throw new Exception("Invalid height.");
+                }
+            }
+            catch (NumberFormatException excpt) {
+                System.out.println("Do not enter String. " + excpt.getMessage());
+                validHeight = false;
+            }
+            catch (Exception excpt) {
+                System.out.println("Bad value exception. " + excpt.getMessage());
+                validHeight = false;
+            }
+        } while (!validHeight);
 
         // ensure all class variables are populated
         // use try-catch exception handling to validate user input
