@@ -22,6 +22,10 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
+        printShipList("name");
+        printShipList("active");
+        printShipList("full");
+
 
         return;     // return even when return type is void to clear the stack frame
     }
@@ -89,6 +93,11 @@ public class Driver {
                 System.out.println(shipList.get(i));
             }
         } else if (listType == "active") {
+            // Track active ships
+            int activeShipCount = 0;    // initialize to 0, if there are
+                                        // no active ships the method will
+                                        // return as much.
+
             System.out.println("\n\nSHIP LIST - Active");
             // Loop through the ArrayList shipList
             // If the ship is in service (i.e. Ship.inService is true),
@@ -110,7 +119,13 @@ public class Driver {
                     System.out.println(shipList.get(i).toString()); // Ship.toString() overrides the
                                                                     // parent Object class toString method
                                                                     // and returns shipName
+                    activeShipCount++;  // increase active ship count by one for each active ship found
                 }
+            }
+
+            // if there are no active ships, print an informative message citing no active ships
+            if (activeShipCount < 1) {
+                System.out.println("There are no active cruise ships at this time.");
             }
 
         } else if (listType == "full") {
