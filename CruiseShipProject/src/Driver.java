@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.lang.Integer;   // Integer class needed for parsing and converting
+                            // user input for int type variables
 
 import static java.lang.Integer.parseInt;
 
@@ -29,8 +31,6 @@ public class Driver {
         // add loop and code here that accepts and validates user input
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
-
-        addShip(scnr);
 
         scnr.close();   // close the Scanner object to prevent memory leak
 
@@ -203,13 +203,15 @@ public class Driver {
         // declare method variables
         // these will be used to store user input and pass
         // into the Ship constructor
-        String shipName;
+        String shipName = "";   // initialized to allow compilation
         int roomBalcony;
         int roomOceanView;
         int roomSuite;
         int roomInterior;
-        boolean inService;
-        boolean validEntry = true;  // boolean variable to drive the validation loops
+        String inServiceInput;  // String variable to store user's response
+                                // to whether ship is available for cruises
+        boolean inService = false;  // initialized to allow compilation
+        boolean validEntry;  // boolean variable to drive the validation loops
 
         // ensure the ship does not already exist in the system
         // Prompt user to input the Ship's name
@@ -221,6 +223,8 @@ public class Driver {
             try {
                 System.out.println("Enter ship name: ");
                 // Store the user input as String in shipName variable
+                // method assumes no constraints on shipName other
+                // then uniqueness; only validation of uniqueness is implemented
                 shipName = scnr.nextLine();
 
                 // loop through the existing shipList array
@@ -234,11 +238,11 @@ public class Driver {
                         throw new Exception("Invalid entry. Ship name already exists. Ship name must be unique.");
                     }
                 }
+                // throw an exception is no name is provided
+                if (shipName.isEmpty() || shipName.isBlank()) {
+                    throw new Exception("Invalid entry. Please enter a ship name.");
+                }
             }
-//            catch (NumberFormatException excpt) {
-//                System.out.println("Do not enter String. " + excpt.getMessage());
-//                validHeight = false;
-//            }
             catch (Exception excpt) {
                 System.out.println("Bad value exception. " + excpt.getMessage());
                 validEntry = false;
@@ -246,11 +250,40 @@ public class Driver {
         } while (!validEntry);
 
         // ensure all class variables are populated
-        // use try-catch exception handling to validate user input
+        // the roomInputValidation() method validates user entry as int
+        // and returns the user input provided
+        roomBalcony = roomInputValidation(scnr, "balcony");
+        roomOceanView = roomInputValidation(scnr, "ocean view");
+        roomSuite = roomInputValidation(scnr, "suite");
+        roomInterior = roomInputValidation(scnr, "interior");
+
+        // prompt the user whether ship is available for cruises (i.e. in service)
+        do {
+            validEntry = true;
+            try {
+                System.out.println("Is this ship currently available for cruises? (Y/N) ");
+                inServiceInput = scnr.nextLine();
+                // throw an exception if user does not enter 'Y' or 'N'
+                if (!inServiceInput.equalsIgnoreCase("Y") && !inServiceInput.equalsIgnoreCase("N")) {
+                    throw new Exception("Please enter Y or N.");
+                }
+                if (inServiceInput.equalsIgnoreCase("Y")) {
+                    inService = true;
+                }
+                else {
+                    inService = false;
+                }
+            }
+            catch (Exception excpt) {
+                System.out.println("Invalid Entry. " + excpt.getMessage());
+                validEntry = false;
+            }
+        } while (!validEntry);
 
         // add ship to the system
         // adds a new ship object, includes all class variables, updates appropriate ArrayList
-
+        Ship newShip = new Ship(shipName, roomBalcony, roomOceanView, roomSuite, roomInterior, inService);
+        shipList.add(newShip);
     }
 
     // Edit an existing ship
@@ -338,4 +371,40 @@ public class Driver {
         return true;
     }
 
+    // Room input validation
+    // ensures user input is a number and returns the input
+    public static int roomInputValidation(Scanner scnr, String roomType) {
+        // method variables
+        boolean validEntry;         // boolean variable to drive validation loop
+        int roomCount = 0;          // int variable to store and return room count provided
+                                    // initialized to 0 to ensure compilation
+        String roomCountAsString;   // String variable to hold user input for parsing and converison
+
+        do {
+            validEntry = true;
+            try {
+                System.out.println("Enter number of " + roomType + " rooms.");
+                // Store the user input as String variable for parsing and Integer type conversion
+                roomCountAsString = scnr.nextLine();
+                // If conversion does not occur an exception will
+                // be thrown that is handled by the catch block
+                // this approach ensures an entry is submitted as no entry
+                // also throws an exception
+                roomCount = Integer.parseInt(roomCountAsString);
+                // ensure roomCount is not negative
+                // 0 is allowed as a given Ship might not have
+                // any rooms of the specified type
+                if (roomCount < 0) {
+                    throw new Exception("Room count can not be negative.  Enter 0 if no rooms.");
+                }
+            }
+
+            catch (Exception excpt) {
+                System.out.println("Bad value exception. " + excpt.getMessage());
+                validEntry = false;
+            }
+        } while (!validEntry);
+
+        return roomCount;
+    }
 }
