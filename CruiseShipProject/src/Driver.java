@@ -14,6 +14,14 @@ public class Driver {
 
     public static void main(String[] args) {
 
+        // create a Scanner object to collect user input
+        // this object will be passed in to other methods
+        // that rely on standard user input collect as best
+        // practice is to only create a single Scanner object
+        // for each input stream (e.g. standard input System.in)
+
+        Scanner scnr = new Scanner(System.in);
+
         initializeShipList(shipList);           // initial ships
         initializeCruiseList(cruiseList);       // initial cruises
         initializePassengerList(passengerList); // initial passengers
@@ -22,7 +30,9 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
+        addShip(scnr);
 
+        scnr.close();   // close the Scanner object to prevent memory leak
 
         return;     // return even when return type is void to clear the stack frame
     }
@@ -70,7 +80,6 @@ public class Driver {
         Ship newShip = new Ship(tName, tBalcony, tOceanView, tSuite, tInterior, tInService);
         shipList.add(newShip);
     }
-
 
     public static void printShipList(String listType) {
         // printShipList() method prints list of ships from the
@@ -190,7 +199,7 @@ public class Driver {
     }
 
     // Add a New Ship
-    public static void addShip() {
+    public static void addShip(Scanner scnr) {
         // declare method variables
         // these will be used to store user input and pass
         // into the Ship constructor
@@ -204,32 +213,37 @@ public class Driver {
 
         // ensure the ship does not already exist in the system
         // Prompt user to input the Ship's name
-        // Implement a do-while loop with try-catch to ensure input is valid and any exceptions are handled
+        // Implement a do-while loop with exception handling to ensure input is valid
+        // and any exceptions are handled
 
         do {
-            validHeight = true;
+            validEntry = true;
             try {
-                System.out.println("Enter wall height (feet): ");
-                //Store the input in a String for parsing and double type conversion
-                wallHeightAsString = scnr.nextLine();
-                //Convert user input to type double
-                //If conversion does not occur an exception will
-                //be thrown that is handled by the catch block
-                wallHeight = Double.parseDouble(wallHeightAsString);
+                System.out.println("Enter ship name: ");
+                // Store the user input as String in shipName variable
+                shipName = scnr.nextLine();
 
-                if (wallHeight <= 0) {
-                    throw new Exception("Invalid height.");
+                // loop through the existing shipList array
+                // if a ship with the same name exists throw an exception
+                for (int i = 0; i < shipList.size(); ++i) {
+                    // use method chaining to retrieve the Ship object
+                    // in the shipList ArrayList for each iteration and
+                    // compare shipName values to determine whether
+                    // the user's entry is unique
+                    if (shipName.equalsIgnoreCase(shipList.get(i).getShipName())) {
+                        throw new Exception("Invalid entry. Ship name already exists. Ship name must be unique.");
+                    }
                 }
             }
-            catch (NumberFormatException excpt) {
-                System.out.println("Do not enter String. " + excpt.getMessage());
-                validHeight = false;
-            }
+//            catch (NumberFormatException excpt) {
+//                System.out.println("Do not enter String. " + excpt.getMessage());
+//                validHeight = false;
+//            }
             catch (Exception excpt) {
                 System.out.println("Bad value exception. " + excpt.getMessage());
-                validHeight = false;
+                validEntry = false;
             }
-        } while (!validHeight);
+        } while (!validEntry);
 
         // ensure all class variables are populated
         // use try-catch exception handling to validate user input
