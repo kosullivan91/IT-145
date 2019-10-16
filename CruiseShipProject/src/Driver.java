@@ -33,6 +33,9 @@ public class Driver {
         // user feedback and redisplay the menu as needed
 
         addCruise(scnr);
+        for (int i = 0; i < cruiseList.size(); ++i) {
+            System.out.println(cruiseList.get(i));
+        }
 
         scnr.close();   // close the Scanner object to prevent memory leak
 
@@ -46,8 +49,10 @@ public class Driver {
         // add new ship objects to ArrayList<Ship> passed in as the argument in the method call
         shipList.add(new Ship("Candy Cane", 20, 40, 10, 60, true));
         shipList.add(new Ship("Peppermint Stick", 10, 20, 5, 40, true));
-        shipList.add(new Ship("Bon Bon", 12, 18, 2, 24, false));
+        shipList.add(new Ship("Bon Bon", 12, 18, 2, 24, true));
         shipList.add(new Ship("Candy Corn", 12, 18, 2, 24, false));
+        shipList.add(new Ship("Beached Whale", 12, 18, 2, 24, true));
+
     }
 
     // hardcoded cruise data for testing
@@ -58,7 +63,7 @@ public class Driver {
         cruiseList.add(newCruise);
         Cruise newCruise2 = new Cruise("Billy Belle", "Bon Bon", "Jacksonville", "Bermuda", "Jacksonville");
         cruiseList.add(newCruise2);
-        Cruise newCruise3 = new Cruise("Hello Cruise", "Candy Corn", "New York", "Bermuda", "Jacksonville");
+        Cruise newCruise3 = new Cruise("Hello Cruise", "Candy Cane", "New York", "Bermuda", "Jacksonville");
         cruiseList.add(newCruise3);
     }
 
@@ -286,6 +291,8 @@ public class Driver {
         // adds a new ship object, includes all class variables, updates appropriate ArrayList
         Ship newShip = new Ship(shipName, roomBalcony, roomOceanView, roomSuite, roomInterior, inService);
         shipList.add(newShip);
+
+        return;     // clear the stack frame
     }
 
     // Edit an existing ship
@@ -310,6 +317,10 @@ public class Driver {
         boolean validEntry;         // boolean variable to drive the validation loops
         int validShipCount;         // valid ship name counter; if greater than 0 there's a match
                                     // will not exceed 1 since Ship names in shipList are unique
+        boolean shipInService;      // boolean variable to drive validation loops
+                                    // based on whether the ship is in service, available for cruises
+        boolean shipHasCruise;      // boolean variable to drive validation loops
+                                    // based on whether the ship provided is already assigned to a cruise
 
         // ensure the cruise does not already exist in the system
         // Prompt user to input the Cruise's name
@@ -354,10 +365,13 @@ public class Driver {
         destination = stringInputValidation(scnr, "cruise destination");
         returnPort = stringInputValidation(scnr, "return port");
         // validate the ship name to ensure it's part of the Ship list
+        // and validate whether the ship is in service
         do {
             validEntry = true;
             try {
                 validShipCount = 0;
+                shipInService = false;
+                shipHasCruise = false;
                 cruiseShipName = stringInputValidation(scnr, "cruise ship name");
                 for (int i = 0; i < shipList.size(); ++i) {
                     // use method chaining to retrieve the Ship object
@@ -366,10 +380,24 @@ public class Driver {
                     // the user's entry is a valid Ship name
                     if (cruiseShipName.equalsIgnoreCase(shipList.get(i).getShipName())) {
                         validShipCount ++;
+                        // if a matching ship is found, determine whether it is in service
+                        // if the ship is in service note it as such
+                        if (shipList.get(i).getInService()) {
+                            shipInService = true;
+                        }
+                        // if the ship is already assigned to a cruise
+                        // throw an exception
+                        shipHasCruise = hasCruise(cruiseShipName);
                     }
                 }
                 if (validShipCount == 0) {
                     throw new Exception ("Invalid ship name entry.  Please enter a valid ship name.");
+                }
+                if (!shipInService) {
+                    throw new Exception("Invalid ship entry.  Ship is not in service.  Please enter a valid ship.");
+                }
+                if (shipHasCruise) {
+                    throw new Exception("Invalid ship entry. Ship is already assigned to a cruise.  Please enter a valid ship.");
                 }
             }
             catch (Exception excpt) {
@@ -378,10 +406,12 @@ public class Driver {
             }
         } while (!validEntry);
 
-        // ensure the ship is in service
-
         // add the new cruise to the cruiseList ArrayList
+        // adds a new Cruise object, includes all class variables, updates appropriate ArrayList
+        Cruise newCruise = new Cruise(cruiseName, cruiseShipName, departurePort, destination, returnPort);
+        cruiseList.add(newCruise);
 
+        return;     // clear the stack frame
     }
 
     // Edit an existing cruise
@@ -516,5 +546,18 @@ public class Driver {
         } while (!validEntry);
 
         return userInput;
+    }
+
+    // Method to determine whether a given ship name is
+    // already assigned to a cruise.  Used for validation
+    // in addCruise() method
+    public static boolean hasCruise(String shipName) {
+        boolean shipHasCruise = false;
+        for (int i = 0; i < cruiseList.size(); ++i) {
+            if (shipName.equalsIgnoreCase(cruiseList.get(i).getCruiseShipName())) {
+                shipHasCruise = true;
+            }
+        }
+        return shipHasCruise;
     }
 }
