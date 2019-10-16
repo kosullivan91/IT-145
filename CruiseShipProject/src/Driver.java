@@ -32,6 +32,8 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
+        addCruise(scnr);
+
         scnr.close();   // close the Scanner object to prevent memory leak
 
         return;     // return even when return type is void to clear the stack frame
@@ -224,7 +226,7 @@ public class Driver {
                 System.out.println("Enter ship name: ");
                 // Store the user input as String in shipName variable
                 // method assumes no constraints on shipName other
-                // then uniqueness; only validation of uniqueness is implemented
+                // than uniqueness; only validation of uniqueness is implemented
                 shipName = scnr.nextLine();
 
                 // loop through the existing shipList array
@@ -295,11 +297,59 @@ public class Driver {
     }
 
     // Add a New Cruise
-    public static void addCruise() {
+    public static void addCruise(Scanner scnr) {
+        // declare method variables
+        // these will be used to store user input and pass
+        // into the Cruise constructor
+        // all string variables are initialized to allow compilation
+        String cruiseName = "";
+        String cruiseShipName = "";
+        String departurePort = "";
+        String destination = "";
+        String returnPort = "";
+        boolean validEntry;  // boolean variable to drive the validation loops
 
-        // complete this method
+        // ensure the cruise does not already exist in the system
+        // Prompt user to input the Cruise's name
+        // Implement a do-while loop with exception handling to ensure input is valid
+        // and any exceptions are handled
+        do {
+            validEntry = true;
+            try {
+                System.out.println("Enter cruise name: ");
+                // Store the user input as String in cruiseName variable
+                // method assumes no constraints on cruiseName other
+                // than uniqueness; only validation of uniqueness is implemented
+                cruiseName = scnr.nextLine();
 
-        
+                // loop through the existing cruiseList array
+                // if a cruise with the same name exists throw an exception
+                for (int i = 0; i < cruiseList.size(); ++i) {
+                    // use method chaining to retrieve the Cruise object
+                    // in the cruiseList ArrayList for each iteration and
+                    // compare cruiseName values to determine whether
+                    // the user's entry is unique
+                    if (cruiseName.equalsIgnoreCase(cruiseList.get(i).getCruiseName())) {
+                        throw new Exception("Invalid entry. Cruise name already exists. Cruise name must be unique.");
+                    }
+                }
+                // throw an exception is no name is provided
+                if (cruiseName.isEmpty() || cruiseName.isBlank()) {
+                    throw new Exception("Invalid entry. Please enter a cruise name.");
+                }
+            }
+            catch (Exception excpt) {
+                System.out.println("Bad value exception. " + excpt.getMessage());
+                validEntry = false;
+            }
+        } while (!validEntry);
+
+        // require all class variables to be populated
+
+        // validate the ship name AND ensure it's in service
+
+        // add the new cruise to the cruiseList ArrayList
+
     }
 
     // Edit an existing cruise
