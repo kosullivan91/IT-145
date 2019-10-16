@@ -32,11 +32,7 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-        addCruise(scnr);
-        for (int i = 0; i < cruiseList.size(); ++i) {
-            System.out.println(cruiseList.get(i));
-        }
-
+        
         scnr.close();   // close the Scanner object to prevent memory leak
 
         return;     // return even when return type is void to clear the stack frame
