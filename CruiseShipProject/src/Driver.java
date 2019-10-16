@@ -240,7 +240,7 @@ public class Driver {
                         throw new Exception("Invalid entry. Ship name already exists. Ship name must be unique.");
                     }
                 }
-                // throw an exception is no name is provided
+                // throw an exception if no name is provided
                 if (shipName.isEmpty() || shipName.isBlank()) {
                     throw new Exception("Invalid entry. Please enter a ship name.");
                 }
@@ -307,7 +307,9 @@ public class Driver {
         String departurePort = "";
         String destination = "";
         String returnPort = "";
-        boolean validEntry;  // boolean variable to drive the validation loops
+        boolean validEntry;         // boolean variable to drive the validation loops
+        int validShipCount;         // valid ship name counter; if greater than 0 there's a match
+                                    // will not exceed 1 since Ship names in shipList are unique
 
         // ensure the cruise does not already exist in the system
         // Prompt user to input the Cruise's name
@@ -344,9 +346,39 @@ public class Driver {
             }
         } while (!validEntry);
 
-        // require all class variables to be populated
+        // ensure all class variables are populated
+        // the stringInputValidation() method validates user entry to
+        // ensure it is neither empty nor blank
+        // and returns the user input provided
+        departurePort = stringInputValidation(scnr, "departure port");
+        destination = stringInputValidation(scnr, "cruise destination");
+        returnPort = stringInputValidation(scnr, "return port");
+        // validate the ship name to ensure it's part of the Ship list
+        do {
+            validEntry = true;
+            try {
+                validShipCount = 0;
+                cruiseShipName = stringInputValidation(scnr, "cruise ship name");
+                for (int i = 0; i < shipList.size(); ++i) {
+                    // use method chaining to retrieve the Ship object
+                    // in the shipList ArrayList for each iteration and
+                    // compare shipName values to determine whether
+                    // the user's entry is a valid Ship name
+                    if (cruiseShipName.equalsIgnoreCase(shipList.get(i).getShipName())) {
+                        validShipCount ++;
+                    }
+                }
+                if (validShipCount == 0) {
+                    throw new Exception ("Invalid ship name entry.  Please enter a valid ship name.");
+                }
+            }
+            catch (Exception excpt) {
+                System.out.println("Bad value exception. " + excpt.getMessage());
+                validEntry = false;
+            }
+        } while (!validEntry);
 
-        // validate the ship name AND ensure it's in service
+        // ensure the ship is in service
 
         // add the new cruise to the cruiseList ArrayList
 
@@ -456,5 +488,33 @@ public class Driver {
         } while (!validEntry);
 
         return roomCount;
+    }
+
+    // String input validation
+    // Ensures user input is not empty or null and returns the input
+    public static String stringInputValidation(Scanner scnr, String fieldName) {
+        // method variables
+        boolean validEntry;             // boolean variable to drive validation loop
+        String userInput = "";          // String variable to hold user input for validation
+                                        // Variable is initialized to ensure compilation
+        do {
+            validEntry = true;
+            try {
+                System.out.println("Enter " + fieldName + ".");
+                // Store the user input
+                userInput = scnr.nextLine();
+                // throw an exception if entry is empty or blank
+                if (userInput.isEmpty() || userInput.isBlank()) {
+                    throw new Exception("Invalid entry. Input can not be empty or blank.");
+                }
+            }
+
+            catch (Exception excpt) {
+                System.out.println("Bad value exception. " + excpt.getMessage());
+                validEntry = false;
+            }
+        } while (!validEntry);
+
+        return userInput;
     }
 }
