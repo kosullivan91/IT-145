@@ -59,7 +59,10 @@ public class Driver {
             try {
                 switch (userSelection) {
                     case '1':
-                        System.out.println("FIXME: Add Ship");
+                        addShip(scnr);
+                        for (int i = 0; i < shipList.size(); ++i) {
+                            System.out.println(shipList.get(i));
+                        }
                         break;
                     case '2':
                         System.out.println("FIXME: Edit Ship");
@@ -363,8 +366,8 @@ public class Driver {
 
         // add ship to the system
         // adds a new ship object, includes all class variables, updates appropriate ArrayList
-        Ship newShip = new Ship(shipName, roomBalcony, roomOceanView, roomSuite, roomInterior, inService);
-        shipList.add(newShip);
+        // via the add() method defined above
+        add(shipName, roomBalcony, roomOceanView, roomSuite, roomInterior, inService);
 
         return;     // clear the stack frame
     }
