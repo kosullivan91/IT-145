@@ -32,7 +32,20 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-        
+        String systemMenu =       "\t\tLuxury Ocean Cruise Outings\t\t\n"
+                                + "\t\t\t\tSystem Menu\t\t\t\n"
+                                + "[1] Add Ship\t\t\t[A] Print Ship Names\n"
+                                + "[2] Edit Ship\t\t\t[B] Print Ship In Service List\n"
+                                + "[3] Add Cruise\t\t\t[C] Print Ship Full List\n"
+                                + "[4] Edit Cruise\t\t\t[D] Print Cruise List\n"
+                                + "[5] Add Passenger\t\t[E] Print Cruise Details\n"
+                                + "[6] Edit Passenger\t\t[F] Print Passenger List\n"
+                                + "[x] Exit System\n"
+                                + "\n"
+                                + "Enter a menu selection:";
+
+        System.out.println(systemMenu);
+
         scnr.close();   // close the Scanner object to prevent memory leak
 
         return;     // return even when return type is void to clear the stack frame
