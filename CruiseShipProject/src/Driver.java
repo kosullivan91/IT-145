@@ -42,10 +42,25 @@ public class Driver {
                                 + "[6] Edit Passenger\t\t[F] Print Passenger List\n"
                                 + "[x] Exit System\n"
                                 + "\n"
-                                + "Enter a menu selection:";
+                                + "Enter a menu selection: ";
 
         System.out.println(systemMenu);
+        // use method chaining to capture the first character of
+        // user input and convert it to upper case to render
+        // menu selection case insensitive
+        char userSelection = scnr.next().toUpperCase().charAt(0);
+        scnr.nextLine();
 
+        // loop until the user chooses to exit
+        // a while loop is used because the number of iterations is unknown
+        while (userSelection != 'X') {
+            System.out.println(systemMenu);
+            userSelection = scnr.next().toUpperCase().charAt(0);
+            scnr.nextLine();
+        }
+
+        System.out.println("Goodbye.  Thanks for choosing Luxury Ocean Cruise Outings!");
+        System.out.println("We hope to see you again soon!");
         scnr.close();   // close the Scanner object to prevent memory leak
 
         return;     // return even when return type is void to clear the stack frame
