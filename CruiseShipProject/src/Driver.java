@@ -32,72 +32,58 @@ public class Driver {
         // and takes the appropriate action. include appropriate
         // user feedback and redisplay the menu as needed
 
-        String systemMenu =       "\t\tLuxury Ocean Cruise Outings\t\t\n"
-                                + "\t\t\t\tSystem Menu\t\t\t\n"
-                                + "[1] Add Ship\t\t\t[A] Print Ship Names\n"
-                                + "[2] Edit Ship\t\t\t[B] Print Ship In Service List\n"
-                                + "[3] Add Cruise\t\t\t[C] Print Ship Full List\n"
-                                + "[4] Edit Cruise\t\t\t[D] Print Cruise List\n"
-                                + "[5] Add Passenger\t\t[E] Print Cruise Details\n"
-                                + "[6] Edit Passenger\t\t[F] Print Passenger List\n"
-                                + "[x] Exit System\n"
-                                + "\n"
-                                + "Enter a menu selection: ";
-
-        System.out.println(systemMenu);
-        // use method chaining to capture the first character of
+        displayMenu();
+        //System.out.println(systemMenu);
+        // use method chaining to capture the
         // user input and convert it to upper case to render
         // menu selection case insensitive
-        char userSelection = scnr.next().toUpperCase().charAt(0);
+        String userSelection = scnr.next().toUpperCase();
         scnr.nextLine();
 
         // loop until the user chooses to exit
         // a while loop is used because the number of iterations is unknown
-        while (userSelection != 'X') {
+        while (!userSelection.equalsIgnoreCase("X")) {
             // a switch statement is used due to the number of menu items
             // and is cleaner than if-else and can catch exceptions easier
             try {
                 switch (userSelection) {
-                    case '1':
+                    case "1":
                         addShip(scnr);
-                        for (int i = 0; i < shipList.size(); ++i) {
-                            System.out.println(shipList.get(i));
-                        }
                         break;
-                    case '2':
-                        System.out.println("FIXME: Edit Ship");
+                    case "2":
+                        editShip();
                         break;
-                    case '3':
-                        System.out.println("FIXME: Add Cruise");
+                    case "3":
+                        addCruise(scnr); //TODO: Can get stuck entering this method with no available ships, need to check for available ships first
                         break;
-                    case '4':
-                        System.out.println("FIXME: Edit Cruise");
+                    case "4":
+                        editCruise();
                         break;
-                    case '5':
-                        System.out.println("FIXME: Add Passenger");
+                    case "5":
+                        addPassenger(); //TODO: This method needs reviewed.
                         break;
-                    case '6':
-                        System.out.println("FIXME: Edit Passenger");
+                    case "6":
+                        editPassenger();
                         break;
-                    case 'A':
-                        System.out.println("FIXME: Print Ship Names");
+                    case "A":
+                        printShipList("name");
                         break;
-                    case 'B':
-                        System.out.println("FIXME: Print Ship In Service List");
+                    case "B":
+                        printShipList("active");
                         break;
-                    case 'C':
-                        System.out.println("FIXME: Print Ship Full List");
+                    case "C":
+                        printShipList("full");
                         break;
-                    case 'D':
-                        System.out.println("FIXME: Print Cruise List");
+                    case "D":
+                        printCruiseList("list");
                         break;
-                    case 'E':
-                        System.out.println("FIXME: Print Cruise Details");
+                    case "E":
+                        printCruiseList("details");
                         break;
-                    case 'F':
-                        System.out.println("FIXME: Print Passenger List");
+                    case "F":
+                        printPassengerList();
                         break;
-                    case 'X':
+                    case "X":
                         break;
                     default:
                         throw new Exception("Invalid Entry. Please try again");
@@ -107,8 +93,8 @@ public class Driver {
                 System.out.println(excpt.getMessage());
             }
 
-            System.out.println(systemMenu);
-            userSelection = scnr.next().toUpperCase().charAt(0);
+            displayMenu();
+            userSelection = scnr.next().toUpperCase();
             scnr.nextLine();
         }
 
