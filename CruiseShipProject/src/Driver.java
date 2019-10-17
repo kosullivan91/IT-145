@@ -54,6 +54,56 @@ public class Driver {
         // loop until the user chooses to exit
         // a while loop is used because the number of iterations is unknown
         while (userSelection != 'X') {
+            // a switch statement is used due to the number of menu items
+            // and is cleaner than if-else and can catch exceptions easier
+            try {
+                switch (userSelection) {
+                    case '1':
+                        System.out.println("FIXME: Add Ship");
+                        break;
+                    case '2':
+                        System.out.println("FIXME: Edit Ship");
+                        break;
+                    case '3':
+                        System.out.println("FIXME: Add Cruise");
+                        break;
+                    case '4':
+                        System.out.println("FIXME: Edit Cruise");
+                        break;
+                    case '5':
+                        System.out.println("FIXME: Add Passenger");
+                        break;
+                    case '6':
+                        System.out.println("FIXME: Edit Passenger");
+                        break;
+                    case 'A':
+                        System.out.println("FIXME: Print Ship Names");
+                        break;
+                    case 'B':
+                        System.out.println("FIXME: Print Ship In Service List");
+                        break;
+                    case 'C':
+                        System.out.println("FIXME: Print Ship Full List");
+                        break;
+                    case 'D':
+                        System.out.println("FIXME: Print Cruise List");
+                        break;
+                    case 'E':
+                        System.out.println("FIXME: Print Cruise Details");
+                        break;
+                    case 'F':
+                        System.out.println("FIXME: Print Passenger List");
+                        break;
+                    case 'X':
+                        break;
+                    default:
+                        throw new Exception("Invalid Entry. Please try again");
+                }
+            }
+            catch (Exception excpt){
+                System.out.println(excpt.getMessage());
+            }
+
             System.out.println(systemMenu);
             userSelection = scnr.next().toUpperCase().charAt(0);
             scnr.nextLine();
