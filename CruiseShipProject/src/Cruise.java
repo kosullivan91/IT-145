@@ -1,3 +1,8 @@
+/* Jeff Perkinson
+ * IT-145 T1605
+ * October 2019
+ */
+
 public class Cruise {
 
     // Class Variables

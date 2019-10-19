@@ -1,3 +1,8 @@
+/* Jeff Perkinson
+ * IT-145 T1605
+ * October 2019
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Integer;   // Integer class needed for parsing and converting
