@@ -642,7 +642,6 @@ public class Driver {
                                                     // the ship is already assigned to a cruise
                                                     // initialized for compilation, assume ship is not
                                                     // assigned to a cruise
-        System.out.println("Available ships: " + availableShipCount);
         // for each ship in shipList, if that ship is
         // not assigned to a cruise and is in service
         // increment the available ship counter
@@ -651,20 +650,18 @@ public class Driver {
             // if it is, loop through cruiseList to see if it's
             // already assigned.  If it's not, increase available ship count
             if (shipList.get(i).getInService()) {
-                shipAssigned = false;       // assume in service ships are not yet assigned
-                                            // set here to reset for each ship deemed in service
                 for (int j = 0; j < cruiseList.size(); ++j) {
                     // use method chaining to compare the ship name to the cruise ship name
                     if (shipList.get(i).getShipName().equalsIgnoreCase(cruiseList.get(j).getCruiseShipName())) {
                         shipAssigned = true;
                     }
                 }
+                if (!shipAssigned) {
+                    availableShipCount++;
+                }
             }
-            if (!shipAssigned) {
-                availableShipCount++;
-            }
+            shipAssigned = false;       // reset ship assignment for the next iteration
         }
-        System.out.println("Available ships: " + availableShipCount);
 
         if (availableShipCount > 0) {
             shipAvailable = true;
