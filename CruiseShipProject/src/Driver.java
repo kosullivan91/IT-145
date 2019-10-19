@@ -54,13 +54,18 @@ public class Driver {
                         editShip();
                         break;
                     case "3":
-                        addCruise(scnr); //TODO: Can get stuck entering this method with no available ships, need to check for available ships first
+                        if (shipAvailable()) {
+                            addCruise(scnr);
+                        }
+                        else {
+                            System.out.println("There are no available ships to add a cruise to at this time.");
+                        }
                         break;
                     case "4":
                         editCruise();
                         break;
                     case "5":
-                        addPassenger(); //TODO: This method needs reviewed.
+                        addPassenger();
                         break;
                     case "6":
                         editPassenger();
@@ -622,5 +627,52 @@ public class Driver {
             }
         }
         return shipHasCruise;
+    }
+
+    // Method to determine whether a ship is available to
+    // add a cruise to
+    public static boolean shipAvailable() {
+        boolean shipAvailable;                      // boolean flag variable to return
+
+        int availableShipCount = 0;                 // assume no ships are available to start
+                                                    // counter will increment if ship is in service
+                                                    // and not assigned to a cruise
+
+        boolean shipAssigned = false;               // boolean flag to check to depict whether
+                                                    // the ship is already assigned to a cruise
+                                                    // initialized for compilation, assume ship is not
+                                                    // assigned to a cruise
+        System.out.println("Available ships: " + availableShipCount);
+        // for each ship in shipList, if that ship is
+        // not assigned to a cruise and is in service
+        // increment the available ship counter
+        for(int i = 0; i < shipList.size(); ++i) {
+            // check to see if the ship is in service
+            // if it is, loop through cruiseList to see if it's
+            // already assigned.  If it's not, increase available ship count
+            if (shipList.get(i).getInService()) {
+                shipAssigned = false;       // assume in service ships are not yet assigned
+                                            // set here to reset for each ship deemed in service
+                for (int j = 0; j < cruiseList.size(); ++j) {
+                    // use method chaining to compare the ship name to the cruise ship name
+                    if (shipList.get(i).getShipName().equalsIgnoreCase(cruiseList.get(j).getCruiseShipName())) {
+                        shipAssigned = true;
+                    }
+                }
+            }
+            if (!shipAssigned) {
+                availableShipCount++;
+            }
+        }
+        System.out.println("Available ships: " + availableShipCount);
+
+        if (availableShipCount > 0) {
+            shipAvailable = true;
+        }
+        else {
+            shipAvailable = false;
+        }
+
+        return shipAvailable;
     }
 }
